@@ -12,3 +12,7 @@
 - Preserved a timestamped VPS rollback copy, validated and reloaded Caddy, then
   verified live HTTPS, content/assets, local/live hashes, desktop rendering, and
   true 390px mobile rendering without horizontal overflow.
+- Ran a final Fable 5.1 review and tightened privacy wording, role framing,
+  navigation labels, contrast, heading semantics, public evidence links, and
+  mobile-menu keyboard behavior. Redeployed the reviewed version with a second
+  rollback copy and repeated live hash/content/mobile proof.
