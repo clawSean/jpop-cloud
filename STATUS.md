@@ -1,8 +1,9 @@
 # Status
 
-- Phase: implementation
+- Phase: operational
 - Started: 2026-09-17
 - Canonical source: `/Users/Sean/projects/jp0p/jpop-cloud`
-- Current: first complete responsive portfolio build ready for local proof and copy review
-- Deployment target: VPS static root `/srv/websites/jpop.cloud` after commit and production route update
+- Current: live at `https://jpop.cloud`; `www` redirects permanently to the apex
+- Deployment: VPS static root `/srv/websites/jpop.cloud` behind Caddy
 - Known gaps: exact public LinkedIn URL and exact Clawdia showcase-repository URL remain unconfirmed
+- Proof: HTTPS 200, canonical redirect, expected live content/assets, matching local/live homepage SHA-256, desktop render, and true 390px CDP mobile render with no horizontal overflow
