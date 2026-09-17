@@ -17,4 +17,10 @@ if (menuButton && navLinks) {
     navLinks.classList.remove("is-open");
     menuButton.setAttribute("aria-expanded", "false");
   }));
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    navLinks.classList.remove("is-open");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.focus();
+  });
 }
