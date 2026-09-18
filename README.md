@@ -10,6 +10,14 @@ python3 -m http.server 4173
 
 Open `http://127.0.0.1:4173/`.
 
+## Live comparison routes
+
+- `/` — current production homepage
+- `/alive/` — experimental Workshop Pulse, constellation, and project quick looks
+- `/compare/` — same-origin, side-by-side desktop comparison; full-screen links on mobile
+
+The comparison routes are `noindex` and do not replace the canonical homepage.
+
 ## Deployment
 
 - Domain: `jpop.cloud` and `www.jpop.cloud`

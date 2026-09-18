@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>JPop's Workshop — Alive experiment</title>
+  <meta name="description" content="An experimental, living version of JPop's workshop with recent build activity and project quick looks.">
+  <meta name="theme-color" content="#09080d">
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the workshop</a>
+  <header class="topbar">
+    <a class="brand" href="#top"><span>JP</span><strong>JPOP.CLOUD</strong></a>
+    <div class="experiment"><i></i> ALIVE EXPERIMENT</div>
+    <nav aria-label="Experiment navigation"><a href="#pulse">Pulse</a><a href="#map">Map</a><a href="#projects">Quick looks</a><a class="compare-link" href="../compare/">Compare versions ↗</a></nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">THE WORKSHOP / NOW WITH A PULSE</p>
+        <h1>Come see what<br><em>we’re building</em><br><span>right now.</span></h1>
+        <p class="lede">The same workshop, but alive: fresh public work, an explorable map, and quick looks that let you understand a project before leaving the room.</p>
+        <div class="hero-actions"><a class="button primary" href="#pulse">See what moved today ↓</a><a class="button" href="#projects">Open a quick look ↘</a></div>
+      </div>
+      <div class="hero-radar" aria-hidden="true">
+        <div class="radar-ring r1"></div><div class="radar-ring r2"></div><div class="radar-ring r3"></div><div class="radar-sweep"></div>
+        <span class="blip b1"></span><span class="blip b2"></span><span class="blip b3"></span><span class="blip b4"></span>
+        <strong>4 SIGNALS<br>IN RANGE</strong>
+      </div>
+    </section>
+
+    <section class="pulse" id="pulse" aria-labelledby="pulse-title">
+      <div class="section-head"><div><p class="eyebrow">CACHED PUBLIC ACTIVITY / REFRESHED SEP 17</p><h2 id="pulse-title">The workshop<br>leaves footprints.</h2></div><p>Not a résumé timeline. Just recent proof that things here keep moving.</p></div>
+      <div class="pulse-grid">
+        <article class="pulse-now"><div class="pulse-status"><span></span> LATEST SIGNAL</div><time datetime="2026-09-17">TODAY</time><h3>Rebuilt this workshop in public.</h3><p>Moved Lobster Chat and Sean to the front, opened eight live doors, then polished the mobile experience with three independent design reviews.</p><a href="https://github.com/clawSean/jpop-cloud/commits/main">Read the source history ↗</a><b class="big-number">01</b></article>
+        <ol class="activity-list" aria-label="Recent public activity">
+          <li><time datetime="2026-09-17">SEP 17</time><span><strong>Edge Tools landed.</strong><small>Jared merged the public tool collection into its new home.</small></span><a href="https://github.com/JP0P/edgetools">GitHub ↗</a></li>
+          <li><time datetime="2026-09-17">SEP 17</time><span><strong>Sean's site caught up.</strong><small>Current architecture, products, channels, and 26 open-source receipts.</small></span><a href="https://github.com/clawSean/sean-jpop-cloud">GitHub ↗</a></li>
+          <li><time datetime="2026-09-17">SEP 17</time><span><strong>Fable 5.1 joined the bench.</strong><small>A new Claude route, published and live-proven without restarting OpenClaw.</small></span><a href="https://github.com/clawSean/cli-tap-out">GitHub ↗</a></li>
+          <li><time datetime="2026-09-07">SEP 07</time><span><strong>Another OpenClaw contribution merged.</strong><small>One of 26 accepted contributions across seven public projects.</small></span><a href="https://github.com/pulls?q=is%3Apr+author%3AclawSean+is%3Amerged">Receipts ↗</a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="constellation" id="map" aria-labelledby="map-title">
+      <div class="section-head light"><div><p class="eyebrow">TOUCH A SIGNAL</p><h2 id="map-title">One workshop.<br>Several worlds.</h2></div><p>The lines are the point: the agent powers the chat, the tools come from real work, and the small experiments become places people actually use.</p></div>
+      <div class="map-shell" data-map>
+        <svg class="routes" viewBox="0 0 1000 560" preserveAspectRatio="none" aria-hidden="true"><path d="M500 275 L210 130 M500 275 L790 120 M500 275 L815 410 M500 275 L190 430 M500 275 L500 58"/><path class="route-soft" d="M210 130 Q480 30 790 120 M190 430 Q500 520 815 410"/></svg>
+        <button class="node hub is-active" style="--x:50%;--y:49%" data-node="chat"><span>🦞</span><strong>Lobster Chat</strong><small>THE HOUSE</small></button>
+        <button class="node" style="--x:21%;--y:23%" data-node="sean"><img src="https://github.com/clawSean.png?size=96" alt=""><strong>Sean</strong><small>THE AGENT</small></button>
+        <button class="node" style="--x:79%;--y:21%" data-node="edge"><span>⚡</span><strong>Edge Tools</strong><small>THE WORKBENCH</small></button>
+        <button class="node" style="--x:81%;--y:73%" data-node="play"><span>●●●●</span><strong>Claw Four</strong><small>THE GAME ROOM</small></button>
+        <button class="node" style="--x:19%;--y:77%" data-node="travel"><span>✦</span><strong>Trip worlds</strong><small>THE POCKET GUIDES</small></button>
+        <div class="map-caption" aria-live="polite" data-map-caption><b>Lobster Chat</b><span>A private family room for direct AI and Sean.</span><a href="https://chat.jpop.cloud">Enter ↗</a></div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+      <div class="section-head"><div><p class="eyebrow">QUICK LOOKS / STAY IN THE ROOM</p><h2 id="projects-title">Peek first.<br>Then pick a door.</h2></div><p>Each card opens a fast, visual explanation here. No more leaving the homepage just to discover what a thing is.</p></div>
+      <div class="project-grid">
+        <button class="project p-chat" data-project="chat"><img src="../assets/quick/chat.jpg" alt="Lobster Chat invitation screen"><span class="project-wash"></span><span class="project-copy"><small>PRIVATE AI / FLAGSHIP</small><strong>Lobster Chat</strong><em>Quick look +</em></span></button>
+        <button class="project p-sean" data-project="sean"><img src="../assets/quick/sean.jpg" alt="Sean's command center homepage"><span class="project-wash"></span><span class="project-copy"><small>AGENT / COWORKER</small><strong>Sean</strong><em>Quick look +</em></span></button>
+        <button class="project" data-project="games"><img src="../assets/quick/games.jpg" alt="Claw Four multiplayer game board"><span class="project-wash"></span><span class="project-copy"><small>MULTIPLAYER / PLAY</small><strong>Claw Four</strong><em>Quick look +</em></span></button>
+        <button class="project" data-project="edge"><img src="../assets/quick/edgetools.jpg" alt="Edge Tools homepage"><span class="project-wash"></span><span class="project-copy"><small>WORK / UTILITIES</small><strong>Edge Tools</strong><em>Quick look +</em></span></button>
+      </div>
+      <p class="all-doors"><span>More open doors</span><a href="https://euro.jpop.cloud">Euro Summer ↗</a><a href="https://italy.jpop.cloud">Italy ↗</a><a href="https://fio.jpop.cloud">FIO Resolver ↗</a><a href="https://lab.jpop.cloud">The Lab ↗</a></p>
+    </section>
+
+    <section class="closing"><p class="eyebrow">EXPERIMENTAL ROUTE / NOTHING REPLACED</p><h2>Better alive?</h2><p>Open the comparison view, scroll both versions, and decide whether this earns the front door.</p><a class="button closing-button" href="../compare/">Compare current vs alive ↗</a></section>
+  </main>
+
+  <dialog class="drawer" data-drawer aria-labelledby="drawer-title"><button class="drawer-close" data-drawer-close aria-label="Close quick look">Close ×</button><div class="drawer-media"><img data-drawer-image alt=""></div><div class="drawer-copy"><p class="eyebrow" data-drawer-label></p><h2 id="drawer-title" data-drawer-title></h2><p data-drawer-body></p><ul data-drawer-points></ul><a class="button primary" data-drawer-link>Open the real thing ↗</a></div></dialog>
+  <script src="site.js?v=1"></script>
+</body>
+</html>

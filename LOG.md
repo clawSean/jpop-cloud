@@ -50,3 +50,12 @@
   matched source/production hashes, and re-proved mobile and desktop rendering,
   menu/scroll lock, filters, 13 palette destinations, zero scrollable horizontal
   drift, and public 200 responses.
+- Built an isolated `alive` candidate rather than replacing the homepage. It adds
+  a cached public-work pulse, a tappable project constellation, screenshot-backed
+  quick-look drawers, and a stable same-origin comparison route. Both experiment
+  routes are `noindex`; the mobile comparison intentionally opens each version
+  full-screen instead of rendering unusably narrow paired frames.
+- Published `/alive/` and `/compare/` without touching the root homepage. Normalized
+  production ownership and modes, verified public `200` responses and source/live
+  hashes, exercised the constellation and quick-look dialog, and reviewed desktop
+  side-by-side plus iPhone layouts with no horizontal drift.
