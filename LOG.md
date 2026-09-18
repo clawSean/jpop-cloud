@@ -16,3 +16,8 @@
   navigation labels, contrast, heading semantics, public evidence links, and
   mobile-menu keyboard behavior. Redeployed the reviewed version with a second
   rollback copy and repeated live hash/content/mobile proof.
+- Ran a second bounded Fable 5.1 review for the friends, family, and employer
+  audience. Accepted the faster two-line hero, earlier Edge context,
+  plain-language privacy descriptions, clearer method navigation, and a less
+  repetitive About section. Rejected unconfirmed contact links and unnecessary
+  stock-style personalization.
