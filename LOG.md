@@ -21,3 +21,21 @@
   plain-language privacy descriptions, clearer method navigation, and a less
   repetitive About section. Rejected unconfirmed contact links and unnecessary
   stock-style personalization.
+- Rejected the warm-editorial portfolio direction after JPop correctly called it
+  an application instead of an invitation. Researched adventurous independent
+  portfolio and product sites, then rebuilt the page as a midnight workshop.
+- Made Lobster Chat and Sean the two primary doors, added a visual GitHub crew
+  rail, surfaced eight live hosted experiences, and added project filters plus
+  an optional all-destinations palette.
+- Used two bounded Fable 5.1 passes for creative direction and hostile review.
+  Restored exact privacy boundaries, removed unsupported hype, corrected
+  credentials, raised small type, fixed contrast and filter semantics, removed
+  fragile scroll reveals, and replaced the beige-era favicon/social card.
+- Deployed an obscure temporary preview, normalized Caddy ownership/modes, and
+  verified desktop and iPhone rendering, zero horizontal overflow, lazy image
+  loading, mobile menu state/scroll lock, filters, and palette results before
+  allowing the redesign onto the root domain.
+- Published the reviewed source, preserved a timestamped production rollback,
+  deployed the root site, removed the retired beige social card, normalized
+  ownership/modes, and matched production hashes to source. Root, assets, and
+  canonical `www` redirect returned 200; production interactions passed again.

@@ -1,6 +1,6 @@
 # jpop.cloud
 
-Jared Pearson's public portfolio and professional front door.
+Jared Pearson's public workshop: Lobster Chat, Sean, AI coworkers, useful tools, games, trip companions, and experiments.
 
 ## Local preview
 

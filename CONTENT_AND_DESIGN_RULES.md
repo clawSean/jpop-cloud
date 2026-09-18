@@ -4,10 +4,12 @@
 
 1. Keep the primary page human, direct, and credible to someone who does not know JPop, Edge, OpenClaw, Sean, or Clawdia.
 2. Avoid AI-sounding filler, meta-commentary, redundant explanations, obvious self-labeling, and unsupported hype.
-3. Lead with a small set of strong work. Explain the problem, JPop's role, the product boundary, and the evidence.
+3. Make the page an invitation into JPop's world, never an application. Lead with Lobster Chat and Sean, then offer a curated set of real doors into the wider hosted ecosystem.
 4. Make navigation obvious and the page easy to scan on a phone.
 5. Use plain language for agent systems and privacy behavior. Do not claim blanket anonymity, security, or outcomes the product has not proven.
 6. Keep unresolved destinations off the live page until the exact public URL is confirmed.
+7. Keep GitHub identities visual and easy to find. Friends and family should understand the people before employers inspect the receipts.
+8. Favor bold, playful, nocturnal art direction over beige editorial portfolio conventions. Interaction must improve discovery or storytelling, not exist as decoration.
 
 ## sean.jpop.cloud
 
