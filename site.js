@@ -61,7 +61,9 @@ const openCommand = () => {
   renderResults();
   dialog.showModal();
   closeMenu();
-  requestAnimationFrame(() => input?.focus());
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    requestAnimationFrame(() => input?.focus());
+  }
 };
 document.querySelectorAll("[data-command-open]").forEach((button) => button.addEventListener("click", openCommand));
 document.querySelector("[data-command-close]")?.addEventListener("click", () => dialog?.close());

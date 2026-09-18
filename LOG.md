@@ -39,3 +39,14 @@
   deployed the root site, removed the retired beige social card, normalized
   ownership/modes, and matched production hashes to source. Root, assets, and
   canonical `www` redirect returned 200; production interactions passed again.
+- Ran three independent Fable 5.1 mobile reviews covering art direction,
+  product hierarchy, and copy. Applied their shared recommendations: faster
+  hero pacing, visual-first flagship cards, clearer calls to action, tighter
+  mobile spacing, shorter project doors, readable privacy details, unclipped
+  filters, plainer About copy, touch feedback, and touch-safe command search.
+- Preserved the requested top-of-page GitHub rail and visible privacy promises
+  despite reviewer suggestions to move or collapse them. Deployed with rollback
+  archive `mobile-polish-20260918T055436Z.tar.gz`, normalized `caddy:caddy / 0644`,
+  matched source/production hashes, and re-proved mobile and desktop rendering,
+  menu/scroll lock, filters, 13 palette destinations, zero scrollable horizontal
+  drift, and public 200 responses.
