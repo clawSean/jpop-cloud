@@ -64,10 +64,10 @@
     <section class="projects" id="projects" aria-labelledby="projects-title">
       <div class="section-head"><div><p class="eyebrow">QUICK LOOKS / STAY IN THE ROOM</p><h2 id="projects-title">Peek first.<br>Then pick a door.</h2></div><p>Each card opens a fast, visual explanation here. No more leaving the homepage just to discover what a thing is.</p></div>
       <div class="project-grid">
-        <button class="project p-chat" data-project="chat"><img src="../assets/quick/chat.jpg" alt="Lobster Chat invitation screen"><span class="project-wash"></span><span class="project-copy"><small>PRIVATE AI / FLAGSHIP</small><strong>Lobster Chat</strong><em>Quick look +</em></span></button>
-        <button class="project p-sean" data-project="sean"><img src="../assets/quick/sean.jpg" alt="Sean's command center homepage"><span class="project-wash"></span><span class="project-copy"><small>AGENT / COWORKER</small><strong>Sean</strong><em>Quick look +</em></span></button>
-        <button class="project" data-project="games"><img src="../assets/quick/games.jpg" alt="Claw Four multiplayer game board"><span class="project-wash"></span><span class="project-copy"><small>MULTIPLAYER / PLAY</small><strong>Claw Four</strong><em>Quick look +</em></span></button>
-        <button class="project" data-project="edge"><img src="../assets/quick/edgetools.jpg" alt="Edge Tools homepage"><span class="project-wash"></span><span class="project-copy"><small>WORK / UTILITIES</small><strong>Edge Tools</strong><em>Quick look +</em></span></button>
+        <a class="project p-chat" href="https://chat.jpop.cloud" data-project="chat" aria-haspopup="dialog"><img data-project-media="chat" src="../assets/quick/chat.jpg" alt="Lobster Chat invitation screen"><span class="project-wash"></span><span class="project-copy"><small>PRIVATE AI / FLAGSHIP</small><strong data-project-title="chat">Lobster Chat</strong><em>Quick look +</em></span></a>
+        <a class="project p-sean" href="https://sean.jpop.cloud" data-project="sean" aria-haspopup="dialog"><img data-project-media="sean" src="../assets/quick/sean.jpg" alt="Sean's command center homepage"><span class="project-wash"></span><span class="project-copy"><small>AGENT / COWORKER</small><strong data-project-title="sean">Sean</strong><em>Quick look +</em></span></a>
+        <a class="project" href="https://games.jpop.cloud" data-project="games" aria-haspopup="dialog"><img data-project-media="games" src="../assets/quick/games.jpg" alt="Claw Four multiplayer game board"><span class="project-wash"></span><span class="project-copy"><small>MULTIPLAYER / PLAY</small><strong data-project-title="games">Claw Four</strong><em>Quick look +</em></span></a>
+        <a class="project" href="https://edgetools.app" data-project="edge" aria-haspopup="dialog"><img data-project-media="edge" src="../assets/quick/edgetools.jpg" alt="Edge Tools homepage"><span class="project-wash"></span><span class="project-copy"><small>WORK / UTILITIES</small><strong data-project-title="edge">Edge Tools</strong><em>Quick look +</em></span></a>
       </div>
       <p class="all-doors"><span>More open doors</span><a href="https://euro.jpop.cloud">Euro Summer ↗</a><a href="https://italy.jpop.cloud">Italy ↗</a><a href="https://fio.jpop.cloud">FIO Resolver ↗</a><a href="https://lab.jpop.cloud">The Lab ↗</a></p>
     </section>
@@ -75,7 +75,7 @@
     <section class="closing"><p class="eyebrow">EXPERIMENTAL ROUTE / NOTHING REPLACED</p><h2>Better alive?</h2><p>Open the comparison view, scroll both versions, and decide whether this earns the front door.</p><a class="button closing-button" href="../compare/">Compare current vs alive ↗</a></section>
   </main>
 
-  <dialog class="drawer" data-drawer aria-labelledby="drawer-title"><button class="drawer-close" data-drawer-close aria-label="Close quick look">Close ×</button><div class="drawer-media"><img data-drawer-image alt=""></div><div class="drawer-copy"><p class="eyebrow" data-drawer-label></p><h2 id="drawer-title" data-drawer-title></h2><p data-drawer-body></p><ul data-drawer-points></ul><a class="button primary" data-drawer-link>Open the real thing ↗</a></div></dialog>
-  <script src="site.js?v=1"></script>
+  <dialog class="drawer" data-drawer aria-modal="true" aria-labelledby="drawer-title" tabindex="-1"><button class="drawer-close" data-drawer-close aria-label="Close quick look">Close ×</button><div class="drawer-media"><img data-drawer-image alt=""></div><div class="drawer-copy"><p class="eyebrow" data-drawer-label></p><h2 id="drawer-title" data-drawer-title></h2><p data-drawer-body></p><ul data-drawer-points></ul><a class="button primary" data-drawer-link>Open the real thing ↗</a></div></dialog>
+  <script src="site.js?v=2"></script>
 </body>
 </html>

@@ -1,5 +1,16 @@
 # Log
 
+## 2026-09-18 — Phase 1 motion candidate (not deployed)
+
+- Added object-preserving card-to-Quick-Look enhancement to the Alive
+  experiment. Project cards remain normal links when JavaScript or View
+  Transitions are unavailable; the native dialog and a positioned fallback
+  preserve the existing quick-look semantics.
+- Added focus return, Escape/backdrop close behavior, reduced-motion handling,
+  and local motion tokens. No production root files were changed.
+- Checks passed: Node syntax, dependency-free semantic assertions, and
+  `git diff --check`.
+
 ## 2026-09-17
 
 - Created the canonical project and first responsive single-page portfolio.
