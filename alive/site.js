@@ -6,7 +6,19 @@ const projectData = {
 };
 
 const drawer = document.querySelector("[data-drawer]");
-const fillDrawer = (key) => {
+let lastTrigger = null;
+const setTransitionNames = (key, active) => {
+  document.querySelectorAll("[data-project-media], [data-project-title], [data-drawer-image], [data-drawer-title]").forEach((element) => {
+    element.style.viewTransitionName = "";
+  });
+  if (!active) return;
+  document.querySelector(`[data-project-media="${key}"]`)?.style.setProperty("view-transition-name", "quick-look-image");
+  document.querySelector(`[data-project-title="${key}"]`)?.style.setProperty("view-transition-name", "quick-look-title");
+  drawer?.querySelector("[data-drawer-image]")?.style.setProperty("view-transition-name", "quick-look-image");
+  drawer?.querySelector("[data-drawer-title]")?.style.setProperty("view-transition-name", "quick-look-title");
+};
+
+const populateDrawer = (key) => {
   const item = projectData[key];
   if (!item || !drawer) return;
   const image = drawer.querySelector("[data-drawer-image]");
@@ -16,11 +28,61 @@ const fillDrawer = (key) => {
   drawer.querySelector("[data-drawer-body]").textContent = item.body;
   drawer.querySelector("[data-drawer-points]").innerHTML = item.points.map((point) => `<li>${point}</li>`).join("");
   const link = drawer.querySelector("[data-drawer-link]"); link.href = item.url;
-  drawer.showModal();
 };
-document.querySelectorAll("[data-project]").forEach((button) => button.addEventListener("click", () => fillDrawer(button.dataset.project)));
-document.querySelector("[data-drawer-close]")?.addEventListener("click", () => drawer?.close());
-drawer?.addEventListener("click", (event) => { if (event.target === drawer) drawer.close(); });
+
+const openDrawer = (key, trigger) => {
+  if (!projectData[key] || !drawer) return;
+  lastTrigger = trigger;
+  const supportsTransition = typeof document.startViewTransition === "function" && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const open = () => {
+    populateDrawer(key);
+    if (supportsTransition) {
+      document.querySelector(`[data-project-media="${key}"]`)?.style.removeProperty("view-transition-name");
+      document.querySelector(`[data-project-title="${key}"]`)?.style.removeProperty("view-transition-name");
+      drawer.querySelector("[data-drawer-image]")?.style.setProperty("view-transition-name", "quick-look-image");
+      drawer.querySelector("[data-drawer-title]")?.style.setProperty("view-transition-name", "quick-look-title");
+    }
+    if (typeof drawer.showModal === "function") drawer.showModal();
+    else {
+      drawer.setAttribute("open", "");
+      drawer.classList.add("is-fallback-open");
+      document.body.classList.add("drawer-open");
+    }
+    drawer.focus();
+  };
+  if (supportsTransition) {
+    setTransitionNames(key, true);
+    try { document.startViewTransition(open); } catch { open(); }
+  } else open();
+};
+
+const closeDrawer = () => {
+  if (!drawer) return;
+  if (typeof drawer.close === "function" && drawer.open) drawer.close();
+  else {
+    drawer.removeAttribute("open");
+    drawer.classList.remove("is-fallback-open");
+    document.body.classList.remove("drawer-open");
+  }
+  setTransitionNames(null, false);
+  lastTrigger?.focus();
+  lastTrigger = null;
+};
+
+document.querySelectorAll("[data-project]").forEach((card) => card.addEventListener("click", (event) => {
+  event.preventDefault();
+  openDrawer(card.dataset.project, card);
+}));
+document.querySelector("[data-drawer-close]")?.addEventListener("click", closeDrawer);
+drawer?.addEventListener("click", (event) => { if (event.target === drawer) closeDrawer(); });
+drawer?.addEventListener("close", () => {
+  setTransitionNames(null, false);
+  lastTrigger?.focus();
+  lastTrigger = null;
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && (drawer?.open || drawer?.classList.contains("is-fallback-open"))) closeDrawer();
+});
 
 const mapCopy = {
   chat: ["Lobster Chat", "A private family room for direct AI and Sean.", "https://chat.jpop.cloud"],
