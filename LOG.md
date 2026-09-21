@@ -95,3 +95,9 @@
 - Left the already-compact mobile rhythm unchanged.
 - Verified the live noindex candidate at desktop and 390px with zero horizontal overflow.
 - Production remains untouched.
+
+## Hero title alignment follow-up
+
+- Removed vertical centering from the desktop hero so the kicker and title stay
+  anchored directly beneath the fixed navigation on tall screens.
+- Preserved the mobile hero override, orbit composition, and lower section rhythm.
