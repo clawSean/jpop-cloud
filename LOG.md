@@ -88,3 +88,10 @@
   production ownership and modes, verified public `200` responses and source/live
   hashes, exercised the constellation and quick-look dialog, and reviewed desktop
   side-by-side plus iPhone layouts with no horizontal drift.
+# 2026-09-21 — Consolidate oversized section gaps
+
+- Replaced the desktop hero's unbounded full-viewport stage with a bounded responsive height while preserving its composition and orbit.
+- Removed stacked bottom/top padding between the GitHub crew and Proudest sections.
+- Left the already-compact mobile rhythm unchanged.
+- Verified the live noindex candidate at desktop and 390px with zero horizontal overflow.
+- Production remains untouched.
