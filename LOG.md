@@ -1,5 +1,20 @@
 # Log
 
+## 2026-09-21
+
+- Rejected the first motion candidate because it replaced the production page's
+  content architecture with an experiment that narrated its own changes.
+- Rebuilt the candidate from the production homepage and preserved the visual
+  GitHub crew, Proudest section, full eight-door workshop, About section, and
+  existing navigation.
+- Switched the flagship order to Sean first and Lobster Chat second.
+- Added progressive-enhancement Quick Looks only to Sean, Lobster Chat, Claw
+  Four, and Edge Tools. Links remain ordinary destinations without JavaScript;
+  supported browsers upgrade them to semantic dialogs with View Transitions.
+- Verified the candidate at 390px and 1440px, including dialog geometry,
+  backdrop/button/Escape closing, focus restoration, zero page-level horizontal
+  drift, reduced-motion rules, and absence of experiment/devlog copy.
+
 ## 2026-09-17
 
 - Created the canonical project and first responsive single-page portfolio.
