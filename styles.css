@@ -29,3 +29,26 @@
 @media(max-width:900px){.quick-dialog[open]{grid-template-columns:1fr;overflow:auto}.quick-media{min-height:300px;max-height:42svh}}
 @media(max-width:620px){.quick-dialog{max-height:calc(100svh - 20px)}.quick-media{min-height:230px}.quick-copy{padding:34px 22px}.quick-copy h2{font-size:3.7rem}}
 @media(prefers-reduced-motion:reduce){[data-project-media]{transition:none}::view-transition-old(quick-look-image),::view-transition-new(quick-look-image),::view-transition-old(quick-look-title),::view-transition-new(quick-look-title){animation:none}}
+
+/* Living workshop: preserve the orbit composition, add quiet motion. */
+.orbit-one{animation:orbit-one-turn 22s linear infinite}
+.orbit-two{animation:orbit-two-turn 28s linear infinite reverse}
+.dot-one{animation:orbit-dot-breathe 4.8s ease-in-out infinite}
+.dot-two{animation:orbit-dot-breathe 5.6s ease-in-out -1.8s infinite}
+.dot-three{animation:orbit-dot-breathe 4.2s ease-in-out -2.4s infinite}
+@keyframes orbit-one-turn{to{transform:rotate(342deg) scaleY(.45)}}
+@keyframes orbit-two-turn{to{transform:rotate(390deg) scaleY(.6)}}
+@keyframes orbit-dot-breathe{50%{opacity:.55;filter:brightness(1.35);scale:.82}}
+
+/* Keep each door's icon animation; reveal the deeper interaction as a second beat. */
+.preview-cue{position:absolute;z-index:3;right:20px;bottom:20px;display:flex;align-items:center;gap:9px;padding:9px 11px;border:1px solid currentColor;border-radius:99px;background:rgba(246,242,232,.9);color:#17151b;font:700 .7rem var(--mono);letter-spacing:.04em;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease}
+.door-edge .preview-cue{background:rgba(23,21,27,.88);color:var(--blue)}
+.door[data-project]:is(:hover,:focus-visible) .preview-cue{opacity:1;transform:translateY(0)}
+.door-edge{border-color:rgba(98,213,255,.38);box-shadow:inset 0 0 0 1px rgba(98,213,255,.06)}
+.door-edge>strong{max-width:70%;font-size:clamp(3rem,6vw,6.2rem)}
+.door-edge>p{max-width:540px}
+.door-edge .edge-grid{width:220px;height:220px;right:2%;top:44px;opacity:.62;transition:transform .45s var(--motion-ease),opacity .25s ease}
+.door-edge:is(:hover,:focus-visible) .edge-grid{transform:rotate(32deg) scale(1.07);opacity:.85}
+
+@media(max-width:680px){.preview-cue{position:relative;right:auto;bottom:auto;align-self:flex-start;margin-top:18px;opacity:1;transform:none}.door-edge>strong{max-width:76%;font-size:3rem}.door-edge .edge-grid{width:150px;height:150px;right:-18px;top:54px}}
+@media(prefers-reduced-motion:reduce){.orbit-one,.orbit-two,.dot-one,.dot-two,.dot-three{animation:none}.preview-cue,.door-edge .edge-grid{transition:none}}

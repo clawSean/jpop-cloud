@@ -98,7 +98,6 @@ const destinations = [
   { name: "Lobster Chat", detail: "Private family AI workspace", url: "https://chat.jpop.cloud", tags: "chat private voice files" },
   { name: "Sean", detail: "Personal agent & build partner", url: "https://sean.jpop.cloud", tags: "lobster agent coworker" },
   { name: "Claw Four", detail: "Multiplayer game room", url: "https://games.jpop.cloud", tags: "game play" },
-  { name: "Euro Summer", detail: "Fari & Storm’s trip companion", url: "https://euro.jpop.cloud", tags: "travel europe" },
   { name: "Italy", detail: "Travel companion with chat", url: "https://italy.jpop.cloud", tags: "travel" },
   { name: "Edge Tools", detail: "Useful tools for recurring work", url: "https://edgetools.app", tags: "work utility" },
   { name: "FIO Resolver", detail: "Handles and crypto QR codes", url: "https://fio.jpop.cloud", tags: "utility crypto" },
