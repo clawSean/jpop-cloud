@@ -49,6 +49,7 @@
 .door-edge>p{max-width:540px}
 .door-edge .edge-grid{width:220px;height:220px;right:2%;top:44px;opacity:.62;transition:transform .45s var(--motion-ease),opacity .25s ease}
 .door.door-edge[data-project]:is(:hover,:focus-visible) .edge-grid{transform:rotate(32deg) scale(1.07);opacity:.85}
+@media(min-width:961px){.door-balance{grid-column:span 2}}
 
 @media(max-width:680px){.preview-cue{position:relative;right:auto;bottom:auto;align-self:flex-start;margin-top:18px;opacity:1;transform:none}.door-edge>strong{max-width:76%;font-size:3rem}.door-edge .edge-grid{width:150px;height:150px;right:-18px;top:54px}}
 @media(prefers-reduced-motion:reduce){.orbit-one,.orbit-two,.dot-one,.dot-two,.dot-three{animation:none}.preview-cue,.door-edge .edge-grid{transition:none}}

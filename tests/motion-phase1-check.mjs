@@ -25,6 +25,7 @@ assert.match(css, /view-transition-name/, "object-preserving transition styling 
 assert.match(css, /prefers-reduced-motion:reduce/, "reduced-motion rules exist");
 assert.match(css, /orbit-one-turn/, "the preserved hero orbit now moves");
 assert.match(html, /door-wide door-edge/, "Edge Tools is promoted to a featured wide door");
+assert.equal((html.match(/door-balance/g) || []).length, 3, "the seven-door desktop grid has no empty-column holes");
 assert.match(html, /Live preview/, "preview-capable workshop doors advertise their deeper interaction");
 
 console.log("JPop restrained motion phase 1 checks: PASS");
