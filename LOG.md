@@ -1,5 +1,19 @@
 # Log
 
+## 2026-09-21 — Motion and hierarchy refinement
+
+- Preserved the hero-orbit composition while adding slow counter-rotation and
+  restrained signal-dot breathing, with a static reduced-motion path.
+- Removed Euro Summer from the workshop and command palette.
+- Promoted Edge Tools to a featured wide door with stronger product/QA/ops copy
+  and more expressive grid motion.
+- Kept existing icon interactions and added a secondary `Live preview` hover,
+  focus, and touch cue for the two preview-capable workshop doors.
+- Rebalanced the seven-door desktop grid to avoid empty columns after removal.
+- Published only to the noindex candidate route; production remains unchanged.
+- Verified 390, 768, and 1280px layouts, zero page overflow, orbit animation,
+  Edge Tools Quick Look, no browser errors, and reduced-motion coverage.
+
 ## 2026-09-21
 
 - Rejected the first motion candidate because it replaced the production page's
