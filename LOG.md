@@ -1,5 +1,17 @@
 # Log
 
+## 2026-09-21 — Motion candidate promoted to production
+
+- JPop approved the fully reviewed candidate for production.
+- Merged PR #2 as canonical commit `8fa64d9` and deployed `index.html`,
+  `styles.css`, and `site.js` to `/srv/websites/jpop.cloud`.
+- Preserved rollback archive
+  `home-before-motion-20260922-004839.tar.gz` before replacing production.
+- Normalized deployed ownership/modes to `caddy:caddy` / `0644`; production
+  hashes match merged source.
+- Verified all filters, the Edge Tools Quick Look and focus return, progress-map
+  state, zero overflow at 390/768/1280/1440px, and zero browser errors.
+
 ## 2026-09-21 — Animated filters and workshop map
 
 - Preserved commit `8bee6aa` as the exact rollback point JPop approved.
