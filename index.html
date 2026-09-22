@@ -25,6 +25,15 @@
     <div class="nav-links" id="nav-links" data-nav-links><a href="#stars">Start here</a><a href="#workshop">The workshop</a><a href="#about">The human</a><button class="command-button" type="button" data-command-open><span aria-hidden="true">⌘K</span> All doors</button></div>
   </nav></header>
 
+  <nav class="progress-rail" aria-label="Workshop progress" data-progress-map>
+    <p class="progress-rail-label">MAP / 03</p>
+    <ol>
+      <li><a href="#stars" data-progress-target="stars" aria-label="Proudest" aria-current="location"><span>01</span><strong>Proudest</strong></a></li>
+      <li><a href="#workshop" data-progress-target="workshop" aria-label="Workshop"><span>02</span><strong>Workshop</strong></a></li>
+      <li><a href="#about" data-progress-target="about" aria-label="About"><span>03</span><strong>About</strong></a></li>
+    </ol>
+  </nav>
+
   <main id="main">
     <section class="hero shell" id="top">
       <div class="hero-orbit" aria-hidden="true"><span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="orbit-dot dot-one"></span><span class="orbit-dot dot-two"></span><span class="orbit-dot dot-three"></span></div>
@@ -47,6 +56,7 @@
 
     <section class="workshop" id="workshop"><div class="shell"><div class="workshop-heading"><div><p class="mono-label">MORE OPEN DOORS</p><h2>Roam the workshop.</h2></div><p>These are real, live places: games for friends, trip companions for family, work utilities, and experiments that escaped the lab.</p></div>
       <div class="filter-row" role="group" aria-label="Filter workshop projects"><button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All</button><button class="filter" type="button" data-filter="play" aria-pressed="false">Play</button><button class="filter" type="button" data-filter="travel" aria-pressed="false">Travel</button><button class="filter" type="button" data-filter="tools" aria-pressed="false">Tools</button><button class="filter" type="button" data-filter="experiments" aria-pressed="false">Lab</button></div>
+      <p class="filter-status" data-filter-status aria-live="polite" aria-atomic="true">Showing all 7 workshop doors.</p>
       <div class="project-grid" data-project-grid>
         <a class="door door-wide door-game" href="https://games.jpop.cloud" data-category="play" data-project="games" aria-haspopup="dialog"><span class="door-top"><small>PLAY</small><b>↗</b></span><strong data-project-title="games">Claw Four</strong><p>A multiplayer game room where everyone sees the same board. Bring people.</p><span class="preview-cue" aria-hidden="true">Live preview <b>↗</b></span><span class="door-art" data-project-media="games" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></a>
         <a class="door door-trip-alt door-balance" href="https://italy.jpop.cloud" data-category="travel"><span class="door-top"><small>TRAVEL</small><b>↗</b></span><strong>Italy</strong><p>A pocket travel companion with its own chat.</p><span class="route-line" aria-hidden="true">SAN ✦ ······ ROMA</span></a>

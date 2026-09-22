@@ -27,5 +27,15 @@ assert.match(css, /orbit-one-turn/, "the preserved hero orbit now moves");
 assert.match(html, /door-wide door-edge/, "Edge Tools is promoted to a featured wide door");
 assert.equal((html.match(/door-balance/g) || []).length, 3, "the seven-door desktop grid has no empty-column holes");
 assert.match(html, /Live preview/, "preview-capable workshop doors advertise their deeper interaction");
+assert.match(html, /data-progress-map/, "desktop workshop progress map exists");
+assert.match(html, /href="#stars"[^>]+data-progress-target="stars"/, "progress map links to Proudest");
+assert.match(html, /href="#workshop"[^>]+data-progress-target="workshop"/, "progress map links to Workshop");
+assert.match(html, /href="#about"[^>]+data-progress-target="about"/, "progress map links to About");
+assert.match(html, /data-filter-status[^>]+aria-live="polite"/, "filter updates have an accessible status");
+assert.match(js, /is-filtering-out/, "filtering has an animated exit state");
+assert.match(js, /door\.inert/, "filtered doors are removed from keyboard interaction");
+assert.match(js, /data-progress-target/, "progress map state follows scroll position");
+assert.match(css, /progress-rail/, "progress map has a visual edge rail");
+assert.match(css, /@media\(max-width:1360px\)\{\.progress-rail\{display:none\}\}/, "progress map only appears where it has dedicated edge space");
 
 console.log("JPop restrained motion phase 1 checks: PASS");

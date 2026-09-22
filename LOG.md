@@ -1,5 +1,20 @@
 # Log
 
+## 2026-09-21 — Animated filters and workshop map
+
+- Preserved commit `8bee6aa` as the exact rollback point JPop approved.
+- Added animated Play, Travel, Tools, and Lab filtering without changing the
+  seven-door content or direct-link/Quick Look behavior.
+- Added accessible live result counts and removed filtered cards from keyboard
+  navigation while hidden.
+- Added a compact progress rail for Proudest, Workshop, and About on viewports
+  wide enough to give it dedicated edge space; smaller screens keep the clean
+  page without an overlay.
+- Fixed the delegated FLIP transition during review, then verified every filter,
+  progress state, Quick Look focus restoration, zero overflow at 390/768/1280/
+  1440px, no browser errors, and the reduced-motion fallback.
+- Published only to the noindex candidate route; production remains unchanged.
+
 ## 2026-09-21 — Motion and hierarchy refinement
 
 - Preserved the hero-orbit composition while adding slow counter-rotation and
