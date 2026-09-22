@@ -1,5 +1,49 @@
 # Log
 
+## 2026-09-21 — Animated filters and workshop map
+
+- Preserved commit `8bee6aa` as the exact rollback point JPop approved.
+- Added animated Play, Travel, Tools, and Lab filtering without changing the
+  seven-door content or direct-link/Quick Look behavior.
+- Added accessible live result counts and removed filtered cards from keyboard
+  navigation while hidden.
+- Added a compact progress rail for Proudest, Workshop, and About on viewports
+  wide enough to give it dedicated edge space; smaller screens keep the clean
+  page without an overlay.
+- Fixed the delegated FLIP transition during review, then verified every filter,
+  progress state, Quick Look focus restoration, zero overflow at 390/768/1280/
+  1440px, no browser errors, and the reduced-motion fallback.
+- Published only to the noindex candidate route; production remains unchanged.
+
+## 2026-09-21 — Motion and hierarchy refinement
+
+- Preserved the hero-orbit composition while adding slow counter-rotation and
+  restrained signal-dot breathing, with a static reduced-motion path.
+- Removed Euro Summer from the workshop and command palette.
+- Promoted Edge Tools to a featured wide door with stronger product/QA/ops copy
+  and more expressive grid motion.
+- Kept existing icon interactions and added a secondary `Live preview` hover,
+  focus, and touch cue for the two preview-capable workshop doors.
+- Rebalanced the seven-door desktop grid to avoid empty columns after removal.
+- Published only to the noindex candidate route; production remains unchanged.
+- Verified 390, 768, and 1280px layouts, zero page overflow, orbit animation,
+  Edge Tools Quick Look, no browser errors, and reduced-motion coverage.
+
+## 2026-09-21
+
+- Rejected the first motion candidate because it replaced the production page's
+  content architecture with an experiment that narrated its own changes.
+- Rebuilt the candidate from the production homepage and preserved the visual
+  GitHub crew, Proudest section, full eight-door workshop, About section, and
+  existing navigation.
+- Switched the flagship order to Sean first and Lobster Chat second.
+- Added progressive-enhancement Quick Looks only to Sean, Lobster Chat, Claw
+  Four, and Edge Tools. Links remain ordinary destinations without JavaScript;
+  supported browsers upgrade them to semantic dialogs with View Transitions.
+- Verified the candidate at 390px and 1440px, including dialog geometry,
+  backdrop/button/Escape closing, focus restoration, zero page-level horizontal
+  drift, reduced-motion rules, and absence of experiment/devlog copy.
+
 ## 2026-09-17
 
 - Created the canonical project and first responsive single-page portfolio.
@@ -59,3 +103,16 @@
   production ownership and modes, verified public `200` responses and source/live
   hashes, exercised the constellation and quick-look dialog, and reviewed desktop
   side-by-side plus iPhone layouts with no horizontal drift.
+# 2026-09-21 — Consolidate oversized section gaps
+
+- Replaced the desktop hero's unbounded full-viewport stage with a bounded responsive height while preserving its composition and orbit.
+- Removed stacked bottom/top padding between the GitHub crew and Proudest sections.
+- Left the already-compact mobile rhythm unchanged.
+- Verified the live noindex candidate at desktop and 390px with zero horizontal overflow.
+- Production remains untouched.
+
+## Hero title alignment follow-up
+
+- Removed vertical centering from the desktop hero so the kicker and title stay
+  anchored directly beneath the fixed navigation on tall screens.
+- Preserved the mobile hero override, orbit composition, and lower section rhythm.

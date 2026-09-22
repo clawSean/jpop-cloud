@@ -22,18 +22,189 @@ navLinks?.querySelectorAll("a").forEach((link) => link.addEventListener("click",
 
 const filters = [...document.querySelectorAll("[data-filter]")];
 const doors = [...document.querySelectorAll("[data-category]")];
-filters.forEach((button) => button.addEventListener("click", () => {
+const filterStatus = document.querySelector("[data-filter-status]");
+const filterLabels = { all: "all", play: "Play", travel: "Travel", tools: "Tools", experiments: "Lab" };
+let filterVersion = 0;
+let filterTimer = null;
+const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const shouldShowDoor = (door, chosen) => chosen === "all" || door.dataset.category === chosen;
+const setDoorVisibility = (door, visible) => {
+  door.hidden = !visible;
+  door.inert = !visible;
+  if (visible) door.removeAttribute("aria-hidden");
+  else door.setAttribute("aria-hidden", "true");
+};
+const updateFilterStatus = (chosen) => {
+  const count = doors.filter((door) => shouldShowDoor(door, chosen)).length;
+  if (filterStatus) filterStatus.textContent = `Showing ${filterLabels[chosen]} ${count} workshop door${count === 1 ? "" : "s"}.`;
+};
+const animateFilterLayout = (firstRects, version) => {
+  if (version !== filterVersion) return;
+  const visibleDoors = doors.filter((door) => !door.hidden);
+  visibleDoors.forEach((door) => {
+    const first = firstRects.get(door);
+    if (!first) return;
+    const last = door.getBoundingClientRect();
+    const x = first.left - last.left;
+    const y = first.top - last.top;
+    if (Math.abs(x) < 1 && Math.abs(y) < 1) return;
+    door.style.setProperty("--filter-x", `${x}px`);
+    door.style.setProperty("--filter-y", `${y}px`);
+    door.classList.add("is-layout-moving");
+    requestAnimationFrame(() => {
+      if (version !== filterVersion) return;
+      door.classList.remove("is-layout-moving");
+      door.style.setProperty("--filter-x", "0px");
+      door.style.setProperty("--filter-y", "0px");
+      window.setTimeout(() => {
+        door.style.removeProperty("--filter-x");
+        door.style.removeProperty("--filter-y");
+      }, 380);
+    });
+  });
+};
+const finishFilter = (chosen, version) => {
+  if (version !== filterVersion) return;
+  const firstRects = new Map(doors.filter((door) => !door.hidden).map((door) => [door, door.getBoundingClientRect()]));
+  doors.forEach((door) => {
+    const visible = shouldShowDoor(door, chosen);
+    setDoorVisibility(door, visible);
+    if (visible) {
+      door.classList.add("is-filtering-in");
+      door.inert = true;
+      door.setAttribute("aria-hidden", "true");
+    } else {
+      door.classList.remove("is-filtering-out", "is-filtering-in");
+    }
+  });
+  animateFilterLayout(firstRects, version);
+  requestAnimationFrame(() => {
+    if (version !== filterVersion) return;
+    doors.forEach((door) => {
+      if (shouldShowDoor(door, chosen)) {
+        door.classList.remove("is-filtering-in");
+        door.inert = false;
+        door.removeAttribute("aria-hidden");
+      }
+    });
+  });
+  updateFilterStatus(chosen);
+};
+const applyFilter = (button) => {
   const chosen = button.dataset.filter;
+  filterVersion += 1;
+  const version = filterVersion;
+  if (filterTimer) window.clearTimeout(filterTimer);
+  doors.forEach((door) => door.classList.remove("is-filtering-out", "is-filtering-in", "is-layout-moving"));
   filters.forEach((item) => item.classList.toggle("is-active", item === button));
   filters.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
-  doors.forEach((door) => { door.hidden = chosen !== "all" && door.dataset.category !== chosen; });
+  const outgoing = doors.filter((door) => !door.hidden && !shouldShowDoor(door, chosen));
+  if (reducedMotion() || !outgoing.length) {
+    finishFilter(chosen, version);
+    return;
+  }
+  outgoing.forEach((door) => {
+    door.classList.add("is-filtering-out");
+    door.inert = true;
+    door.setAttribute("aria-hidden", "true");
+  });
+  filterTimer = window.setTimeout(() => finishFilter(chosen, version), 220);
+};
+filters.forEach((button) => button.addEventListener("click", () => applyFilter(button)));
+
+const progressLinks = [...document.querySelectorAll("[data-progress-target]")];
+const progressTargets = progressLinks.map((link) => document.getElementById(link.dataset.progressTarget)).filter(Boolean);
+let progressFrame = null;
+const updateProgress = () => {
+  progressFrame = null;
+  if (!progressTargets.length) return;
+  const marker = window.scrollY + Math.min(window.innerHeight * 0.42, 320);
+  let current = progressTargets[0].id;
+  progressTargets.forEach((target) => {
+    if (target.offsetTop <= marker) current = target.id;
+  });
+  progressLinks.forEach((link) => {
+    const active = link.dataset.progressTarget === current;
+    if (active) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  });
+};
+const queueProgressUpdate = () => {
+  if (progressFrame === null) progressFrame = requestAnimationFrame(updateProgress);
+};
+queueProgressUpdate();
+window.addEventListener("scroll", queueProgressUpdate, { passive: true });
+window.addEventListener("resize", queueProgressUpdate, { passive: true });
+
+const quickLooks = {
+  sean: { label: "AGENT / COWORKER", title: "Sean", image: "/assets/quick/sean.jpg", alt: "Sean's command center homepage", body: "My always-on agent, coworker, researcher, code shipper, and sharply dressed lobster. His own site shows the custom systems and public work behind the personality.", points: ["Runs on ClawPop at home", "Works across the channels I already use", "26 accepted open-source contributions across seven projects"], url: "https://sean.jpop.cloud" },
+  chat: { label: "PRIVATE AI / FAMILY ROOM", title: "Lobster Chat", image: "/assets/quick/chat.jpg", alt: "Lobster Chat invitation screen", body: "A private place for family and friends to talk directly with AI models—or switch into agent mode and work with Sean.", points: ["Direct-model history stays in the browser", "Usage is tracked without logging conversation content", "Supported text and files get an on-device privacy check"], url: "https://chat.jpop.cloud" },
+  games: { label: "MULTIPLAYER / PLAY", title: "Claw Four", image: "/assets/quick/games.jpg", alt: "Claw Four multiplayer game board", body: "A live multiplayer Connect Four room built for friends who would rather talk trash than pass one phone around.", points: ["Everyone sees the same board", "Room presence and turn state update live", "Designed for a group-chat game night"], url: "https://games.jpop.cloud" },
+  edge: { label: "WORK / UTILITIES", title: "Edge Tools", image: "/assets/quick/edgetools.jpg", alt: "Edge Tools homepage", body: "Small, direct answers to recurring problems at Edge—collected in one place instead of living in scattered docs and muscle memory.", points: ["Public utilities anyone can use", "Staff workspaces for internal flows", "Built from real operational friction"], url: "https://edgetools.app" }
+};
+
+const quickDialog = document.querySelector("[data-quick-dialog]");
+let quickTrigger = null;
+const setQuickTransitionNames = (key, active) => {
+  document.querySelectorAll("[data-project-media], [data-project-title], [data-quick-image], [data-quick-title]").forEach((element) => { element.style.viewTransitionName = ""; });
+  if (!active) return;
+  document.querySelector(`[data-project-media="${key}"]`)?.style.setProperty("view-transition-name", "quick-look-image");
+  document.querySelector(`[data-project-title="${key}"]`)?.style.setProperty("view-transition-name", "quick-look-title");
+  quickDialog?.querySelector("[data-quick-image]")?.style.setProperty("view-transition-name", "quick-look-image");
+  quickDialog?.querySelector("[data-quick-title]")?.style.setProperty("view-transition-name", "quick-look-title");
+};
+const populateQuickDialog = (key) => {
+  const item = quickLooks[key];
+  if (!item || !quickDialog) return;
+  const image = quickDialog.querySelector("[data-quick-image]");
+  image.src = item.image;
+  image.alt = item.alt;
+  quickDialog.querySelector("[data-quick-label]").textContent = item.label;
+  quickDialog.querySelector("[data-quick-title]").textContent = item.title;
+  quickDialog.querySelector("[data-quick-body]").textContent = item.body;
+  quickDialog.querySelector("[data-quick-points]").innerHTML = item.points.map((point) => `<li>${point}</li>`).join("");
+  quickDialog.querySelector("[data-quick-link]").href = item.url;
+};
+const openQuickDialog = (key, trigger) => {
+  if (!quickLooks[key] || !quickDialog) return;
+  quickTrigger = trigger;
+  const transitionOkay = typeof document.startViewTransition === "function" && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const open = () => {
+    populateQuickDialog(key);
+    if (transitionOkay) {
+      document.querySelector(`[data-project-media="${key}"]`)?.style.removeProperty("view-transition-name");
+      document.querySelector(`[data-project-title="${key}"]`)?.style.removeProperty("view-transition-name");
+      quickDialog.querySelector("[data-quick-image]")?.style.setProperty("view-transition-name", "quick-look-image");
+      quickDialog.querySelector("[data-quick-title]")?.style.setProperty("view-transition-name", "quick-look-title");
+    }
+    quickDialog.showModal();
+    quickDialog.focus();
+  };
+  if (transitionOkay) {
+    setQuickTransitionNames(key, true);
+    try { document.startViewTransition(open); } catch { open(); }
+  } else open();
+};
+const closeQuickDialog = () => {
+  if (!quickDialog?.open) return;
+  quickDialog.close();
+};
+document.querySelectorAll("[data-project]").forEach((trigger) => trigger.addEventListener("click", (event) => {
+  event.preventDefault();
+  openQuickDialog(trigger.dataset.project, trigger);
 }));
+document.querySelector("[data-quick-close]")?.addEventListener("click", closeQuickDialog);
+quickDialog?.addEventListener("click", (event) => { if (event.target === quickDialog) closeQuickDialog(); });
+quickDialog?.addEventListener("close", () => {
+  setQuickTransitionNames(null, false);
+  quickTrigger?.focus();
+  quickTrigger = null;
+});
 
 const destinations = [
   { name: "Lobster Chat", detail: "Private family AI workspace", url: "https://chat.jpop.cloud", tags: "chat private voice files" },
   { name: "Sean", detail: "Personal agent & build partner", url: "https://sean.jpop.cloud", tags: "lobster agent coworker" },
   { name: "Claw Four", detail: "Multiplayer game room", url: "https://games.jpop.cloud", tags: "game play" },
-  { name: "Euro Summer", detail: "Fari & Storm’s trip companion", url: "https://euro.jpop.cloud", tags: "travel europe" },
   { name: "Italy", detail: "Travel companion with chat", url: "https://italy.jpop.cloud", tags: "travel" },
   { name: "Edge Tools", detail: "Useful tools for recurring work", url: "https://edgetools.app", tags: "work utility" },
   { name: "FIO Resolver", detail: "Handles and crypto QR codes", url: "https://fio.jpop.cloud", tags: "utility crypto" },
