@@ -11,6 +11,9 @@
   hashes match merged source.
 - Verified all filters, the Edge Tools Quick Look and focus return, progress-map
   state, zero overflow at 390/768/1280/1440px, and zero browser errors.
+- Retired the now-redundant `/alive-motion-phase1/` route to recoverable VPS
+  storage at `.retired/alive-motion-phase1-20260922-005148` after production
+  proof; the canonical root remains the only current version.
 
 ## 2026-09-21 — Animated filters and workshop map
 
