@@ -140,3 +140,7 @@
   pre-publication status. No source, release, or install link was invented.
 - Verified both routes through a local static server. Arc headless screenshot
   mode did not complete, so visual browser proof remains pending.
+- Published committed source `905961a` to `/srv/websites/inboxisland.jpop.cloud`,
+  added the dedicated Caddy route, validated and reloaded Caddy, obtained TLS,
+  and verified public HTTPS `200` plus exact source/live hashes for `/` and
+  `/privacy/`. Existing sites were not modified.
