@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Inbox Island is a local-first Gmail triage extension that helps you decide what needs a reply, attention, or neither.">
+  <meta name="theme-color" content="#0b2725">
+  <meta property="og:title" content="Inbox Island — Local-first Gmail triage">
+  <meta property="og:description" content="Find the messages that deserve your attention without sending your inbox to another server.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://inboxisland.jpop.cloud/">
+  <link rel="canonical" href="https://inboxisland.jpop.cloud/">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Inbox Island — Local-first Gmail triage</title>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/" aria-label="Inbox Island home"><span aria-hidden="true">◒</span> Inbox Island</a>
+    <nav aria-label="Primary navigation">
+      <a href="#privacy">Privacy</a>
+      <a href="/privacy/">Full policy</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">LOCAL-FIRST GMAIL TRIAGE</p>
+        <h1>Find the mail that matters.<br><em>Leave the rest on the island.</em></h1>
+        <p class="lede">Inbox Island helps you spot messages that need a reply or attention—without sending your inbox to an Inbox Island server.</p>
+        <div class="actions">
+          <span class="button disabled" aria-disabled="true">Private pilot in progress</span>
+          <a class="text-link" href="#how">See how it works ↓</a>
+        </div>
+      </div>
+      <div class="island" aria-hidden="true">
+        <div class="sun"></div><div class="water"></div><div class="land"></div>
+        <div class="mail mail-one">↩</div><div class="mail mail-two">!</div><div class="mail mail-three">✓</div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <p class="eyebrow">A CALMER FIRST PASS</p>
+      <h2>Three decisions. No inbox rewrite.</h2>
+      <div class="cards">
+        <article><span>01</span><h3>Reply</h3><p>Surfaces conversations where someone is waiting for you.</p></article>
+        <article><span>02</span><h3>Attention</h3><p>Highlights messages worth reading or acting on, even when no reply is due.</p></article>
+        <article><span>03</span><h3>Clear</h3><p>Lets the rest recede without modifying, labeling, deleting, or marking mail read.</p></article>
+      </div>
+      <p class="note">Inbox Island is advisory. Gmail remains the source of truth.</p>
+    </section>
+
+    <section class="privacy section" id="privacy">
+      <div>
+        <p class="eyebrow">THE PRIVACY BOUNDARY</p>
+        <h2>Your inbox stays between Google and your browser.</h2>
+      </div>
+      <div class="privacy-grid">
+        <article><strong>No Inbox Island server</strong><p>Mail is fetched directly from Google into the extension and classified locally.</p></article>
+        <article><strong>Read only</strong><p>Google's restricted <code>gmail.readonly</code> scope can read mailbox content, but cannot send, edit, label, archive, delete, or mark mail read.</p></article>
+        <article><strong>Explicit every time</strong><p>You choose the Google account, confirm the address, and start each bounded sync yourself.</p></article>
+        <article><strong>Short-lived access</strong><p>OAuth tokens are kept in memory for the run, never refreshed or persisted by Inbox Island.</p></article>
+        <article><strong>Minimal local state</strong><p>Only account-scoped triage results are stored locally—not raw bodies, HTML, attachments, summaries, or OAuth credentials.</p></article>
+        <article><strong>Built for auditability</strong><p>Public source, exact releases, build instructions, and verification details are planned for launch.</p></article>
+      </div>
+      <a class="policy-link" href="/privacy/">Read the full privacy policy →</a>
+    </section>
+
+    <section class="closing section">
+      <p class="eyebrow">CURRENT STATUS</p>
+      <h2>Private pilot first.<br>Public release after proof.</h2>
+      <p>Arc and Dia compatibility, Google authorization, exact release artifacts, and the public source repository are being verified before distribution.</p>
+    </section>
+  </main>
+
+  <footer><span>Inbox Island · A JPop workshop project</span><a href="https://jpop.cloud">jpop.cloud ↗</a></footer>
+</body>
+</html>

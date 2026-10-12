@@ -131,3 +131,12 @@
 - Removed vertical centering from the desktop hero so the kicker and title stay
   anchored directly beneath the fixed navigation on tall screens.
 - Preserved the mobile hero override, orbit composition, and lower section rhythm.
+# 2026-10-12 — Inbox Island product page
+
+- Added a dedicated responsive product page and draft pilot privacy policy for
+  `inboxisland.jpop.cloud`.
+- Kept the page honest about the restricted `gmail.readonly` grant, local-only
+  processing, no Inbox Island server, memory-only tokens, bounded sync, and
+  pre-publication status. No source, release, or install link was invented.
+- Verified both routes through a local static server. Arc headless screenshot
+  mode did not complete, so visual browser proof remains pending.
