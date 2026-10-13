@@ -13,7 +13,7 @@ Open `http://127.0.0.1:4173/`.
 ## Live comparison routes
 
 - `/` — current production homepage
-- `/nick-and-morty/` — an affectionate, credited tour of Nick and Morty’s agent universe
+- `/nick-and-morty/` — a credited, interactive Interdimensional Cable map of Nick and Morty’s agent universe
 - `/alive/` — experimental Workshop Pulse, constellation, and project quick looks
 - `/compare/` — same-origin, side-by-side desktop comparison; full-screen links on mobile
 

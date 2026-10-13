@@ -121,6 +121,9 @@ try {
     headingRight: Math.round(document.querySelector("h1").getBoundingClientRect().right),
     links: document.querySelectorAll("a[href]").length,
     characters: [...document.querySelectorAll(".cast-card h3")].map((item) => item.textContent.trim()),
+    channelCount: document.querySelectorAll("[data-entity]").length,
+    flowCount: document.querySelectorAll("[data-flow]").length,
+    smallestChannelTarget: Math.round(Math.min(...[...document.querySelectorAll("[data-entity]")].map((item) => Math.min(item.getBoundingClientRect().width, item.getBoundingClientRect().height)))),
     doorCount: document.querySelectorAll(".door").length,
     overflowers: [...document.querySelectorAll("body *")].map((item) => {
       const rect = item.getBoundingClientRect();
@@ -146,7 +149,7 @@ try {
   await send("Runtime.enable");
   await send("Network.enable");
 
-  for (const [width, height, name] of [[390, 844, "mobile"], [768, 1024, "tablet"], [1440, 1000, "desktop"]]) {
+  for (const [width, height, name] of [[320, 700, "narrow-mobile"], [390, 844, "mobile"], [768, 1024, "tablet"], [1440, 1000, "desktop"]]) {
     await setViewport(width, height);
     await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: "reduce" }] });
     await navigate(`${origin}/nick-and-morty/`);
@@ -157,9 +160,12 @@ try {
     assert.ok(pageMetrics.headingRight <= width, `${name} hero heading stays in viewport`);
     assert.ok(pageMetrics.links >= 10, `${name} keeps the page navigable`);
     assert.deepEqual(pageMetrics.characters, ["Summer", "Beth", "Jerry", "Mr. Meeseeks", "Birdperson", "Morty, again"]);
+    assert.equal(pageMetrics.channelCount, 8, `${name} keeps all eight character channels visible`);
+    assert.equal(pageMetrics.flowCount, 5, `${name} keeps all five workflow controls`);
+    assert.ok(pageMetrics.smallestChannelTarget >= 44, `${name} character targets remain touch-sized (${pageMetrics.smallestChannelTarget}px)`);
     await screenshot(`nick-and-morty-${name}`);
 
-    if (width === 390) {
+    if (width <= 390) {
       const menu = await evaluate(`(() => {
         document.querySelector("[data-menu-button]").click();
         return {
@@ -171,16 +177,23 @@ try {
       assert.deepEqual(menu, { expanded: "true", open: true, locked: true }, "mobile menu opens accessibly");
     }
 
-    const portal = await evaluate(`(() => {
-      const status = document.querySelector("[data-portal-status]");
-      const before = status.textContent;
-      document.querySelector("[data-portal-switch]").click();
+    const cable = await evaluate(`(() => {
+      const beth = document.querySelector('[data-entity="beth"]');
+      beth.focus();
+      beth.click();
+      const recover = document.querySelector('[data-flow="recover"]');
+      recover.click();
       return {
-        changed: status.textContent !== before,
-        pressed: document.querySelector("[data-portal-switch]").getAttribute("aria-pressed")
+        entity: document.querySelector("[data-cable]").dataset.activeEntity,
+        dossier: document.querySelector("[data-channel-name]").textContent,
+        focused: document.activeElement === beth,
+        current: beth.getAttribute("aria-current"),
+        flow: document.querySelector("[data-cable]").dataset.activeFlow,
+        pressed: recover.getAttribute("aria-pressed"),
+        status: document.querySelector("[data-flow-status]").textContent.includes("Beth")
       };
     })()`);
-    assert.deepEqual(portal, { changed: true, pressed: "true" }, `${name} portal interaction reports state`);
+    assert.deepEqual(cable, { entity: "beth", dossier: "Beth", focused: true, current: "true", flow: "recover", pressed: "true", status: true }, `${name} cable interactions report character and workflow state`);
 
     await setViewport(width, height);
     await navigate(`${origin}/#workshop`);
@@ -199,7 +212,7 @@ try {
 
   assert.deepEqual(exceptions, [], `no browser exceptions: ${exceptions.join(", ")}`);
   assert.deepEqual(loadFailures.filter((failure) => !/ERR_ABORTED/.test(failure)), [], `no failed resources: ${loadFailures.join(", ")}`);
-  console.log(`Nick & Morty browser smoke: PASS (390, 768, 1440)`);
+  console.log(`Nick & Morty browser smoke: PASS (320, 390, 768, 1440)`);
   if (keepProof) console.log(`Proof screenshots: ${proofDir}`);
 } finally {
   socket?.close();

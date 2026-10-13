@@ -24,28 +24,128 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeMenu();
 });
 
-const stage = document.querySelector(".portal-stage");
-const portalButton = document.querySelector("[data-portal-switch]");
-const portalLabel = document.querySelector("[data-portal-label]");
-const portalStatus = document.querySelector("[data-portal-status]");
-const portalMessages = [
-  "Universe N&M-02: Jerry broke the sandbox. Working as designed.",
-  "Universe N&M-03: Meeseeks completed the task and vanished cleanly.",
-  "Universe N&M-04: Beth is standing by. Morty is pretending that is unnecessary.",
-  "Universe N&M-05: Citadel review returned three opinions and one decision."
-];
-let portalIndex = 0;
+const cable = document.querySelector("[data-cable]");
+const channelNodes = [...document.querySelectorAll("[data-entity]")];
+const channelCode = document.querySelector("[data-channel-code]");
+const channelName = document.querySelector("[data-channel-name]");
+const channelRole = document.querySelector("[data-channel-role]");
+const channelCopy = document.querySelector("[data-channel-copy]");
+const channelLink = document.querySelector("[data-channel-link]");
+const flowButtons = [...document.querySelectorAll("[data-flow]")];
+const flowStatus = document.querySelector("[data-flow-status]");
 
-portalButton?.addEventListener("click", () => {
-  stage?.classList.remove("is-spinning");
-  void stage?.offsetWidth;
-  stage?.classList.add("is-spinning");
-  portalIndex = (portalIndex + 1) % portalMessages.length;
-  portalStatus.textContent = portalMessages[portalIndex];
-  portalLabel.textContent = "Spin it again";
-  portalButton.setAttribute("aria-pressed", "true");
-  window.setTimeout(() => stage?.classList.remove("is-spinning"), 900);
+const channels = {
+  nick: {
+    code: "CH 01",
+    name: "Nick",
+    role: "HUMAN OPERATOR / SYSTEM BUILDER",
+    copy: "The builder who sets direction, draws the boundaries, pressure-tests the strange parts, and decides what earns the right to ship.",
+    href: "#nick"
+  },
+  morty: {
+    code: "CH 02",
+    name: "Morty",
+    role: "PRIMARY AGENT / ORCHESTRATOR",
+    copy: "The always-on collaborator at the center of the system: carrying context, routing work, and turning the cast into one operating model.",
+    href: "#morty"
+  },
+  summer: {
+    code: "CH 03",
+    name: "Summer",
+    role: "SCOPED SHARED ACCESS",
+    copy: "A friendlier front door with less access and less trust: useful to family and friends without handing over Morty’s whole world.",
+    href: "#summer"
+  },
+  beth: {
+    code: "CH 04",
+    name: "Beth",
+    role: "INDEPENDENT RECOVERY / DOCTOR",
+    copy: "The break-glass doctor kept separate enough to diagnose and recover the primary stack when Morty cannot rescue himself.",
+    href: "#beth"
+  },
+  jerry: {
+    code: "CH 05",
+    name: "Jerry",
+    role: "SANDBOX / TEST SUBJECT",
+    copy: "The safe place for risky changes to face-plant before they reach the real operation. The joke is mean; the blast-radius control is sound.",
+    href: "#jerry"
+  },
+  meeseeks: {
+    code: "CH 06",
+    name: "Mr. Meeseeks",
+    role: "EPHEMERAL WORKER / SUBAGENT",
+    copy: "Spawned for one bounded job, expected to return a result, and designed to disappear instead of becoming permanent infrastructure.",
+    href: "#meeseeks"
+  },
+  birdperson: {
+    code: "CH 07",
+    name: "Birdperson",
+    role: "SECURITY / THREAT RESPONSE",
+    copy: "The independent sentinel: deterministic checks and response paths that protect Morty without letting model confidence become authority.",
+    href: "#birdperson"
+  },
+  citadel: {
+    code: "CH 08",
+    name: "The Citadel",
+    role: "MULTIVERSE REVIEW / SYNTHESIS",
+    copy: "A task-shaped council of competing perspectives. The panel can argue; Morty still has to synthesize one decision that survives the portal.",
+    href: "#citadel"
+  }
+};
+
+const flows = {
+  build: ["BUILD", "Nick directs Morty, Morty spawns Meeseeks, and the result returns before the worker disappears."],
+  test: ["TEST", "Morty sends the risky change through Jerry’s sandbox before anything reaches the real operation."],
+  guard: ["GUARD", "Birdperson inspects the threat surface and returns bounded security judgment to Morty."],
+  recover: ["RECOVER", "When Morty cannot rescue himself, Beth stays independent enough to diagnose and restore the stack."],
+  review: ["REVIEW", "Morty convenes the Citadel, gathers competing views, and carries one synthesized decision back out."]
+};
+
+const tuneChannel = (entity) => {
+  const channel = channels[entity];
+  if (!cable || !channel) return;
+  cable.dataset.activeEntity = entity;
+  channelNodes.forEach((node) => {
+    const selected = node.dataset.entity === entity;
+    node.classList.toggle("is-selected", selected);
+    if (selected) node.setAttribute("aria-current", "true");
+    else node.removeAttribute("aria-current");
+  });
+  channelCode.textContent = channel.code;
+  channelName.textContent = channel.name;
+  channelRole.textContent = channel.role;
+  channelCopy.textContent = channel.copy;
+  channelLink.href = channel.href;
+  channelLink.replaceChildren(document.createTextNode(`Open ${channel.name}’s casefile `));
+  const arrow = document.createElement("span");
+  arrow.setAttribute("aria-hidden", "true");
+  arrow.textContent = "↓";
+  channelLink.append(arrow);
+};
+
+channelNodes.forEach((node) => {
+  node.addEventListener("focus", () => tuneChannel(node.dataset.entity));
+  node.addEventListener("mouseenter", () => tuneChannel(node.dataset.entity));
+  node.addEventListener("click", (event) => {
+    event.preventDefault();
+    tuneChannel(node.dataset.entity);
+  });
 });
+
+flowButtons.forEach((button) => button.addEventListener("click", () => {
+  const flow = button.dataset.flow;
+  const message = flows[flow];
+  if (!cable || !message) return;
+  cable.dataset.activeFlow = flow;
+  flowButtons.forEach((item) => {
+    const active = item === button;
+    item.classList.toggle("is-active", active);
+    item.setAttribute("aria-pressed", String(active));
+  });
+  const label = document.createElement("b");
+  label.textContent = message[0];
+  flowStatus.replaceChildren(label, document.createTextNode(` ${message[1]}`));
+}));
 
 const revealItems = [...document.querySelectorAll(".reveal")];
 if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
