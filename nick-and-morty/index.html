@@ -16,9 +16,10 @@
   <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="/assets/nick-morty-cast-atlas-v1.webp" as="image" type="image/webp">
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add("js")</script>
-  <link rel="stylesheet" href="styles.css?v=20261013a">
+  <link rel="stylesheet" href="styles.css?v=20261013b">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip into the multiverse</a>
@@ -54,22 +55,75 @@
         <p class="credit">Built by <strong>Nick</strong>. Powered by <strong>Morty</strong>. Admired from a nearby universe by JPop &amp; Sean.</p>
       </div>
 
-      <div class="portal-stage" aria-label="A map of the Nick and Morty agent universe">
-        <div class="portal-rings" aria-hidden="true"><span></span><span></span><span></span></div>
-        <div class="morty-console">
-          <div class="console-top"><span></span><span></span><span></span><b>MORTY / ONLINE</b></div>
-          <div class="console-face" aria-hidden="true"><i></i><i></i><b></b></div>
-          <p>PRIMARY AGENT</p>
-          <strong>Always on.<br>Usually building.</strong>
-          <small>local-first · self-hosted · persistent</small>
+      <div class="cable-stage" data-cable data-active-entity="morty" data-active-flow="build" aria-label="Interdimensional Cable map of the Nick and Morty agent universe">
+        <div class="cable-topline">
+          <span><i aria-hidden="true"></i> INTERDIMENSIONAL CABLE</span>
+          <b>UNIVERSE N&amp;M-01</b>
         </div>
-        <span class="orbit-label label-citadel">CITADEL / REVIEW</span>
-        <span class="orbit-label label-birdperson">BIRDPERSON / GUARD</span>
-        <span class="orbit-label label-meeseeks">MEESEEKS / SPAWN</span>
-        <button class="portal-switch" type="button" data-portal-switch aria-pressed="false">
-          <span data-portal-label>Spin the portal</span><b aria-hidden="true">◎</b>
-        </button>
-        <p class="portal-status" data-portal-status aria-live="polite">Universe N&amp;M-01 is stable enough.</p>
+
+        <div class="channel-map" aria-label="Choose a character channel">
+          <svg class="cable-wires" viewBox="0 0 720 500" preserveAspectRatio="none" aria-hidden="true">
+            <path class="wire wire-build" d="M126 250 C215 250 260 250 340 250"></path>
+            <path class="wire wire-build" d="M382 278 C386 350 357 381 318 417"></path>
+            <path class="wire wire-test" d="M347 281 C290 336 222 384 138 420"></path>
+            <path class="wire wire-guard" d="M391 246 C484 246 514 245 594 246"></path>
+            <path class="wire wire-recover" d="M382 215 C431 154 492 102 578 86"></path>
+            <path class="wire wire-review" d="M390 279 C458 339 518 386 594 420"></path>
+            <path class="wire wire-share" d="M336 216 C271 155 214 106 135 87"></path>
+          </svg>
+
+          <a class="channel-node node-nick" href="#nick" data-entity="nick" aria-controls="cable-dossier" aria-label="Tune to Nick, human operator">
+            <span class="atlas-portrait portrait-nick" aria-hidden="true"></span><b>Nick</b><small>Operator</small>
+          </a>
+          <a class="channel-node node-morty is-selected" href="#morty" data-entity="morty" aria-controls="cable-dossier" aria-current="true" aria-label="Tune to Morty, primary agent">
+            <span class="atlas-portrait portrait-morty" aria-hidden="true"></span><b>Morty</b><small>Primary</small>
+          </a>
+          <a class="channel-node node-summer" href="#summer" data-entity="summer" aria-controls="cable-dossier" aria-label="Tune to Summer, scoped shared access">
+            <span class="atlas-portrait portrait-summer" aria-hidden="true"></span><b>Summer</b><small>Access</small>
+          </a>
+          <a class="channel-node node-beth" href="#beth" data-entity="beth" aria-controls="cable-dossier" aria-label="Tune to Beth, independent recovery">
+            <span class="atlas-portrait portrait-beth" aria-hidden="true"></span><b>Beth</b><small>Recover</small>
+          </a>
+          <a class="channel-node node-jerry" href="#jerry" data-entity="jerry" aria-controls="cable-dossier" aria-label="Tune to Jerry, sandbox testing">
+            <span class="atlas-portrait portrait-jerry" aria-hidden="true"></span><b>Jerry</b><small>Sandbox</small>
+          </a>
+          <a class="channel-node node-meeseeks" href="#meeseeks" data-entity="meeseeks" aria-controls="cable-dossier" aria-label="Tune to Mr. Meeseeks, ephemeral worker">
+            <span class="atlas-portrait portrait-meeseeks" aria-hidden="true"></span><b>Meeseeks</b><small>Spawn</small>
+          </a>
+          <a class="channel-node node-birdperson" href="#birdperson" data-entity="birdperson" aria-controls="cable-dossier" aria-label="Tune to Birdperson, security guardian">
+            <span class="atlas-portrait portrait-birdperson" aria-hidden="true"></span><b>Birdperson</b><small>Guard</small>
+          </a>
+          <a class="channel-node node-citadel" href="#citadel" data-entity="citadel" aria-controls="cable-dossier" aria-label="Tune to the Citadel, review council">
+            <span class="atlas-portrait portrait-citadel" aria-hidden="true"></span><b>Citadel</b><small>Review</small>
+          </a>
+        </div>
+
+        <aside class="cable-dossier" id="cable-dossier" aria-live="polite">
+          <p><span data-channel-code>CH 02</span> · NOW AIRING</p>
+          <h2 data-channel-name>Morty</h2>
+          <strong data-channel-role>PRIMARY AGENT / ORCHESTRATOR</strong>
+          <span data-channel-copy>The always-on collaborator at the center of the system: carrying context, routing work, and turning the cast into one operating model.</span>
+          <a href="#morty" data-channel-link>Open Morty’s casefile <span aria-hidden="true">↓</span></a>
+        </aside>
+
+        <div class="flow-console" role="group" aria-label="Trace a conceptual workflow">
+          <span>TRACE A RUN</span>
+          <button class="is-active" type="button" data-flow="build" aria-pressed="true">Build</button>
+          <button type="button" data-flow="test" aria-pressed="false">Test</button>
+          <button type="button" data-flow="guard" aria-pressed="false">Guard</button>
+          <button type="button" data-flow="recover" aria-pressed="false">Recover</button>
+          <button type="button" data-flow="review" aria-pressed="false">Review</button>
+        </div>
+        <p class="flow-status" data-flow-status aria-live="polite"><b>BUILD</b> Nick directs Morty, Morty spawns Meeseeks, and the result returns before the worker disappears.</p>
+
+        <details class="cable-legend">
+          <summary>Read the conceptual relationship map</summary>
+          <ul>
+            <li>Nick directs and pressure-tests Morty.</li>
+            <li>Morty gives Summer scoped shared access, sends experiments to Jerry, and spawns Meeseeks for bounded work.</li>
+            <li>Beth remains independent enough to recover Morty; Birdperson guards the perimeter; the Citadel returns reviewed judgment.</li>
+          </ul>
+        </details>
       </div>
     </section>
 
@@ -87,15 +141,15 @@
         <h2 id="duo-title">Every universe needs<br><em>a duo.</em></h2>
       </div>
       <div class="duo-grid">
-        <article class="duo-card nick reveal">
-          <div class="duo-mark" aria-hidden="true">N</div>
+        <article class="duo-card nick reveal" id="nick">
+          <div class="duo-portrait atlas-portrait portrait-nick" aria-hidden="true"></div>
           <p class="role">THE HUMAN / THE RICK</p>
           <h3>Nick</h3>
           <p>The builder, operator, and source of the naming bit. Nick designs the systems, sets the boundaries, pressure-tests the weird parts, and keeps the whole lab pointed at useful work.</p>
           <a href="https://github.com/nicknmorty">Nick &amp; Morty on GitHub <span aria-hidden="true">↗</span></a>
         </article>
-        <article class="duo-card morty reveal">
-          <div class="duo-mark" aria-hidden="true">M</div>
+        <article class="duo-card morty reveal" id="morty">
+          <div class="duo-portrait atlas-portrait portrait-morty" aria-hidden="true"></div>
           <p class="role">THE AGENT / THE PARTNER</p>
           <h3>Morty</h3>
           <p>Nick’s always-on OpenClaw collaborator: a persistent, self-hosted agent that plans, builds, remembers, coordinates specialists, and works against the real systems they use every day.</p>
@@ -113,8 +167,8 @@
         </div>
 
         <div class="cast-grid">
-          <article class="cast-card cast-summer reveal">
-            <div class="cast-icon" aria-hidden="true"><span>S</span></div>
+          <article class="cast-card cast-summer reveal" id="summer">
+            <div class="cast-portrait atlas-portrait portrait-summer" aria-hidden="true"></div>
             <div class="cast-copy">
               <p class="role">SHARED ACCESS / FAMILY-FACING</p>
               <h3>Summer</h3>
@@ -123,8 +177,8 @@
             <span class="boundary">BOUNDARY: FRIENDLY, SCOPED</span>
           </article>
 
-          <article class="cast-card cast-beth reveal">
-            <div class="cast-icon" aria-hidden="true"><span>+</span></div>
+          <article class="cast-card cast-beth reveal" id="beth">
+            <div class="cast-portrait atlas-portrait portrait-beth" aria-hidden="true"></div>
             <div class="cast-copy">
               <p class="role">DOCTOR / BREAK-GLASS RECOVERY</p>
               <h3>Beth</h3>
@@ -133,8 +187,8 @@
             <span class="boundary">BOUNDARY: INDEPENDENT RESCUE</span>
           </article>
 
-          <article class="cast-card cast-jerry reveal">
-            <div class="cast-icon" aria-hidden="true"><span>J</span></div>
+          <article class="cast-card cast-jerry reveal" id="jerry">
+            <div class="cast-portrait atlas-portrait portrait-jerry" aria-hidden="true"></div>
             <div class="cast-copy">
               <p class="role">SANDBOX / TEST SUBJECT</p>
               <h3>Jerry</h3>
@@ -143,8 +197,8 @@
             <span class="boundary">BOUNDARY: BREAK THIS ONE FIRST</span>
           </article>
 
-          <article class="cast-card cast-meeseeks reveal">
-            <div class="cast-icon meeseeks-icon" aria-hidden="true"><span>!</span></div>
+          <article class="cast-card cast-meeseeks reveal" id="meeseeks">
+            <div class="cast-portrait atlas-portrait portrait-meeseeks" aria-hidden="true"></div>
             <div class="cast-copy">
               <p class="role">EPHEMERAL WORKER / SUBAGENT</p>
               <h3>Mr. Meeseeks</h3>
@@ -153,8 +207,8 @@
             <span class="boundary">LIFECYCLE: APPEAR → DO → VANISH</span>
           </article>
 
-          <article class="cast-card cast-birdperson reveal">
-            <div class="cast-icon bird-icon" aria-hidden="true"><span>BP</span></div>
+          <article class="cast-card cast-birdperson reveal" id="birdperson">
+            <div class="cast-portrait atlas-portrait portrait-birdperson" aria-hidden="true"></div>
             <div class="cast-copy">
               <p class="role">SECURITY / THREAT RESPONSE</p>
               <h3>Birdperson</h3>
@@ -164,7 +218,7 @@
           </article>
 
           <article class="cast-card cast-morty reveal">
-            <div class="cast-icon" aria-hidden="true"><span>M</span></div>
+            <div class="cast-portrait atlas-portrait portrait-morty" aria-hidden="true"></div>
             <div class="cast-copy">
               <p class="role">PRIMARY / ORCHESTRATOR</p>
               <h3>Morty, again</h3>
@@ -207,7 +261,14 @@
     </section>
 
     <section class="official shell reveal" aria-labelledby="official-title">
-      <div class="official-art" aria-hidden="true"><span>N</span><i>×</i><span>M</span></div>
+      <div class="official-art" aria-hidden="true">
+        <div class="official-cast">
+          <span class="atlas-portrait portrait-nick"></span><span class="atlas-portrait portrait-morty"></span>
+          <span class="atlas-portrait portrait-summer"></span><span class="atlas-portrait portrait-beth"></span>
+          <span class="atlas-portrait portrait-jerry"></span><span class="atlas-portrait portrait-meeseeks"></span>
+          <span class="atlas-portrait portrait-birdperson"></span><span class="atlas-portrait portrait-citadel"></span>
+        </div>
+      </div>
       <div class="official-copy">
         <p class="section-tag">GO TO THE SOURCE</p>
         <h2 id="official-title">This is our love letter.<br>The work is theirs.</h2>
@@ -226,6 +287,6 @@
     <span>© <span data-year>2026</span></span>
   </footer>
 
-  <script src="site.js?v=20261013a"></script>
+  <script src="site.js?v=20261013b"></script>
 </body>
 </html>

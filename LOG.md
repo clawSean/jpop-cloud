@@ -2,6 +2,18 @@
 
 ## 2026-10-13 — Nick & Morty homage
 
+### Interactive ensemble pass
+
+- Rebuilt the hero around an Interdimensional Cable system map with all eight
+  credited entities visible at once, hover/focus/tap dossiers, direct casefile
+  links, and Build/Test/Guard/Recover/Review workflow traces.
+- Replaced the typographic placeholders with an original eight-character
+  retro-future portrait atlas and matching social card while preserving the
+  explicit fan-homage and Nick-ownership boundaries.
+- Added a semantic relationship-map fallback, 44px interaction targets,
+  reduced-motion handling, a sub-500KB published atlas, and exact browser proof
+  at 320, 390, 768, and 1440px with no overflow, exceptions, or failed assets.
+
 - Added a dedicated `/nick-and-morty/` page as an explicitly credited,
   independent homage to Nick's character-driven agent ecosystem.
 - Covered Nick, Morty, Summer, Beth, Jerry, Mr. Meeseeks, Birdperson, and the
