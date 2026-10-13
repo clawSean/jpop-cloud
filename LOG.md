@@ -1,5 +1,24 @@
 # Log
 
+## 2026-10-13 — Nick & Morty homage
+
+- Added a dedicated `/nick-and-morty/` page as an explicitly credited,
+  independent homage to Nick's character-driven agent ecosystem.
+- Covered Nick, Morty, Summer, Beth, Jerry, Mr. Meeseeks, Birdperson, and the
+  Citadel while keeping private host, credential, and network details out.
+- Added a responsive eighth homepage workshop door, command-palette result,
+  sitemap entry, 1200×630 share card, reduced-motion support, no-JavaScript
+  content fallback, and local/public browser checks.
+- Merged PR #3 as `80ca121`, preserved rollback archive
+  `/root/rollbacks/jpop-before-nick-morty-20261013T181542Z.tar.gz` (SHA-256
+  `81f15acecf0d9c19a2ecc5d011720fe1a6e3d35ada0af63abf51951b655ded30`),
+  and deployed nine exact-hash files without a Caddy change.
+- Public proof passed at 390, 768, and 1440px with zero horizontal overflow,
+  browser exceptions, or failed resources. The first asset request exposed an
+  rsync-preserved `0700` directory; corrected it to `caddy:caddy` / `0755`,
+  re-proved the new OG image plus existing assets, and documented the safer
+  no-owner/no-group/no-perms deployment rule in the repo README.
+
 ## 2026-09-21 — Motion candidate promoted to production
 
 - JPop approved the fully reviewed candidate for production.

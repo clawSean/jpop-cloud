@@ -27,6 +27,9 @@ The comparison routes are `noindex` and do not replace the canonical homepage.
 - Edge: Caddy on the retained VPS
 
 Every production change must be committed before deployment and verified over HTTPS afterward.
+Mac-to-VPS syncs must not preserve local ownership or directory modes; use
+`--no-owner --no-group --no-perms`, then normalize the deployed tree to
+`caddy:caddy`, directories `0755`, and files `0644` before public proof.
 
 ## Checks
 
