@@ -13,6 +13,12 @@
 - Added a semantic relationship-map fallback, 44px interaction targets,
   reduced-motion handling, a sub-500KB published atlas, and exact browser proof
   at 320, 390, 768, and 1440px with no overflow, exceptions, or failed assets.
+- Merged source PR #5 as `876e0e4`, preserved rollback archive
+  `/root/rollbacks/jpop-before-nm-cable-20261013T200007Z.tar.gz` (SHA-256
+  `4d26020bc7bce2768b483bbf7079f5a02607f8f7b31896f404323a8930c88c24`),
+  and deployed the six exact-hash runtime files with normalized
+  `caddy:caddy` / `0644` ownership and modes. Public 320/390/768/1440px proof
+  passed again without changing Caddy or DNS.
 
 - Added a dedicated `/nick-and-morty/` page as an explicitly credited,
   independent homage to Nick's character-driven agent ecosystem.
