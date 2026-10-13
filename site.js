@@ -211,6 +211,7 @@ const destinations = [
   { name: "Token Icons", detail: "Token asset lookup", url: "https://icon.jpop.cloud", tags: "utility crypto" },
   { name: "Order Lookup", detail: "Quick order utility", url: "https://orders.jpop.cloud", tags: "utility" },
   { name: "The Lab", detail: "Experiments and prototypes", url: "https://lab.jpop.cloud", tags: "experiment weird" },
+  { name: "Nick & Morty", detail: "An agent-universe homage", url: "/nick-and-morty/", tags: "friends agents morty nick citadel birdperson" },
   { name: "JPop on GitHub", detail: "The human’s public code", url: "https://github.com/JP0P", tags: "github jared" },
   { name: "Sean on GitHub", detail: "Open-source work and products", url: "https://github.com/clawSean", tags: "github agent" },
   { name: "Clawdia on GitHub", detail: "Edge’s AI coworker", url: "https://github.com/EdgeClaws", tags: "github agent edge" }
