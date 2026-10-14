@@ -7,8 +7,8 @@ const css = readFileSync(new URL("nick-and-morty/styles.css", root), "utf8");
 const js = readFileSync(new URL("nick-and-morty/site.js", root), "utf8");
 const home = readFileSync(new URL("index.html", root), "utf8");
 const sitemap = readFileSync(new URL("sitemap.xml", root), "utf8");
-const atlas = new URL("assets/nick-morty-cast-atlas-v1.webp", root);
-const ogCard = new URL("assets/nick-and-morty-og.png", root);
+const atlas = new URL("assets/nick-morty-cast-atlas-v2.avif", root);
+const ogCard = new URL("assets/nick-and-morty-og-v2.png", root);
 
 for (const character of ["Nick", "Morty", "Summer", "Beth", "Jerry", "Mr. Meeseeks", "Birdperson", "Citadel"]) {
   assert.match(html, new RegExp(character.replace(".", "\\.")), `${character} is represented`);
@@ -28,7 +28,7 @@ assert.match(css, /prefers-reduced-motion: reduce/, "reduced-motion path exists"
 assert.match(js, /IntersectionObserver/, "progressive reveal enhancement exists");
 assert.match(js, /tuneChannel/, "character channels update the dossier");
 assert.match(js, /activeFlow/, "workflow controls expose the active trace");
-assert.match(html, /nick-morty-cast-atlas-v1\.webp/, "generated cast atlas is preloaded and consumed");
+assert.match(html, /nick-morty-cast-atlas-v2\.avif/, "generated cast atlas is preloaded and consumed");
 assert.ok(statSync(atlas).size <= 500_000, "published cast atlas stays under 500 KB");
 assert.ok(statSync(ogCard).size <= 500_000, "social card stays under 500 KB");
 assert.match(home, /href="\/nick-and-morty\/"/, "homepage links to the homage");
