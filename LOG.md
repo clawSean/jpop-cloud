@@ -2,6 +2,20 @@
 
 ## 2026-10-13 — Nick & Morty homage
 
+### Character-likeness pass
+
+- Replaced the generic sci-fi stand-ins with immediately recognizable Rick,
+  Morty, Summer, Beth, Jerry, Mr. Meeseeks, Birdperson, and Citadel designs in
+  an original rendered treatment, preserving the existing 4×2 sprite geometry.
+- Published a 234KB transparent AVIF atlas and matching 1200×630 social card,
+  bumped the page asset cache key, and retired the obsolete v1 images to
+  recoverable VPS storage.
+- Merged source PR #7 as `81fc025`, preserved rollback archive
+  `/root/rollbacks/jpop-before-nm-likeness-20261014T002755Z.tar.gz` (SHA-256
+  `48d8e730620acf590f80bf1b42e40d72a58f2ca8f4e338c0c4f46820ed4c64ec`),
+  and matched all five production hashes to source without changing Caddy or
+  DNS. Public proof passed again at 320, 390, 768, and 1440px.
+
 ### Interactive ensemble pass
 
 - Rebuilt the hero around an Interdimensional Cable system map with all eight
