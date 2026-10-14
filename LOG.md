@@ -14,6 +14,13 @@
 - Preserved all eight character channels, five workflow traces, explicit Nick
   credit, and privacy boundary. Local deterministic and browser checks pass at
   320, 390, 768, and 1440px with zero overflow, exceptions, or failed assets.
+- Merged source PR #9 as `093d652` and the canonical-host return-link repair in
+  PR #10 as `73ffc7a`. Added the `shwifty.jpop.cloud` Caddy route, permanently
+  redirected the legacy page route, and used the existing wildcard DNS without
+  a provider change. All eight runtime hashes match source; public browser proof
+  passes at 320/390/768/1440px. Rollback:
+  `/root/rollbacks/jpop-before-get-shwifty-20261014T020813Z.tar.gz` (SHA-256
+  `d0ff4dd5b765090323974ddf659884052b5548353c268ecc2713bd7b8d574815`).
 
 ### Character-likeness pass
 
