@@ -1,11 +1,12 @@
 # Status
 
-Updated: 2026-10-13T17:29:00-07:00 by Sean
+Updated: 2026-10-13T19:07:00-07:00 by Sean
 
 - Phase: operational
 - Started: 2026-09-17
 - Canonical source: `/Users/Sean/projects/jp0p/jpop-cloud`
 - Current: reviewed Living Workshop motion/UI pass live at `https://jpop.cloud`; `www` redirects permanently to the apex. The homepage has eight workshop doors, including the credited Nick & Morty homage at `https://jpop.cloud/nick-and-morty/`. Its interactive second pass is live with an eight-entity Interdimensional Cable map, recognizable character-faithful portrait atlas, Build/Test/Guard/Recover/Review traces, semantic fallback, and matching social art.
+- Candidate: make `https://shwifty.jpop.cloud/` canonical as **Get Shwifty**, redirect the legacy route, and carry a show-faithful green portal through the cast map, closing ensemble art, homepage door, and social card. Local deterministic and real-browser proof passes at 320/390/768/1440px; production deployment is the next step.
 - Deployment: VPS static root `/srv/websites/jpop.cloud` behind Caddy
 - Inbox Island product page source is live from `inbox-island/` at the
   dedicated `https://inboxisland.jpop.cloud` route. It truthfully presents the

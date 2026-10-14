@@ -2,6 +2,19 @@
 
 ## 2026-10-13 — Nick & Morty homage
 
+### Get Shwifty canonical portal pass
+
+- Prepared `https://shwifty.jpop.cloud/` as the canonical URL and retitled the
+  experience **Get Shwifty**, while keeping the existing source route available
+  for a permanent production redirect.
+- Built a code-native show-faithful portal from an irregular luminous lime rim,
+  yellow-green vortex core, moving whorls, flecks, spatter, and reduced-motion
+  fallback. Carried the portal through the cast map, closing ensemble art,
+  homepage workshop door, and 1200×630 share card.
+- Preserved all eight character channels, five workflow traces, explicit Nick
+  credit, and privacy boundary. Local deterministic and browser checks pass at
+  320, 390, 768, and 1440px with zero overflow, exceptions, or failed assets.
+
 ### Character-likeness pass
 
 - Replaced the generic sci-fi stand-ins with immediately recognizable Rick,

@@ -14,6 +14,8 @@ const chrome = process.env.CHROME_PATH || [
 ].find(existsSync);
 if (!chrome) throw new Error("Chrome/Chromium not found. Set CHROME_PATH to run browser smoke tests.");
 const origin = process.env.SITE_ORIGIN || "http://127.0.0.1:4173";
+const homagePath = process.env.HOMAGE_PATH || "/nick-and-morty/";
+const homepageOrigin = process.env.HOME_ORIGIN || origin;
 const proofDir = mkdtempSync(join(tmpdir(), "jpop-nick-morty-browser-"));
 const keepProof = process.env.KEEP_BROWSER_PROOF === "1";
 
@@ -125,6 +127,8 @@ try {
     flowCount: document.querySelectorAll("[data-flow]").length,
     smallestChannelTarget: Math.round(Math.min(...[...document.querySelectorAll("[data-entity]")].map((item) => Math.min(item.getBoundingClientRect().width, item.getBoundingClientRect().height)))),
     doorCount: document.querySelectorAll(".door").length,
+    heroTitle: document.querySelector("h1").textContent.replace(/\s+/g, " ").trim(),
+    portalCount: document.querySelectorAll(".portal-vortex").length,
     overflowers: [...document.querySelectorAll("body *")].map((item) => {
       const rect = item.getBoundingClientRect();
       return { tag: item.tagName, className: item.className || "", left: Math.round(rect.left), right: Math.round(rect.right), width: Math.round(rect.width) };
@@ -152,13 +156,15 @@ try {
   for (const [width, height, name] of [[320, 700, "narrow-mobile"], [390, 844, "mobile"], [768, 1024, "tablet"], [1440, 1000, "desktop"]]) {
     await setViewport(width, height);
     await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: "reduce" }] });
-    await navigate(`${origin}/nick-and-morty/`);
+    await navigate(`${origin}${homagePath}`);
     const pageMetrics = await metrics();
     assert.equal(pageMetrics.innerWidth, width, `${name} viewport is exact`);
     assert.ok(pageMetrics.scrollWidth <= width, `${name} has no document overflow (${pageMetrics.scrollWidth}/${width}): ${JSON.stringify(pageMetrics.overflowers)}`);
     assert.ok(pageMetrics.bodyScrollWidth <= width, `${name} body has no overflow (${pageMetrics.bodyScrollWidth}/${width}): ${JSON.stringify(pageMetrics.overflowers)}`);
     assert.ok(pageMetrics.headingRight <= width, `${name} hero heading stays in viewport`);
     assert.ok(pageMetrics.links >= 10, `${name} keeps the page navigable`);
+    assert.equal(pageMetrics.heroTitle, "Get Shwifty", `${name} keeps the canonical title`);
+    assert.equal(pageMetrics.portalCount, 1, `${name} renders one portal in the cast map`);
     assert.deepEqual(pageMetrics.characters, ["Summer", "Beth", "Jerry", "Mr. Meeseeks", "Birdperson", "Morty, again"]);
     assert.equal(pageMetrics.channelCount, 8, `${name} keeps all eight character channels visible`);
     assert.equal(pageMetrics.flowCount, 5, `${name} keeps all five workflow controls`);
@@ -196,7 +202,7 @@ try {
     assert.deepEqual(cable, { entity: "beth", dossier: "Beth", focused: true, current: "true", flow: "recover", pressed: "true", status: true }, `${name} cable interactions report character and workflow state`);
 
     await setViewport(width, height);
-    await navigate(`${origin}/#workshop`);
+    await navigate(`${homepageOrigin}/#workshop`);
     const homeMetrics = await metrics();
     assert.equal(homeMetrics.doorCount, 8, `${name} homepage includes eight doors`);
     assert.ok(homeMetrics.scrollWidth <= width, `${name} homepage has no overflow (${homeMetrics.scrollWidth}/${width})`);

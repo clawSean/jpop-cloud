@@ -3,32 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nick &amp; Morty — a very well-named agent universe</title>
-  <meta name="description" content="An affectionate tour of Nick and Morty’s character-driven agent system: Morty, Beth, Summer, Jerry, Mr. Meeseeks, Birdperson, and the Citadel.">
+  <title>Get Shwifty — Nick &amp; Morty’s agent universe</title>
+  <meta name="description" content="Step through the portal into Nick and Morty’s character-driven agent universe: Morty, Beth, Summer, Jerry, Mr. Meeseeks, Birdperson, and the Citadel.">
   <meta name="theme-color" content="#07110d">
-  <meta property="og:title" content="Nick &amp; Morty — a very well-named agent universe">
-  <meta property="og:description" content="The joke is excellent. The architecture underneath it is even better.">
+  <meta property="og:title" content="Get Shwifty — Nick &amp; Morty’s agent universe">
+  <meta property="og:description" content="The portal is open. The joke is excellent. The architecture underneath it is even better.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jpop.cloud/nick-and-morty/">
-  <meta property="og:image" content="https://jpop.cloud/assets/nick-and-morty-og-v2.png">
+  <meta property="og:url" content="https://shwifty.jpop.cloud/">
+  <meta property="og:image" content="https://shwifty.jpop.cloud/assets/get-shwifty-og.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://jpop.cloud/nick-and-morty/">
+  <link rel="canonical" href="https://shwifty.jpop.cloud/">
   <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/assets/nick-morty-cast-atlas-v2.avif" as="image" type="image/avif">
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add("js")</script>
-  <link rel="stylesheet" href="styles.css?v=20261013c">
+  <link rel="stylesheet" href="/nick-and-morty/styles.css?v=20261013d">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip into the multiverse</a>
+  <a class="skip-link" href="#main">Step through the portal</a>
 
   <header class="site-header" data-header>
     <nav class="nav shell" aria-label="Nick and Morty page navigation">
       <a class="wordmark" href="/" aria-label="Back to JPop's Workshop">
         <span class="wordmark-mark" aria-hidden="true">JP</span>
-        <span><strong>JPOP.CLOUD</strong><small>guest universe</small></span>
+        <span><strong>JPOP.CLOUD</strong><small>shwifty channel</small></span>
       </a>
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links" data-menu-button>
         <span>Menu</span><span aria-hidden="true">＋</span>
@@ -45,8 +45,8 @@
   <main id="main">
     <section class="hero shell" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow"><span></span> A friendly transmission from JPop &amp; Sean</p>
-        <h1 id="hero-title"><span>Nick</span><i>&amp;</i><span>Morty.</span></h1>
+        <p class="eyebrow"><span></span> Portal locked · channel open · C-137 frequency</p>
+        <h1 id="hero-title"><span>Get</span> <span>Shwifty</span></h1>
         <p class="hero-lede">A human and his AI built a real development ecosystem, named the whole thing like a cartoon family, and somehow made the joke double as an operating manual.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#cast">Meet the whole cast <span aria-hidden="true">↓</span></a>
@@ -57,11 +57,50 @@
 
       <div class="cable-stage" data-cable data-active-entity="morty" data-active-flow="build" aria-label="Interdimensional Cable map of the Nick and Morty agent universe">
         <div class="cable-topline">
-          <span><i aria-hidden="true"></i> INTERDIMENSIONAL CABLE</span>
-          <b>UNIVERSE N&amp;M-01</b>
+          <span><i aria-hidden="true"></i> PORTAL-FED INTERDIMENSIONAL CABLE</span>
+          <b>PORTAL INDEX C-137</b>
         </div>
 
         <div class="channel-map" aria-label="Choose a character channel">
+          <div class="portal-vortex" aria-hidden="true">
+            <svg viewBox="0 0 280 390" focusable="false">
+              <defs>
+                <radialGradient id="portal-core" cx="46%" cy="42%" r="70%">
+                  <stop offset="0" stop-color="#f2ff72"/>
+                  <stop offset=".28" stop-color="#c7ff26"/>
+                  <stop offset=".72" stop-color="#49ed18"/>
+                  <stop offset="1" stop-color="#14a918"/>
+                </radialGradient>
+                <filter id="portal-wobble" x="-35%" y="-25%" width="170%" height="150%">
+                  <feTurbulence type="fractalNoise" baseFrequency=".018 .042" numOctaves="2" seed="137" result="noise"/>
+                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="13" xChannelSelector="R" yChannelSelector="G"/>
+                </filter>
+                <filter id="portal-glow" x="-60%" y="-45%" width="220%" height="190%">
+                  <feGaussianBlur stdDeviation="8" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <clipPath id="portal-mouth"><ellipse cx="140" cy="195" rx="91" ry="151"/></clipPath>
+              </defs>
+              <ellipse class="portal-aura" cx="140" cy="195" rx="109" ry="172"/>
+              <path class="portal-rim" filter="url(#portal-wobble)" d="M140 18C74 18 33 85 35 191c2 109 41 181 105 181 67 0 105-72 105-178C245 87 205 18 140 18Z"/>
+              <ellipse class="portal-core" cx="140" cy="195" rx="91" ry="151" fill="url(#portal-core)" filter="url(#portal-glow)"/>
+              <g class="portal-swirl" clip-path="url(#portal-mouth)">
+                <path d="M19 90c90 19 112 62 174 37 50-20 73-63 101-47"/>
+                <path d="M-4 197c67-58 133-15 190-41 60-28 85-82 118-55"/>
+                <path d="M-1 302c78-68 133-19 190-55 50-32 70-87 111-65"/>
+                <path d="M10 365c84-55 122-11 176-47 47-31 69-67 102-54"/>
+              </g>
+              <g class="portal-flecks">
+                <circle cx="86" cy="91" r="5"/><circle cx="183" cy="69" r="3"/><circle cx="209" cy="137" r="6"/>
+                <circle cx="74" cy="213" r="4"/><circle cx="193" cy="249" r="5"/><circle cx="116" cy="304" r="6"/>
+                <circle cx="174" cy="333" r="3"/><circle cx="58" cy="146" r="3"/>
+              </g>
+              <g class="portal-spatter">
+                <circle cx="28" cy="141" r="7"/><circle cx="252" cy="96" r="5"/><circle cx="259" cy="254" r="8"/>
+                <circle cx="37" cy="305" r="4"/><path d="M55 35l8-17 8 19z"/><path d="M228 344l9 22-18-8z"/>
+              </g>
+            </svg>
+          </div>
           <svg class="cable-wires" viewBox="0 0 720 500" preserveAspectRatio="none" aria-hidden="true">
             <path class="wire wire-build" d="M126 250 C215 250 260 250 340 250"></path>
             <path class="wire wire-build" d="M382 278 C386 350 357 381 318 417"></path>
@@ -287,6 +326,6 @@
     <span>© <span data-year>2026</span></span>
   </footer>
 
-  <script src="site.js?v=20261013b"></script>
+  <script src="/nick-and-morty/site.js?v=20261013c"></script>
 </body>
 </html>
