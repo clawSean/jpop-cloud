@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Get Shwifty — Nick and Morty’s agent universe</title>
+  <desc id="desc">A luminous green portal opens behind Nick, Morty, Summer, Beth, Jerry, Mr. Meeseeks, Birdperson, and the Citadel.</desc>
+  <defs>
+    <radialGradient id="space" cx="74%" cy="46%" r="62%">
+      <stop offset="0" stop-color="#163d21"/>
+      <stop offset=".58" stop-color="#091710"/>
+      <stop offset="1" stop-color="#040b08"/>
+    </radialGradient>
+    <radialGradient id="portal" cx="44%" cy="38%" r="72%">
+      <stop offset="0" stop-color="#f2ff7a"/>
+      <stop offset=".27" stop-color="#c7ff28"/>
+      <stop offset=".73" stop-color="#4ded14"/>
+      <stop offset="1" stop-color="#07981a"/>
+    </radialGradient>
+    <filter id="glow" x="-40%" y="-30%" width="180%" height="160%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="wobble" x="-30%" y="-20%" width="160%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency=".016 .04" numOctaves="2" seed="137" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="16" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <clipPath id="cast-clip"><rect x="599" y="137" width="539" height="356" rx="28"/></clipPath>
+    <clipPath id="portal-clip"><ellipse cx="875" cy="315" rx="246" ry="268"/></clipPath>
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <path d="M0 3.5H4" stroke="#ffffff" stroke-opacity=".08"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#space)"/>
+  <path d="M0 545C276 474 478 592 708 528c192-53 302-160 492-119v221H0Z" fill="#06100c" opacity=".74"/>
+  <g filter="url(#glow)">
+    <ellipse cx="875" cy="315" rx="274" ry="290" fill="#7cff1b" opacity=".22"/>
+    <ellipse cx="875" cy="315" rx="248" ry="269" fill="none" stroke="#c8ff29" stroke-width="27" filter="url(#wobble)"/>
+    <ellipse cx="875" cy="315" rx="229" ry="250" fill="url(#portal)"/>
+  </g>
+  <g clip-path="url(#portal-clip)" fill="none" stroke="#f4ff8d" stroke-width="16" stroke-linecap="round" opacity=".52">
+    <path d="M571 160c166 45 213 105 328 59 106-43 163-115 288-68"/>
+    <path d="M559 299c151-76 236-9 350-72 109-60 162-137 282-79"/>
+    <path d="M566 454c143-85 241-20 352-79 104-55 152-120 275-69"/>
+  </g>
+  <g fill="#c8ff29" filter="url(#glow)">
+    <circle cx="610" cy="140" r="8"/><circle cx="1152" cy="210" r="10"/><circle cx="1129" cy="484" r="7"/>
+    <circle cx="657" cy="538" r="11"/><circle cx="602" cy="365" r="6"/><path d="M662 63l14-25 11 31z"/>
+  </g>
+  <rect x="586" y="124" width="565" height="382" rx="38" fill="#08120e" fill-opacity=".36" stroke="#efff77" stroke-opacity=".65" stroke-width="2"/>
+  <image x="599" y="137" width="539" height="356" preserveAspectRatio="xMidYMid meet" xlink:href="nick-morty-cast-atlas-v2.avif" clip-path="url(#cast-clip)"/>
+  <rect x="599" y="137" width="539" height="356" rx="28" fill="url(#scanlines)"/>
+  <text x="62" y="82" fill="#b9ff42" font-family="monospace" font-size="18" letter-spacing="3">PORTAL OPEN · CHANNEL N&amp;M-137</text>
+  <text x="56" y="235" fill="#f3f6e9" font-family="Arial Black, sans-serif" font-size="112" font-weight="900" letter-spacing="-7">GET</text>
+  <text x="55" y="354" fill="none" stroke="#f3f6e9" stroke-width="3" font-family="Arial Black, sans-serif" font-size="103" font-weight="900" letter-spacing="-6">SHWIFTY</text>
+  <text x="63" y="425" fill="#c8ff29" font-family="Arial, sans-serif" font-size="25" font-weight="700">THE WHOLE CAST. ONE SYSTEM.</text>
+  <text x="64" y="476" fill="#a8b6aa" font-family="Arial, sans-serif" font-size="21">Nick &amp; Morty’s agent universe</text>
+  <text x="64" y="548" fill="#74877a" font-family="monospace" font-size="15">BUILT BY NICK · VISUAL HOMAGE BY JPOP &amp; SEAN</text>
+</svg>

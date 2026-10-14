@@ -13,7 +13,7 @@ Open `http://127.0.0.1:4173/`.
 ## Live comparison routes
 
 - `/` — current production homepage
-- `/nick-and-morty/` — a credited, interactive Interdimensional Cable map of Nick and Morty’s agent universe
+- `https://shwifty.jpop.cloud/` — the canonical Get Shwifty portal into Nick and Morty’s credited, interactive agent universe (source lives under `/nick-and-morty/`)
 - `/alive/` — experimental Workshop Pulse, constellation, and project quick looks
 - `/compare/` — same-origin, side-by-side desktop comparison; full-screen links on mobile
 
@@ -41,4 +41,5 @@ node tests/browser-smoke.mjs
 
 The browser smoke expects a local server at `http://127.0.0.1:4173`. Override it
 with `SITE_ORIGIN`; set `CHROME_PATH` if Chrome or Chromium is not in a standard
-location.
+location. For public split-host proof, use `SITE_ORIGIN=https://shwifty.jpop.cloud`,
+`HOMAGE_PATH=/`, and `HOME_ORIGIN=https://jpop.cloud`.
