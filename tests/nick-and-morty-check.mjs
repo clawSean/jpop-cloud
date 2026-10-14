@@ -18,6 +18,7 @@ assert.match(html, /https:\/\/nicknmorty\.ai/g, "official site is linked");
 assert.match(html, /https:\/\/github\.com\/nicknmorty/g, "official GitHub is linked");
 assert.match(html, /<title>Get Shwifty/, "canonical title is Get Shwifty");
 assert.match(html, /rel="canonical" href="https:\/\/shwifty\.jpop\.cloud\/"/, "canonical URL uses the dedicated subdomain");
+assert.match(html, /class="wordmark" href="https:\/\/jpop\.cloud\/"/, "workshop return escapes the canonical subdomain");
 assert.match(html, /class="portal-vortex"/, "show-inspired portal is integrated into the cast map");
 assert.match(html, /This is our love letter[\s\S]+The work is theirs/, "authorship credit is explicit");
 assert.match(html, /independent, affectionate homage/i, "fan-homage boundary is explicit");
