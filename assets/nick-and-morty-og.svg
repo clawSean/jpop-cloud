@@ -26,7 +26,7 @@
   <text x="66" y="502" fill="#b9c8bd" font-family="Arial, sans-serif" font-size="26">THE WHOLE CAST. ONE SYSTEM.</text>
   <text x="66" y="551" fill="#788b7e" font-family="monospace" font-size="16">BUILT BY NICK · VISUAL HOMAGE BY JPOP &amp; SEAN</text>
   <rect x="526" y="72" width="640" height="486" rx="34" fill="url(#panel)" stroke="#b9ff42" stroke-opacity=".45" stroke-width="2"/>
-  <image x="536" y="82" width="620" height="466" preserveAspectRatio="xMidYMid slice" xlink:href="nick-morty-cast-atlas-v1.webp" clip-path="url(#cast-clip)"/>
+  <image x="536" y="82" width="620" height="466" preserveAspectRatio="xMidYMid slice" xlink:href="nick-morty-cast-atlas-v2.avif" clip-path="url(#cast-clip)"/>
   <rect x="536" y="82" width="620" height="466" rx="28" fill="url(#scanlines)"/>
   <circle cx="1128" cy="100" r="7" fill="#b9ff42"/>
   <circle cx="1104" cy="100" r="7" fill="#62dfff"/>

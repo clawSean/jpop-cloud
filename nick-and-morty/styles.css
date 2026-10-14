@@ -61,7 +61,7 @@ body.menu-open { overflow: hidden; }
 .credit { max-width: 640px; margin: 28px 0 0; color: #7f9184; font: .74rem/1.6 var(--mono); text-transform: uppercase; }
 .credit strong { color: #b9c6bc; }
 
-.atlas-portrait { display: block; background-image: url("/assets/nick-morty-cast-atlas-v1.webp"); background-repeat: no-repeat; background-size: 400% 200%; }
+.atlas-portrait { display: block; background-image: url("/assets/nick-morty-cast-atlas-v2.avif"); background-repeat: no-repeat; background-size: 400% 200%; }
 .portrait-nick { background-position: 0 0; }
 .portrait-morty { background-position: 33.333% 0; }
 .portrait-summer { background-position: 66.667% 0; }
