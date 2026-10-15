@@ -2,6 +2,21 @@
 
 ## 2026-10-13 — Nick & Morty homage
 
+### Interdimensional Cable discovery cue (2026-10-14)
+
+- Implemented Claude Foreman's focused UI/UX recommendation: a visible
+  “Tap any character to explore” hint, a restrained Nick glow after three
+  seconds, permanent dismissal after the first hover/focus/tap, and a still
+  reduced-motion path.
+- Merged source PR #18 as `fc91be5` and deployed the exact merged HTML/CSS/JS.
+  Source, VPS, and public hashes match; browser proof passes at
+  320/390/768/1440px with the discovery lifecycle, touch targets, menu, dossier,
+  workflow controls, overflow, exceptions, and failed resources covered.
+  Rollback:
+  `/root/rollbacks/jpop-before-schwifty-cable-discovery-20261015T061453Z.tar.gz`
+  (SHA-256
+  `ae27f7fee7cb0b8ba7268764b8d6b4e928ef0e540ed1167527b552102903e99c`).
+
 ### Portal Mutation scale correction (2026-10-14)
 
 - Enlarged the approved Creepster hero title after live review showed that its
