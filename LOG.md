@@ -2,6 +2,21 @@
 
 ## 2026-10-13 — Nick & Morty homage
 
+### Portal Mutation title pass (2026-10-14)
+
+- Replaced the compressed Bricolage/outline hero treatment with the approved
+  **Portal Mutation** direction: Creepster lettering, toxic portal-green fill,
+  purple dimensional shadow, and restrained glow. Body and interface typography
+  remain unchanged.
+- Added deterministic font-selection coverage and responsive title sizing.
+  Local and public browser proof passes at 320/390/768/1440px with zero
+  overflow, exceptions, or failed resources.
+- Merged source PR #14 as `25fdf15` and deployed only the changed homage HTML
+  and CSS. Both production hashes match merged source. Rollback:
+  `/root/rollbacks/jpop-before-schwifty-portal-mutation-20261015T052003Z.tar.gz`
+  (SHA-256
+  `82f355301b9c6714a4e5261d6ad1c8613da08fbbfa0246df17eb41611c1716c0`).
+
 ### Canonical Get Schwifty spelling correction (2026-10-14)
 
 - Corrected the public title, homepage/search copy, canonical URL, metadata,
