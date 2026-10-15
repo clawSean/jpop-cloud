@@ -2,6 +2,22 @@
 
 ## 2026-10-13 — Nick & Morty homage
 
+### Mobile title and gutter polish (2026-10-15)
+
+- Reviewed the live 390px geometry after JPop flagged the hero as undersized
+  and too close to the phone edges. The prior title occupied about 65% of its
+  text column behind 14px gutters.
+- Raised the Portal Mutation title to a 79.95px rendered size at 390px, loosened
+  its two-line rhythm and bottom spacing, and gave the mobile hero exact 20px
+  side gutters. The longest title line now occupies 80.9% of the text column.
+- Merged source PR #20 as `a79f1b5`, deployed the exact merged HTML/CSS behind a
+  timestamped rollback, and matched source/VPS/public SHA-256. Production
+  browser proof passes at 320/390/768/1440px with no overflow, browser
+  exceptions, failed resources, or interaction regressions. Rollback:
+  `/root/rollbacks/jpop-before-schwifty-mobile-title-polish-20261015T162924Z.tar.gz`
+  (SHA-256
+  `0050edf929c3bad87d99e4142c41b9b65a3f1ae2b5588d9793550f00c67d03e3`).
+
 ### Interdimensional Cable discovery cue (2026-10-14)
 
 - Implemented Claude Foreman's focused UI/UX recommendation: a visible
