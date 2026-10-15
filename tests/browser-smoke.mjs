@@ -254,6 +254,23 @@ try {
     const homeMetrics = await metrics();
     assert.equal(homeMetrics.doorCount, 8, `${name} homepage includes eight doors`);
     assert.ok(homeMetrics.scrollWidth <= width, `${name} homepage has no overflow (${homeMetrics.scrollWidth}/${width})`);
+    const homeDiscovery = await evaluate(`(() => {
+      if (window.innerWidth <= 680) document.querySelector('[data-menu-button]').click();
+      const link = [...document.querySelectorAll('[data-nav-links] a')].find((node) => node.href === 'https://schwifty.jpop.cloud/');
+      const rect = link?.getBoundingClientRect();
+      return {
+        href: link?.href,
+        text: link?.textContent.trim(),
+        visible: !!rect && rect.width > 0 && rect.height >= (window.innerWidth <= 680 ? 44 : 1),
+        expanded: window.innerWidth <= 680 ? document.querySelector('[data-menu-button]').getAttribute('aria-expanded') : null
+      };
+    })()`);
+    assert.deepEqual(homeDiscovery, {
+      href: "https://schwifty.jpop.cloud/",
+      text: "Get Schwifty ↗",
+      visible: true,
+      expanded: width <= 680 ? "true" : null
+    }, `${name} exposes Get Schwifty through primary navigation`);
     if (width === 390 || width === 1440) {
       await evaluate(`(async () => {
         document.querySelector(".door-morty").scrollIntoView({ block: "center" });
