@@ -33,6 +33,17 @@ const channelCopy = document.querySelector("[data-channel-copy]");
 const channelLink = document.querySelector("[data-channel-link]");
 const flowButtons = [...document.querySelectorAll("[data-flow]")];
 const flowStatus = document.querySelector("[data-flow-status]");
+let discoveryTimer;
+
+const finishDiscovery = () => {
+  cable?.classList.add("is-discovered");
+  cable?.classList.remove("is-inviting");
+  if (discoveryTimer) window.clearTimeout(discoveryTimer);
+};
+
+if (cable && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  discoveryTimer = window.setTimeout(() => cable.classList.add("is-inviting"), 3000);
+}
 
 const channels = {
   nick: {
@@ -124,10 +135,17 @@ const tuneChannel = (entity) => {
 };
 
 channelNodes.forEach((node) => {
-  node.addEventListener("focus", () => tuneChannel(node.dataset.entity));
-  node.addEventListener("mouseenter", () => tuneChannel(node.dataset.entity));
+  node.addEventListener("focus", () => {
+    finishDiscovery();
+    tuneChannel(node.dataset.entity);
+  });
+  node.addEventListener("mouseenter", () => {
+    finishDiscovery();
+    tuneChannel(node.dataset.entity);
+  });
   node.addEventListener("click", (event) => {
     event.preventDefault();
+    finishDiscovery();
     tuneChannel(node.dataset.entity);
   });
 });
