@@ -2,6 +2,20 @@
 
 ## 2026-10-13 — Nick & Morty homage
 
+### Homepage discovery route (2026-10-15)
+
+- Added a direct **Get Schwifty ↗** route to the `jpop.cloud` primary
+  navigation while preserving the existing full-width portal door and command
+  palette entry.
+- Merged source PR #22 as `4a6251a` and deployed the exact merged homepage.
+  Source, VPS, and public SHA-256 match
+  `8deaf1975126d056925db3d5b7419a216d4286d68144988b3fdb0b13f12658c8`.
+  Public browser proof passes at 320/390/768/1440px with the link visible in
+  desktop navigation and the accessible phone menu. Rollback:
+  `/root/rollbacks/jpop-before-schwifty-nav-20261015T180017Z.tar.gz`
+  (SHA-256
+  `590067fdc028c9f0e6f47ed1e9f358c6f1bdee438e0a5ac9dc64bed482ef21ed`).
+
 ### Mobile title and gutter polish (2026-10-15)
 
 - Reviewed the live 390px geometry after JPop flagged the hero as undersized
