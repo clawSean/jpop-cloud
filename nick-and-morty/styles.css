@@ -50,7 +50,7 @@ body.menu-open { overflow: hidden; }
 .eyebrow, .section-tag, .role, .boundary { font-family: var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0; color: #c9d6cc; font-size: .72rem; }
 .eyebrow span { width: 8px; height: 8px; border-radius: 50%; background: var(--portal); box-shadow: 0 0 18px var(--portal); animation: pulse 2.2s ease-in-out infinite; }
-.hero h1 { display: grid; width: max-content; margin: 28px 0 30px; color: var(--portal); font-family: var(--title-font); font-size: clamp(4rem, 6vw, 5.8rem); font-weight: 400; line-height: .79; letter-spacing: .015em; text-transform: uppercase; text-shadow: 4px 5px 0 #6b3fc9, 0 0 28px rgba(185, 255, 66, .32); }
+.hero h1 { display: grid; width: max-content; margin: 28px 0 30px; color: var(--portal); font-family: var(--title-font); font-size: clamp(5rem, 7.7vw, 7.2rem); font-weight: 400; line-height: .79; letter-spacing: .015em; text-transform: uppercase; text-shadow: 4px 5px 0 #6b3fc9, 0 0 28px rgba(185, 255, 66, .32); }
 .hero h1 span:last-child { color: inherit; -webkit-text-stroke: 0; }
 .hero-lede { max-width: 710px; margin: 0; color: #c1cec3; font-size: clamp(1.2rem, 2vw, 1.55rem); line-height: 1.5; }
 .hero-actions, .official-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
@@ -228,7 +228,7 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 980px) {
   .hero { grid-template-columns: 1fr; padding-top: 145px; }
   .hero-copy { max-width: 760px; }
-  .hero h1 { font-size: clamp(5rem, 11vw, 6.5rem); }
+  .hero h1 { font-size: clamp(6rem, 14vw, 8.2rem); }
   .cable-stage { width: min(100%, 760px); margin-inline: auto; }
   .thesis-grid { grid-template-columns: 1fr; gap: 22px; }
   .thesis-grid > p:last-child { max-width: 620px; }
@@ -251,7 +251,7 @@ body.menu-open { overflow: hidden; }
   .nav-links .nav-primary { margin-top: 12px; border: 1px solid rgba(185, 255, 66, .42); text-align: center; }
   .hero { min-height: auto; gap: 26px; padding-top: 112px; padding-bottom: 60px; }
   .hero-copy { min-width: 0; }
-  .hero h1 { width: auto; margin-top: 24px; font-size: clamp(3rem, 12vw, 4.8rem); }
+  .hero h1 { width: auto; margin-top: 24px; font-size: clamp(3.8rem, 17vw, 5.4rem); }
   .hero-lede { font-size: 1.08rem; }
   .hero-actions, .official-actions { display: grid; }
   .button { width: 100%; }
