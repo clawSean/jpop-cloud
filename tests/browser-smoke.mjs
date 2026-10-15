@@ -121,6 +121,20 @@ try {
     scrollWidth: document.documentElement.scrollWidth,
     bodyScrollWidth: document.body.scrollWidth,
     headingRight: Math.round(document.querySelector("h1").getBoundingClientRect().right),
+    heroLeft: Math.round(document.querySelector(".hero").getBoundingClientRect().left),
+    heroRight: Math.round(document.querySelector(".hero").getBoundingClientRect().right),
+    titleInkRatio: (() => {
+      const title = document.querySelector(".hero h1");
+      const copy = document.querySelector(".hero-copy");
+      if (!copy) return null;
+      const copyWidth = copy.getBoundingClientRect().width;
+      const wordWidths = [...title.querySelectorAll("span")].map((word) => {
+        const range = document.createRange();
+        range.selectNodeContents(word);
+        return range.getBoundingClientRect().width;
+      });
+      return Math.max(...wordWidths) / copyWidth;
+    })(),
     links: document.querySelectorAll("a[href]").length,
     characters: [...document.querySelectorAll(".cast-card h3")].map((item) => item.textContent.trim()),
     channelCount: document.querySelectorAll("[data-entity]").length,
@@ -191,6 +205,11 @@ try {
     assert.ok(pageMetrics.scrollWidth <= width, `${name} has no document overflow (${pageMetrics.scrollWidth}/${width}): ${JSON.stringify(pageMetrics.overflowers)}`);
     assert.ok(pageMetrics.bodyScrollWidth <= width, `${name} body has no overflow (${pageMetrics.bodyScrollWidth}/${width}): ${JSON.stringify(pageMetrics.overflowers)}`);
     assert.ok(pageMetrics.headingRight <= width, `${name} hero heading stays in viewport`);
+    if (width <= 390) {
+      assert.ok(pageMetrics.heroLeft >= 20, `${name} hero keeps a 20px left gutter (${pageMetrics.heroLeft}px)`);
+      assert.ok(width - pageMetrics.heroRight >= 20, `${name} hero keeps a 20px right gutter (${width - pageMetrics.heroRight}px)`);
+      assert.ok(pageMetrics.titleInkRatio >= .78 && pageMetrics.titleInkRatio <= .9, `${name} title occupies a balanced share of its column (${pageMetrics.titleInkRatio.toFixed(3)})`);
+    }
     assert.ok(pageMetrics.links >= 10, `${name} keeps the page navigable`);
     assert.equal(pageMetrics.heroTitle, "Get Schwifty", `${name} keeps the canonical title`);
     assert.equal(pageMetrics.portalCount, 1, `${name} renders one portal in the cast map`);

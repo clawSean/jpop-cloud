@@ -246,6 +246,7 @@ body.menu-open { overflow: hidden; }
 
 @media (max-width: 700px) {
   .shell { width: min(100% - 28px, 560px); }
+  .hero.shell { width: min(100% - 40px, 560px); }
   .nav { min-height: 68px; }
   .wordmark-mark { width: 37px; height: 37px; }
   .menu-button { display: flex; }
@@ -256,7 +257,7 @@ body.menu-open { overflow: hidden; }
   .nav-links .nav-primary { margin-top: 12px; border: 1px solid rgba(185, 255, 66, .42); text-align: center; }
   .hero { min-height: auto; gap: 26px; padding-top: 112px; padding-bottom: 60px; }
   .hero-copy { min-width: 0; }
-  .hero h1 { width: auto; margin-top: 24px; font-size: clamp(3.8rem, 17vw, 5.4rem); }
+  .hero h1 { width: auto; margin: 28px 0 36px; font-size: clamp(4.2rem, 20.5vw, 5.65rem); line-height: .83; }
   .hero-lede { font-size: 1.08rem; }
   .hero-actions, .official-actions { display: grid; }
   .button { width: 100%; }
