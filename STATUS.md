@@ -1,6 +1,6 @@
 # Status
 
-Updated: 2026-10-14T22:20:00-07:00 by Sean
+Updated: 2026-10-14T22:27:00-07:00 by Sean
 
 - Phase: operational
 - Started: 2026-09-17
@@ -13,4 +13,4 @@ Updated: 2026-10-14T22:20:00-07:00 by Sean
   links remain placeholders in copy until those artifacts exist. Production
   and committed source hashes match for the homepage and privacy policy.
 - Known gaps: exact public LinkedIn URL and exact Clawdia showcase-repository URL remain unconfirmed
-- Proof: title-treatment PR #14 merged as `25fdf15`; the two changed production hashes match merged source. Canonical HTTPS returns 200 with the Creepster font request and fresh CSS cache key; production browser proof passes at exact 320/390/768/1440px with eight visible character channels, five workflow controls, accessible state, zero horizontal overflow, browser exceptions, or failed resources. Rollback: `/root/rollbacks/jpop-before-schwifty-portal-mutation-20261015T052003Z.tar.gz` (SHA-256 `82f355301b9c6714a4e5261d6ad1c8613da08fbbfa0246df17eb41611c1716c0`). The misspelled host, legacy route, and old social-card filenames retain their permanent redirects.
+- Proof: title-treatment PR #14 merged as `25fdf15`; title-scale correction PR #16 merged as `1e6d06d`. The corrected CSS matches source, VPS, and public SHA-256 `3944dbf9282365bb4f282025ecb49c3d0d00f57e7086166e5f086fb0116f5b22`. Canonical HTTPS returns 200 with the Creepster font request; production browser proof passes at exact 320/390/768/1440px with eight visible character channels, five workflow controls, accessible state, zero horizontal overflow, browser exceptions, or failed resources. Latest rollback: `/root/rollbacks/jpop-before-schwifty-title-scale-20261015T052713Z.tar.gz` (SHA-256 `a50c2668ea0ae8d43ab49075def1da54a40ceaff748adc560809d7a60468ff8f`). The misspelled host, legacy route, and old social-card filenames retain their permanent redirects.
