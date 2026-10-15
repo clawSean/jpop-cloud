@@ -17,6 +17,8 @@ for (const character of ["Nick", "Morty", "Summer", "Beth", "Jerry", "Mr. Meesee
 assert.match(html, /https:\/\/nicknmorty\.ai/g, "official site is linked");
 assert.match(html, /https:\/\/github\.com\/nicknmorty/g, "official GitHub is linked");
 assert.match(html, /<title>Get Schwifty/, "canonical title is Get Schwifty");
+assert.match(html, /family=Creepster/, "portal-mutation title font is loaded");
+assert.match(css, /--title-font: "Creepster"/, "portal-mutation title font is applied");
 assert.match(html, /rel="canonical" href="https:\/\/schwifty\.jpop\.cloud\/"/, "canonical URL uses the dedicated subdomain");
 assert.match(html, /class="wordmark" href="https:\/\/jpop\.cloud\/"/, "workshop return escapes the canonical subdomain");
 assert.match(html, /class="portal-vortex"/, "show-inspired portal is integrated into the cast map");
