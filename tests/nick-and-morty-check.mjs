@@ -43,6 +43,7 @@ assert.ok(statSync(atlas).size <= 500_000, "published cast atlas stays under 500
 assert.ok(statSync(ogCard).size <= 500_000, "social card stays under 500 KB");
 assert.match(home, /href="https:\/\/schwifty\.jpop\.cloud\/"/, "homepage links to the canonical subdomain");
 assert.match(home, />Get Schwifty</, "homepage uses the canonical title");
+assert.match(home, /class="nav-links"[\s\S]+href="https:\/\/schwifty\.jpop\.cloud\/">Get Schwifty ↗<\/a>/, "primary navigation exposes Get Schwifty immediately");
 assert.match(sitemap, /https:\/\/schwifty\.jpop\.cloud\//, "sitemap includes the canonical subdomain");
 for (const misspelling of [html, home, sitemap, readFileSync(new URL("site.js", root), "utf8"), readFileSync(new URL("assets/get-schwifty-og.svg", root), "utf8")]) {
   assert.doesNotMatch(misspelling, /shwifty/i, "the misspelling is fully retired from public source");
