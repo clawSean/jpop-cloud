@@ -163,7 +163,7 @@ try {
     assert.ok(pageMetrics.bodyScrollWidth <= width, `${name} body has no overflow (${pageMetrics.bodyScrollWidth}/${width}): ${JSON.stringify(pageMetrics.overflowers)}`);
     assert.ok(pageMetrics.headingRight <= width, `${name} hero heading stays in viewport`);
     assert.ok(pageMetrics.links >= 10, `${name} keeps the page navigable`);
-    assert.equal(pageMetrics.heroTitle, "Get Shwifty", `${name} keeps the canonical title`);
+    assert.equal(pageMetrics.heroTitle, "Get Schwifty", `${name} keeps the canonical title`);
     assert.equal(pageMetrics.portalCount, 1, `${name} renders one portal in the cast map`);
     assert.deepEqual(pageMetrics.characters, ["Summer", "Beth", "Jerry", "Mr. Meeseeks", "Birdperson", "Morty, again"]);
     assert.equal(pageMetrics.channelCount, 8, `${name} keeps all eight character channels visible`);
