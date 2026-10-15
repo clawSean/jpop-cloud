@@ -2,6 +2,23 @@
 
 ## 2026-10-13 — Nick & Morty homage
 
+### Canonical Get Schwifty spelling correction (2026-10-14)
+
+- Corrected the public title, homepage/search copy, canonical URL, metadata,
+  sitemap, CSS class naming, test expectations, and both share-card assets from
+  **Get Shwifty** to the canon spelling **Get Schwifty**.
+- Merged source PR #12 as `c29f0f0`, deployed the seven exact-hash runtime
+  files, and moved the canonical host to `https://schwifty.jpop.cloud/`.
+  `shwifty.jpop.cloud`, `/nick-and-morty/`, and the old share-card paths now
+  redirect permanently to corrected canonical locations.
+- Public browser proof passes at 320/390/768/1440px with zero overflow,
+  exceptions, or failed resources. Preserved rollback archive
+  `/root/rollbacks/jpop-before-get-schwifty-spelling-20261015T035034Z.tar.gz`
+  (SHA-256
+  `2baccfb203bfe653eaa753be96c298ca4bc31d4b63ab381e33916d9b808f502a`)
+  plus the prior assets under
+  `/root/rollbacks/retired-shwifty-spelling-20261015T035034Z/`.
+
 ### Get Shwifty canonical portal pass
 
 - Prepared `https://shwifty.jpop.cloud/` as the canonical URL and retitled the
