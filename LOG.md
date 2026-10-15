@@ -2,6 +2,22 @@
 
 ## 2026-10-13 — Nick & Morty homage
 
+### Portal Mutation scale correction (2026-10-14)
+
+- Enlarged the approved Creepster hero title after live review showed that its
+  lower visual mass made the initial sizing feel timid. The corrected title
+  occupies about 80% of its desktop copy column and gains roughly 38% more
+  scale at the 390px phone width without changing the font, treatment, or
+  surrounding layout.
+- Merged source PR #16 as `1e6d06d` and deployed only the exact merged CSS.
+  Source, VPS, and public SHA-256 match
+  `3944dbf9282365bb4f282025ecb49c3d0d00f57e7086166e5f086fb0116f5b22`.
+  Public browser proof passes at 320/390/768/1440px with zero overflow,
+  exceptions, or failed resources. Rollback:
+  `/root/rollbacks/jpop-before-schwifty-title-scale-20261015T052713Z.tar.gz`
+  (SHA-256
+  `a50c2668ea0ae8d43ab49075def1da54a40ceaff748adc560809d7a60468ff8f`).
+
 ### Portal Mutation title pass (2026-10-14)
 
 - Replaced the compressed Bricolage/outline hero treatment with the approved
