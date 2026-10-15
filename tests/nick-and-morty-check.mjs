@@ -8,7 +8,7 @@ const js = readFileSync(new URL("nick-and-morty/site.js", root), "utf8");
 const home = readFileSync(new URL("index.html", root), "utf8");
 const sitemap = readFileSync(new URL("sitemap.xml", root), "utf8");
 const atlas = new URL("assets/nick-morty-cast-atlas-v2.avif", root);
-const ogCard = new URL("assets/get-shwifty-og.jpg", root);
+const ogCard = new URL("assets/get-schwifty-og.jpg", root);
 
 for (const character of ["Nick", "Morty", "Summer", "Beth", "Jerry", "Mr. Meeseeks", "Birdperson", "Citadel"]) {
   assert.match(html, new RegExp(character.replace(".", "\\.")), `${character} is represented`);
@@ -16,8 +16,8 @@ for (const character of ["Nick", "Morty", "Summer", "Beth", "Jerry", "Mr. Meesee
 
 assert.match(html, /https:\/\/nicknmorty\.ai/g, "official site is linked");
 assert.match(html, /https:\/\/github\.com\/nicknmorty/g, "official GitHub is linked");
-assert.match(html, /<title>Get Shwifty/, "canonical title is Get Shwifty");
-assert.match(html, /rel="canonical" href="https:\/\/shwifty\.jpop\.cloud\/"/, "canonical URL uses the dedicated subdomain");
+assert.match(html, /<title>Get Schwifty/, "canonical title is Get Schwifty");
+assert.match(html, /rel="canonical" href="https:\/\/schwifty\.jpop\.cloud\/"/, "canonical URL uses the dedicated subdomain");
 assert.match(html, /class="wordmark" href="https:\/\/jpop\.cloud\/"/, "workshop return escapes the canonical subdomain");
 assert.match(html, /class="portal-vortex"/, "show-inspired portal is integrated into the cast map");
 assert.match(html, /This is our love letter[\s\S]+The work is theirs/, "authorship credit is explicit");
@@ -35,8 +35,11 @@ assert.match(js, /activeFlow/, "workflow controls expose the active trace");
 assert.match(html, /nick-morty-cast-atlas-v2\.avif/, "generated cast atlas is preloaded and consumed");
 assert.ok(statSync(atlas).size <= 500_000, "published cast atlas stays under 500 KB");
 assert.ok(statSync(ogCard).size <= 500_000, "social card stays under 500 KB");
-assert.match(home, /href="https:\/\/shwifty\.jpop\.cloud\/"/, "homepage links to the canonical subdomain");
-assert.match(home, />Get Shwifty</, "homepage uses the canonical title");
-assert.match(sitemap, /https:\/\/shwifty\.jpop\.cloud\//, "sitemap includes the canonical subdomain");
+assert.match(home, /href="https:\/\/schwifty\.jpop\.cloud\/"/, "homepage links to the canonical subdomain");
+assert.match(home, />Get Schwifty</, "homepage uses the canonical title");
+assert.match(sitemap, /https:\/\/schwifty\.jpop\.cloud\//, "sitemap includes the canonical subdomain");
+for (const misspelling of [html, home, sitemap, readFileSync(new URL("site.js", root), "utf8"), readFileSync(new URL("assets/get-schwifty-og.svg", root), "utf8")]) {
+  assert.doesNotMatch(misspelling, /shwifty/i, "the misspelling is fully retired from public source");
+}
 
 console.log("Nick & Morty homage checks: PASS");
