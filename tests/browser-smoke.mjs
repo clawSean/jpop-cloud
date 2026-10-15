@@ -153,6 +153,35 @@ try {
   await send("Runtime.enable");
   await send("Network.enable");
 
+  await setViewport(390, 844);
+  await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: "no-preference" }] });
+  await navigate(`${origin}${homagePath}`);
+  const discoveryBefore = await evaluate(`(() => ({
+    hint: document.querySelector("[data-channel-hint]").textContent.trim(),
+    inviting: document.querySelector("[data-cable]").classList.contains("is-inviting"),
+    discovered: document.querySelector("[data-cable]").classList.contains("is-discovered")
+  }))()`);
+  assert.deepEqual(discoveryBefore, { hint: "↳ Tap any character to explore", inviting: false, discovered: false }, "cable map begins with an explicit touch hint");
+  const discoveryAfterDelay = await evaluate(`(async () => {
+    await new Promise((resolve) => setTimeout(resolve, 3100));
+    document.querySelector("[data-cable]").scrollIntoView({ block: "center" });
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    return document.querySelector("[data-cable]").classList.contains("is-inviting");
+  })()`);
+  assert.equal(discoveryAfterDelay, true, "Nick receives the delayed discovery pulse");
+  await screenshotViewport("nick-and-morty-discovery-cue-mobile");
+  const discoveryAfterInteraction = await evaluate(`(() => {
+    const nick = document.querySelector('[data-entity="nick"]');
+    nick.focus();
+    nick.click();
+    return {
+      inviting: document.querySelector("[data-cable]").classList.contains("is-inviting"),
+      discovered: document.querySelector("[data-cable]").classList.contains("is-discovered"),
+      hintVisibility: getComputedStyle(document.querySelector("[data-channel-hint]")).visibility
+    };
+  })()`);
+  assert.deepEqual(discoveryAfterInteraction, { inviting: false, discovered: true, hintVisibility: "hidden" }, "the discovery hint and pulse clear after first interaction");
+
   for (const [width, height, name] of [[320, 700, "narrow-mobile"], [390, 844, "mobile"], [768, 1024, "tablet"], [1440, 1000, "desktop"]]) {
     await setViewport(width, height);
     await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: "reduce" }] });

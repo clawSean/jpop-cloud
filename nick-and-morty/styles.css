@@ -77,6 +77,9 @@ body.menu-open { overflow: hidden; }
 .cable-topline span { display: flex; align-items: center; gap: 8px; color: var(--portal); }
 .cable-topline i { width: 7px; height: 7px; border-radius: 50%; background: var(--portal); box-shadow: 0 0 14px var(--portal); animation: pulse 2.2s ease-in-out infinite; }
 .cable-topline b { font-weight: 500; }
+.channel-hint { position: relative; z-index: 4; max-height: 28px; display: flex; align-items: center; gap: 8px; margin: -2px 7px 9px; overflow: hidden; color: #dce9df; font: .62rem var(--mono); letter-spacing: .06em; text-transform: uppercase; transition: max-height .24s ease, margin .24s ease, opacity .18s ease, transform .24s ease; }
+.channel-hint span { color: var(--portal); font-size: .88rem; }
+.cable-stage.is-discovered .channel-hint { max-height: 0; margin-block: 0; opacity: 0; transform: translateY(-7px); visibility: hidden; }
 .channel-map { position: relative; min-height: 500px; border: 1px solid rgba(224, 255, 226, .13); border-radius: 15px; background: radial-gradient(circle at 50% 50%, rgba(53, 243, 155, .08), transparent 42%), linear-gradient(145deg, #0b1814, #07100d); overflow: hidden; }
 .channel-map:before { content: ""; position: absolute; z-index: 0; inset: 8% 18%; border: 1px dashed rgba(98, 223, 255, .13); border-radius: 50%; transform: rotate(-8deg); }
 .portal-vortex { position: absolute; z-index: 0; left: 50%; top: 50%; width: 235px; height: 360px; pointer-events: none; transform: translate(-50%, -50%); filter: drop-shadow(0 0 24px rgba(113, 255, 20, .42)); }
@@ -101,6 +104,7 @@ body.menu-open { overflow: hidden; }
 .channel-node small { color: #73877a; font: .5rem var(--mono); letter-spacing: .07em; text-transform: uppercase; }
 .channel-node:hover, .channel-node:focus-visible, .channel-node.is-selected { z-index: 5; color: white; transform: translate(-50%, -50%) scale(1.07); filter: saturate(1.18); }
 .channel-node:hover .atlas-portrait, .channel-node:focus-visible .atlas-portrait, .channel-node.is-selected .atlas-portrait { border-color: var(--node-color); box-shadow: 0 0 0 3px color-mix(in srgb, var(--node-color), transparent 76%), 0 0 28px color-mix(in srgb, var(--node-color), transparent 62%); }
+.cable-stage.is-inviting .node-nick .atlas-portrait { animation: channel-invite 1.65s ease-in-out infinite; }
 .node-nick { --node-color: var(--yellow); left: 17%; top: 50%; }
 .node-morty { --node-color: var(--cyan); left: 50%; top: 50%; width: 108px; }
 .node-morty .atlas-portrait { width: 92px; }
@@ -221,6 +225,7 @@ body.menu-open { overflow: hidden; }
 :focus-visible { outline: 3px solid var(--portal); outline-offset: 4px; }
 
 @keyframes pulse { 50% { opacity: .42; transform: scale(.82); } }
+@keyframes channel-invite { 50% { border-color: var(--yellow); box-shadow: 0 0 0 4px rgba(255, 231, 114, .18), 0 0 30px rgba(255, 231, 114, .64); } }
 @keyframes signal-dash { to { stroke-dashoffset: -32; } }
 @keyframes portal-roll { to { transform: rotate(360deg); } }
 @keyframes portal-fizz { 50% { opacity: .55; } 100% { transform: scale(1.025); } }
@@ -258,6 +263,7 @@ body.menu-open { overflow: hidden; }
   .credit { font-size: .66rem; }
   .cable-stage { width: 100%; padding: 9px; border-radius: 17px; }
   .cable-topline { min-height: 35px; padding: 0 5px 7px; }
+  .channel-hint { margin-inline: 5px; font-size: .57rem; }
   .channel-map { min-height: auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; padding: 12px 7px 10px; }
   .channel-map:before, .cable-wires { display: none; }
   .portal-vortex { width: 230px; height: 320px; opacity: .5; }
@@ -303,7 +309,7 @@ body.menu-open { overflow: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .eyebrow span, .cable-topline i, .wire, .portal-swirl, .portal-flecks, .portal-spatter { animation: none; }
+  .eyebrow span, .cable-topline i, .wire, .portal-swirl, .portal-flecks, .portal-spatter, .cable-stage.is-inviting .node-nick .atlas-portrait { animation: none; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
-  .button, .site-header, .wire, .channel-node, .channel-node .atlas-portrait { transition: none; }
+  .button, .site-header, .wire, .channel-hint, .channel-node, .channel-node .atlas-portrait { transition: none; }
 }

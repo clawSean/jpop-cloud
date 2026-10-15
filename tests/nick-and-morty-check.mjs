@@ -30,10 +30,14 @@ assert.equal((html.match(/data-flow="/g) || []).length, 5, "workflow dial includ
 assert.match(html, /Interdimensional Cable map/, "ensemble visual is labeled as a system map");
 assert.match(html, /Read the conceptual relationship map/, "relationship map has a semantic text fallback");
 assert.match(html, /aria-live="polite"/, "cable interaction has accessible status output");
+assert.match(html, /data-channel-hint[^>]*>[\s\S]*Tap any character to explore/, "cable map teaches touch interaction");
 assert.match(css, /prefers-reduced-motion: reduce/, "reduced-motion path exists");
+assert.match(css, /channel-invite/, "Nick receives a restrained discovery pulse");
 assert.match(js, /IntersectionObserver/, "progressive reveal enhancement exists");
 assert.match(js, /tuneChannel/, "character channels update the dossier");
 assert.match(js, /activeFlow/, "workflow controls expose the active trace");
+assert.match(js, /setTimeout\([\s\S]+3000\)/, "discovery pulse waits three seconds");
+assert.match(js, /finishDiscovery/, "the discovery cue clears after interaction");
 assert.match(html, /nick-morty-cast-atlas-v2\.avif/, "generated cast atlas is preloaded and consumed");
 assert.ok(statSync(atlas).size <= 500_000, "published cast atlas stays under 500 KB");
 assert.ok(statSync(ogCard).size <= 500_000, "social card stays under 500 KB");
