@@ -10,6 +10,13 @@ python3 -m http.server 4173
 
 Open `http://127.0.0.1:4173/`.
 
+For the dedicated Inbox Island host layout:
+
+```bash
+(cd inbox-island && python3 -m http.server 4174)
+node tests/inbox-island-browser-smoke.mjs
+```
+
 ## Live comparison routes
 
 - `/` — current production homepage
@@ -36,7 +43,9 @@ Mac-to-VPS syncs must not preserve local ownership or directory modes; use
 ```bash
 node tests/motion-phase1-check.mjs
 node tests/nick-and-morty-check.mjs
+node tests/inbox-island-check.mjs
 node tests/browser-smoke.mjs
+node tests/inbox-island-browser-smoke.mjs
 ```
 
 The browser smoke expects a local server at `http://127.0.0.1:4173`. Override it

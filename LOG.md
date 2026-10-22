@@ -308,3 +308,14 @@
   added the dedicated Caddy route, validated and reloaded Caddy, obtained TLS,
   and verified public HTTPS `200` plus exact source/live hashes for `/` and
   `/privacy/`. Existing sites were not modified.
+
+## 2026-10-22 — Inbox Island publication readiness
+
+- Replaced the draft privacy page with the effective October 22 policy covering
+  handled Gmail fields, short-lived token use, local retention, Limited Use,
+  Google revocation, support, and private vulnerability reporting.
+- Linked the live public source and support repository from the product page,
+  labeled 0.4.9 as a candidate, and kept Arc/Dia, real-mail, Store review, and
+  restricted-scope verification claims explicitly pending.
+- Added a static publication contract test for source links, scope/disclosure,
+  retention, support/security channels, and draft-language removal.

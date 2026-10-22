@@ -1,1 +1,68 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Inbox Island privacy policy"><link rel="canonical" href="https://inboxisland.jpop.cloud/privacy/"><link rel="stylesheet" href="/styles.css"><title>Privacy — Inbox Island</title></head><body><header class="nav"><a class="brand" href="/"><span aria-hidden="true">◒</span> Inbox Island</a><nav><a href="/">Product</a></nav></header><main><article class="section" style="max-width:850px"><p class="eyebrow">PRIVACY POLICY · DRAFT FOR PRIVATE PILOT</p><h1 style="font-size:clamp(52px,8vw,88px)">Your mail is not our business.</h1><p class="lede">Inbox Island is designed so no Inbox Island-operated server receives your Gmail token or mailbox content.</p><h3>Access</h3><p>Inbox Island requests Google's restricted <code>gmail.readonly</code> scope. That grant can read Gmail content but cannot send, modify, label, archive, delete, or mark messages read. The extension voluntarily limits each sync to recent Inbox and Sent mail, with bounded message and page counts.</p><h3>Processing and storage</h3><p>Mail is fetched directly from Google into your browser and classified locally. OAuth tokens remain in memory for the active run and are not refreshed or persisted. Inbox Island stores only account-scoped derived triage state locally; it does not persist raw message bodies, HTML, attachments, summaries, or OAuth material.</p><h3>Sharing and analytics</h3><p>Inbox Island has no application server, telemetry, advertising, or third-party analytics. It does not sell or share Gmail data.</p><h3>Your control</h3><p>You explicitly choose and confirm the Google account before mail is read. Disconnecting clears the active token lease and local derived state. Google-side authorization can be revoked separately through your Google Account.</p><h3>Status</h3><p>This policy is a publication draft for the private pilot. It will be finalized with contact, deletion, release, and source links before public distribution.</p><p><a class="policy-link" style="color:var(--sea)" href="/">← Back to Inbox Island</a></p></article></main><footer><span>Inbox Island · A JPop workshop project</span><a href="https://jpop.cloud">jpop.cloud ↗</a></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Inbox Island privacy policy">
+  <meta name="theme-color" content="#0b2725">
+  <link rel="canonical" href="https://inboxisland.jpop.cloud/privacy/">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Privacy — Inbox Island</title>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/" aria-label="Inbox Island home"><span aria-hidden="true">◒</span> Inbox Island</a>
+    <nav aria-label="Privacy navigation">
+      <a href="/">Product</a>
+      <a href="https://github.com/clawSean/inbox-island">Source ↗</a>
+      <a href="https://github.com/clawSean/inbox-island/issues">Support ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <article class="section policy-page">
+      <p class="eyebrow">PRIVACY POLICY · EFFECTIVE OCTOBER 22, 2026</p>
+      <h1>Your mail is not our business.</h1>
+      <p class="lede">Inbox Island is designed so no Inbox Island-operated server receives a Gmail access token or mailbox content. This policy describes the data the extension handles, how it is used, and the controls available to users.</p>
+
+      <h2>Data Inbox Island handles</h2>
+      <p>When a user explicitly connects Gmail, Inbox Island handles:</p>
+      <ul>
+        <li>the selected Gmail address;</li>
+        <li>sender and recipient addresses, subjects, timestamps, labels, thread/message identifiers, and message text in a bounded recent Inbox/Sent slice; and</li>
+        <li>a short-lived OAuth access token required to make those Gmail API requests.</li>
+      </ul>
+      <p>Email may contain sensitive personal topics. Inbox Island does not target financial, health, or other sensitive categories, and it does not download attachment content.</p>
+      <p>The disconnected synthetic demo uses fictional <code>.example.test</code> data and does not access Google or Gmail.</p>
+
+      <h2>How data is used</h2>
+      <p>Gmail data is used only to provide the user-facing local triage feature: grouping recent threads into advisory categories and explaining the local classification. Inbox Island does not use Google user data for advertising, credit decisions, unrelated profiling, or training or improving a generalized or foundation AI model.</p>
+
+      <h2>Processing, transmission, and sharing</h2>
+      <p>Mail travels directly from Google to the extension over HTTPS and is processed in the user's browser. Inbox Island has no application server, cloud AI, telemetry, advertising network, third-party analytics, or remote executable code in the mailbox path. Gmail data is not sold or shared with third parties, and the developer cannot read it through Inbox Island.</p>
+      <p>Google and the user's browser and operating system process data under their own terms and privacy policies.</p>
+
+      <h2>Storage and retention</h2>
+      <p>OAuth access is held only in extension-page memory, for at most 45 minutes, and is not persisted or refreshed by Inbox Island. Raw message bodies, HTML, attachments, summaries, and OAuth material are not stored.</p>
+      <p>Inbox Island stores minimal account-scoped derived triage state locally in the browser, including account label, Gmail identifiers, timestamps, categories, flags, and evidence offsets. That local state remains until it is replaced, the user clears local data, or the extension/browser profile is removed.</p>
+
+      <h2>User controls</h2>
+      <p>Users choose and confirm the Google account before Inbox Island lists messages. They may cancel a sync, disconnect Gmail, or clear all locally stored triage state in the extension. Disconnecting forgets the in-memory token and clears local derived state; it does not by itself revoke Google's grant.</p>
+      <p><a href="https://myaccount.google.com/connections">Revoke Google access ↗</a></p>
+
+      <h2>Security</h2>
+      <p>Inbox Island uses HTTPS for Google requests, a default-deny extension content security policy, packaged code only, plain-text rendering for untrusted mail, bounded message processing, and no Gmail mutation permissions. No security control eliminates all risk; users should keep their browser and operating system updated and continue to treat Gmail as authoritative.</p>
+
+      <h2>Limited Use</h2>
+      <p>Inbox Island's use of information received from Google APIs adheres to the Google API Services User Data Policy and the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
+
+      <h2>Changes and contact</h2>
+      <p>Material changes will be reflected by updating the effective date and public release notes. Privacy, deletion, or support questions may be filed through <a href="https://github.com/clawSean/inbox-island/issues">GitHub Issues</a> without including email content, credentials, OAuth material, or private screenshots. Security reports should use <a href="https://github.com/clawSean/inbox-island/security/advisories/new">GitHub's private vulnerability-reporting channel</a>.</p>
+
+      <p><a class="policy-link" href="/">← Back to Inbox Island</a></p>
+    </article>
+  </main>
+
+  <footer><span>Inbox Island · A JPop workshop project</span><span><a href="https://github.com/clawSean/inbox-island">Source ↗</a> · <a href="https://jpop.cloud">jpop.cloud ↗</a></span></footer>
+</body>
+</html>
