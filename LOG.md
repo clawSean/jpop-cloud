@@ -319,3 +319,13 @@
   restricted-scope verification claims explicitly pending.
 - Added a static publication contract test for source links, scope/disclosure,
   retention, support/security channels, and draft-language removal.
+- Deployed the exact committed product, privacy, and stylesheet bytes to the
+  dedicated production root with normalized `caddy:caddy` ownership, `0755`
+  directories, and `0644` files. All three public routes return HTTP 200 and
+  their SHA-256 hashes match source.
+- Re-ran the real Chrome production smoke at 390px and 1440px across the
+  product and privacy routes; source/support links, disclosures, effective
+  policy, responsive layout, resources, and exception checks pass. Preserved
+  rollback `/root/rollbacks/inboxisland-before-publication-20261022T1430PDT.tar.gz`
+  (SHA-256
+  `85e5dfba9c16583a28c2a7632227d6df9b94dae4ce1c9b6682ea3f0e49def1d0`).
