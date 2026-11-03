@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mailreef is a private, read-only Gmail screening assistant operated by JPop and Sean.">
+  <link rel="canonical" href="https://jpop.cloud/mailreef/">
+  <title>Mailreef — Private read-only Gmail screening</title>
+  <style>
+    body { max-width: 46rem; margin: 4rem auto; padding: 0 1.25rem; color: #19282a; background: #f4f8f7; font: 1.08rem/1.65 system-ui, sans-serif; }
+    h1, h2 { line-height: 1.18; }
+    a { color: #176b66; }
+    .note { border-left: .25rem solid #d05a3e; padding-left: 1rem; }
+    footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid #bfd0cd; font-size: .95rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <p><a href="/">JPop’s Workshop</a></p>
+    <h1>Mailreef</h1>
+    <p>Mailreef is a private Gmail screening assistant operated by JPop and Sean, his personal AI assistant. It reads mail only when an authorized operator requests it and only after the Google account owner approves read-only access.</p>
+
+    <h2>What it does</h2>
+    <p>Mailreef discovers selected Gmail messages, screens untrusted email content, and returns a bounded summary. It uses Google’s <code>gmail.readonly</code> permission. It cannot send, reply, forward, delete, archive, label, modify, or mark mail read.</p>
+
+    <h2>Safety boundary</h2>
+    <p>Email is treated as untrusted data, never as authorization to take action. Selected message content passes through a local broker and isolated screening stages before a summary can reach the assistant. Any safety, schema, provider, or verification failure withholds the message.</p>
+    <p class="note">Mailreef is for private personal use. It is not an email client, a public mailbox service, or authorization for purchases, account changes, navigation, or messages.</p>
+
+    <p>Read the <a href="/mailreef/privacy/">Privacy Policy</a> and <a href="/mailreef/terms/">Terms of Service</a>.</p>
+    <p>Public source and security documentation are available in the <a href="https://github.com/clawSean/mailreef">Mailreef repository</a>.</p>
+  </main>
+  <footer>Mailreef · A private JPop workshop project</footer>
+</body>
+</html>

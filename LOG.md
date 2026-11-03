@@ -1,5 +1,16 @@
 # Log
 
+## 2026-11-02 — Mailreef OAuth publication pages
+
+- Added a public Mailreef homepage, privacy policy, and terms under
+  `/mailreef/` so the private External OAuth app can move from Testing to
+  Production without weekly refresh-token expiry.
+- Documented the exact read-only Gmail scope, local credential isolation,
+  bounded broker and screening path, configured AI-provider processing,
+  Limited Use posture, revocation/deletion controls, and non-authorizing output.
+- Added a deterministic publication-contract test. Deployment and public HTTPS
+  proof remain pending.
+
 ## 2026-10-13 — Nick & Morty homage
 
 ### Homepage discovery route (2026-10-15)

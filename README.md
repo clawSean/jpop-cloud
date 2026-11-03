@@ -23,6 +23,7 @@ node tests/inbox-island-browser-smoke.mjs
 - `https://schwifty.jpop.cloud/` — the canonical Get Schwifty portal into Nick and Morty’s credited, interactive agent universe (source lives under `/nick-and-morty/`)
 - `/alive/` — experimental Workshop Pulse, constellation, and project quick looks
 - `/compare/` — same-origin, side-by-side desktop comparison; full-screen links on mobile
+- `/mailreef/` — public OAuth homepage, privacy policy, and terms for the private read-only Gmail screening assistant
 
 The comparison routes are `noindex` and do not replace the canonical homepage.
 
@@ -44,6 +45,7 @@ Mac-to-VPS syncs must not preserve local ownership or directory modes; use
 node tests/motion-phase1-check.mjs
 node tests/nick-and-morty-check.mjs
 node tests/inbox-island-check.mjs
+node tests/mailreef-check.mjs
 node tests/browser-smoke.mjs
 node tests/inbox-island-browser-smoke.mjs
 ```
