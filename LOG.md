@@ -8,8 +8,11 @@
 - Documented the exact read-only Gmail scope, local credential isolation,
   bounded broker and screening path, configured AI-provider processing,
   Limited Use posture, revocation/deletion controls, and non-authorizing output.
-- Added a deterministic publication-contract test. Deployment and public HTTPS
-  proof remain pending.
+- Added a deterministic publication-contract test. All existing static checks
+  pass. Committed source was deployed to the existing `jpop.cloud` static root
+  without a DNS, Caddy, or service change; all three routes return HTTPS 200,
+  source/VPS hashes match, and managed Chrome phone-width proof reports zero
+  page errors.
 
 ## 2026-10-13 — Nick & Morty homage
 
