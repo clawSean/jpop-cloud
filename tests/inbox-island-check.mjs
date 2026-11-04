@@ -7,19 +7,24 @@ const policy = readFileSync(new URL("inbox-island/privacy/index.html", root), "u
 const css = readFileSync(new URL("inbox-island/styles.css", root), "utf8");
 const source = "https://github.com/clawSean/inbox-island";
 
-assert.match(home, /0\.4\.9 candidate/u, "homepage labels the current candidate");
+assert.match(home, /0\.5\.0 review candidate/u, "homepage labels the current candidate");
 assert.match(home, new RegExp(source.replaceAll("/", "\\/"), "u"), "homepage links public source");
 assert.match(home, /Google's restricted <code>gmail\.readonly<\/code>/u, "homepage names the restricted scope");
 assert.match(home, /Gmail remains the source of truth/u, "advisory boundary remains visible");
-assert.match(home, /restricted-scope verification is not promised by Halloween/u, "deadline claim stays honest");
+assert.match(home, /first public release supports Google Chrome only/u, "homepage states the browser boundary");
+assert.match(home, /authorized-account pilot, Google's restricted-scope verification, and Chrome Web Store review/u,
+  "homepage names the remaining launch gates");
+assert.doesNotMatch(home, /0\.4\.9|Arc\/Dia|Halloween/u, "homepage has no superseded release language");
 assert.doesNotMatch(home, /Public source[^<]+planned/u, "source is no longer described as planned");
 
-assert.match(policy, /EFFECTIVE OCTOBER 22, 2026/u, "policy has an effective date");
+assert.match(policy, /EFFECTIVE NOVEMBER 3, 2026/u, "policy has the release effective date");
 assert.doesNotMatch(policy, /DRAFT FOR PRIVATE PILOT|publication draft/iu, "policy is no longer a draft");
 assert.match(policy, /short-lived OAuth access token/u, "token handling is disclosed");
 assert.match(policy, /sender and recipient addresses, subjects, timestamps, labels/u, "mail data is disclosed");
 assert.match(policy, /does not download attachment content/u, "attachment boundary is explicit");
 assert.match(policy, /at most 45 minutes/u, "token retention is bounded");
+assert.match(policy, /Chrome Identity may temporarily cache that token/u, "browser token cache is disclosed");
+assert.match(policy, /clears Chrome's cached token for the extension/u, "disconnect cache clearing is disclosed");
 assert.match(policy, /including the Limited Use requirements/u, "Limited Use statement is present");
 assert.match(policy, /security\/advisories\/new/u, "private vulnerability reporting is linked");
 assert.match(policy, /myaccount\.google\.com\/connections/u, "Google revocation control is linked");

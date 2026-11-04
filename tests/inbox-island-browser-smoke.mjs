@@ -119,7 +119,7 @@ try {
         background: getComputedStyle(document.body).backgroundColor,
         stylesheet: [...document.styleSheets].map((sheet) => sheet.href).filter(Boolean),
         draft: document.body.textContent.includes("DRAFT FOR PRIVATE PILOT"),
-        effective: document.body.textContent.includes("EFFECTIVE OCTOBER 22, 2026")
+        effective: document.body.textContent.includes("EFFECTIVE NOVEMBER 3, 2026")
       }))()`);
       assert.equal(metrics.innerWidth, width, `${kind} ${label} viewport is exact`);
       assert.ok(metrics.scrollWidth <= width, `${kind} ${label} has no horizontal overflow`);
