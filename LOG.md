@@ -1,5 +1,22 @@
 # Log
 
+## 2026-11-03 — Inbox Island 0.5.0 public pages
+
+- Replaced the stale `0.4.9`, Arc/Dia, and Halloween-era publication copy with
+  the exact Chrome-first `0.5.0` release boundary and remaining live-pilot,
+  Google restricted-scope verification, and Chrome Web Store review gates.
+- Updated the effective privacy policy to disclose Chrome Identity's temporary
+  token cache, per-run cache removal, and Disconnect cleanup without claiming
+  that Google-side consent is revoked.
+- Committed and pushed source as `b81d59f`, then deployed only the two changed
+  HTML files to the existing static root. Source, VPS, and HTTPS SHA-256 match
+  for the homepage (`5eacc80599f65974a23734103891d36bb3f921fe1dbbda6f09eced8bedae8329`)
+  and privacy policy (`de648167f5a0155384deda74b26e96f7a0952592ebee14fdbc878ba52fadedfe`).
+  The publication contract and live Chrome proof pass at 390px and 1440px with
+  zero failed resources or browser exceptions. Rollback:
+  `/root/rollbacks/inboxisland-before-0.5.0-site-20261104T050955Z.tar.gz`
+  (SHA-256 `422b3905d7d0248b9f8b54c3bd1a2ea74354472cbd435630f6ac0bf68f3f82cd`).
+
 ## 2026-11-02 — Mailreef OAuth publication pages
 
 - Added a public Mailreef homepage, privacy policy, and terms under
