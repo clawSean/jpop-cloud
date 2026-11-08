@@ -3,7 +3,7 @@ const filters = [...document.querySelectorAll("[data-filter]")];
 const status = document.querySelector("[data-result-status]");
 const emptyState = document.querySelector("[data-empty-state]");
 const dialog = document.querySelector("[data-media-dialog]");
-const kinds = { audio: "Music", video: "Video", image: "Image", poster: "Poster" };
+const kinds = { audio: "Audio", video: "Video", image: "Image", poster: "Poster" };
 const validKinds = new Set(Object.keys(kinds));
 let items = [];
 let collections = [];
@@ -36,6 +36,9 @@ const makeCard = (item, index) => {
   button.setAttribute("aria-label", `Open ${item.title}`);
 
   const art = element("span", "media-card-art");
+  if (item.fit === "cover" || item.kind === "audio" || item.kind === "video") {
+    art.classList.add("is-cover");
+  }
   const image = new Image();
   image.src = item.thumbnail || item.poster || item.src;
   image.alt = item.alt || "";

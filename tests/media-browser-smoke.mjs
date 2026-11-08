@@ -1,6 +1,6 @@
 import { spawn } from "node:child_process";
 import { createServer } from "node:net";
-import { existsSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { homedir, tmpdir } from "node:os";
 import { join } from "node:path";
 import { strict as assert } from "node:assert";
@@ -17,6 +17,12 @@ const origin = process.env.SITE_ORIGIN || "http://127.0.0.1:4173";
 const mediaPath = process.env.MEDIA_PATH || "/media/";
 const proofDir = mkdtempSync(join(tmpdir(), "jpop-media-room-proof-"));
 const keepProof = process.env.KEEP_BROWSER_PROOF === "1";
+const library = JSON.parse(readFileSync(new URL("../media/library.json", import.meta.url), "utf8"));
+const expectedItemCount = library.items.length;
+const expectedPreviewCount = library.collections[0].itemSlugs.length;
+const expectedCollectionCount = library.collections.length;
+const expectedAudioCount = library.items.filter((item) => item.kind === "audio").length;
+const expectedAudioCollections = new Set(library.items.filter((item) => item.kind === "audio").map((item) => item.collection)).size;
 
 const freePort = await new Promise((resolve, reject) => {
   const server = createServer();
@@ -101,7 +107,7 @@ try {
     await loaded;
     await evaluate(`(async () => {
       for (let attempt = 0; attempt < 80; attempt += 1) {
-        if (document.querySelectorAll(".media-card").length === 8 && document.querySelectorAll(".preview-asset").length === 8) return true;
+        if (document.querySelectorAll(".media-card").length === ${expectedItemCount} && document.querySelectorAll(".preview-asset").length === ${expectedPreviewCount}) return true;
         await new Promise((resolve) => setTimeout(resolve, 50));
       }
       throw new Error("media library did not render");
@@ -165,14 +171,14 @@ try {
     assert.ok(metrics.scrollWidth <= width, `${label} has no document overflow: ${JSON.stringify(metrics.overflowers)}`);
     assert.ok(metrics.bodyScrollWidth <= width, `${label} has no body overflow: ${JSON.stringify(metrics.overflowers)}`);
     assert.equal(metrics.heading, "Sound.Vision.Everything else.", `${label} keeps the media-room promise`);
-    assert.equal(metrics.cardCount, 8, `${label} renders every atomic launch asset`);
+    assert.equal(metrics.cardCount, expectedItemCount, `${label} renders every atomic asset`);
     assert.equal(metrics.filterCount, 5, `${label} renders every filter`);
-    assert.equal(metrics.previewCount, 8, `${label} exposes every asset from the collection preview`);
-    assert.equal(metrics.collectionCount, 1, `${label} groups the related assets into one collection`);
+    assert.equal(metrics.previewCount, expectedPreviewCount, `${label} exposes every asset from the featured collection preview`);
+    assert.equal(metrics.collectionCount, expectedCollectionCount, `${label} renders every collection`);
     assert.equal(metrics.featured, "Get Schwifty Cast", `${label} renders the featured collection`);
     assert.equal(metrics.backHref, "https://jpop.cloud/", `${label} links back to the workshop`);
 
-    const emptyMusic = await evaluate(`(() => {
+    const musicShelf = await evaluate(`(() => {
       document.querySelector('[data-filter="audio"]').click();
       return {
         active: document.querySelector('[data-filter="audio"]').getAttribute("aria-pressed"),
@@ -181,12 +187,13 @@ try {
         status: document.querySelector("[data-result-status]").textContent
       };
     })()`);
-    assert.deepEqual(emptyMusic, {
-      active: "true", empty: true, gridHidden: true, status: "Showing music 0 assets.",
-    }, `${label} empty music shelf is honest and usable`);
+    assert.deepEqual(musicShelf, {
+      active: "true", empty: false, gridHidden: false,
+      status: `Showing ${expectedAudioCount} audio assets in ${expectedAudioCollections} collections.`,
+    }, `${label} music shelf exposes every published audio asset`);
 
     const dialogState = await evaluate(`(() => {
-      document.querySelector("[data-show-all]").click();
+      document.querySelector('[data-filter="all"]').click();
       const trigger = document.querySelector('.media-card [data-open="get-schwifty-rick"]');
       trigger.click();
       return {
@@ -202,6 +209,19 @@ try {
       open: true, title: "Rick", image: true, shareAction: true, download: true, hash: "#get-schwifty-rick",
     }, `${label} opens a shareable, downloadable, deep-linkable asset viewer`);
     await evaluate(`document.querySelector("[data-dialog-close]").click()`);
+
+    const playbackState = await evaluate(`(async () => {
+      document.querySelector('[data-open="fault-line"]').click();
+      const audio = document.querySelector("[data-dialog-player] audio");
+      const audioReady = Boolean(audio?.controls && audio.src.endsWith("/library/audio/fault-line.aac"));
+      document.querySelector("[data-dialog-close]").click();
+      document.querySelector('[data-open="white-fire-trailer"]').click();
+      const video = document.querySelector("[data-dialog-player] video");
+      const videoReady = Boolean(video?.controls && video.playsInline && video.src.endsWith("/library/video/white-fire-trailer.mp4"));
+      document.querySelector("[data-dialog-close]").click();
+      return { audioReady, videoReady };
+    })()`);
+    assert.deepEqual(playbackState, { audioReady: true, videoReady: true }, `${label} prepares native audio and video playback`);
 
     if (keepProof) {
       const capture = await send("Page.captureScreenshot", { format: "png", fromSurface: true });

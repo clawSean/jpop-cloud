@@ -44,20 +44,42 @@ Mac-to-VPS syncs must not preserve local ownership or directory modes; use
 
 ## Adding media
 
-1. Put each web-ready, independently useful file in `media/uploads/` or a
-   named folder under `media/assets/collections/`. Do not list a composite
-   contact sheet or promo banner when its component assets are the useful unit.
-2. Add one item per file to `media/library.json` with a unique `slug`, `title`,
-   `kind`, `date`, `description`, `src`, and accessible `alt` text. Supported
-   kinds are `audio`, `video`, `image`, and `poster`.
-3. When assets belong together, add one entry to `collections`, list the item
-   slugs in `itemSlugs`, and set each item's `collection` to that collection
-   slug. Leave unrelated assets stand-alone. The first collection is previewed
-   in the hero, but every preview tile still opens its own asset.
-4. For audio and video, add a `poster` or `thumbnail` so the shelf looks good
-   before playback.
-5. Run `node tests/media-check.mjs` and `node tests/media-browser-smoke.mjs`
-   against a local server before deploying the `media/` directory.
+The Mac is the canonical home for full-resolution generated media. The public
+site never reads from the Mac at request time: `scripts/build-media-room.mjs`
+copies only explicitly allowlisted sources into a compact `.media-build/`
+bundle. Images become AVIF, WAV/FLAC audio becomes AAC, and video remains MP4;
+private/inbound source directories are denied by the publisher.
+
+1. Add one independently useful source to `scripts/media-room-catalog.json`.
+   Use a `repo`, `workspace`, or `openclawMedia` source root, a public output
+   path, and one of `copy`, `image-avif`, or `audio-aac`. Do not publish a
+   composite contact sheet when its component assets are the useful unit.
+2. Add related item slugs to a collection. Leave unrelated assets stand-alone.
+   The first collection is previewed in the hero, but every preview tile still
+   opens its own asset.
+3. Build the public derivatives and generated manifest:
+
+   ```bash
+   node scripts/build-media-room.mjs
+   ```
+
+4. Serve the exact deploy bundle and run both checks:
+
+   ```bash
+   node tests/media-check.mjs
+   (cd .media-build && python3 -m http.server 4174)
+   SITE_ORIGIN=http://127.0.0.1:4174 MEDIA_PATH=/ node tests/media-browser-smoke.mjs
+   ```
+
+5. Commit the catalog, generated `media/library.json`, code, and tests. The
+   large derivatives stay out of Git; deploy `.media-build/` to
+   `/srv/websites/media.jpop.cloud/`, then normalize ownership and modes.
+
+Directly serving files from ClawPop is intentionally unsupported: sleep,
+FileVault, home-network outages, upstream bandwidth, and privacy boundaries
+would all become production dependencies. If the public derivative library
+eventually outgrows the VPS, move the same build bundle to object storage/CDN
+rather than tunneling public requests into the Mac.
 
 ## Checks
 
