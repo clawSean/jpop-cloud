@@ -1,6 +1,6 @@
 # Status
 
-Updated: 2026-11-07T17:09:44-08:00 by Sean
+Updated: 2026-11-07T17:55:27-08:00 by Sean
 
 - Phase: operational
 - Started: 2026-09-17
@@ -9,14 +9,17 @@ Updated: 2026-11-07T17:09:44-08:00 by Sean
 - Deployment: VPS static roots `/srv/websites/jpop.cloud` and
   `/srv/websites/media.jpop.cloud` behind Caddy
 - `https://media.jpop.cloud/` is live as a dedicated, data-driven media room for
-  songs, videos, images, and posters. Its launch shelf now uses eight individual
-  transparent Get Schwifty assets rather than composite promo banners, with the
-  related pieces grouped as one collection while each retains its own viewer,
-  deep link, native share action, and download. The collection-aware manifest,
-  format filters, honest empty states, audio/video player support, 1200×630
-  share card, and documented atomic-upload workflow prepare the same room for
-  future formats. The existing homepage keeps only its primary-nav route and
-  command-palette entry, preserving its architecture and eight-door grid.
+  songs, voice experiments, videos, images, and posters. The library now holds
+  32 independently shareable assets in six collections: the eight-piece Get
+  Schwifty Cast, five original songs, six synthetic voice demos, two generated
+  videos, three Butterfly Flair posters, and eight Lobster Cabinet images. Each
+  asset retains its own viewer, deep link, native share action, and download.
+  Full-resolution masters stay on ClawPop; an explicit local catalog builds a
+  deterministic 18 MB public bundle with cached AVIF/AAC derivatives, generated
+  covers and video posters, and a denial gate for private/inbound source paths.
+  Public requests never depend on ClawPop being awake or reachable. The existing
+  homepage keeps only its primary-nav route and command-palette entry,
+  preserving its architecture and eight-door grid.
 - Inbox Island's Chrome-first `0.5.0` review-candidate homepage, effective
   November 3 privacy policy, public source/support links, Limited Use statement,
   revocation/security channels, and exact remaining Google/Store review gates
@@ -56,3 +59,22 @@ Updated: 2026-11-07T17:09:44-08:00 by Sean
   `/root/rollbacks/media-before-atomic-assets-20261108T010823Z.tar.gz`
   (SHA-256
   `1431fc278c4334826bf4836ba64937062490d09bd248debd4e5ab7cb19ce1d5b`).
+  Local-source publisher PR #29 merged as `0b83b09`; scalable-card follow-up PR
+  #30 merged as `f535321`. The 51-file local/VPS tree manifest matches at
+  `75c4910b9638971afae0c2ccce3543755bbfe51da82c985241bbd8a03f1fe24d`.
+  Source/VPS/public SHA-256 matches for HTML
+  `3c32fb2e90201ef01ca1e0f7f7199c1da65d551f5735c9c78fa3912047bc3e1b`,
+  JavaScript
+  `b895797a95881683c0ac8ea4cb795aeccf34d2907bfb980956580fd36df1e283`,
+  manifest
+  `2cf93082558b77ee292650608fea8b760bbc8055c36355bb7972899037150f27`,
+  representative AAC
+  `f5d9318054b42e568af36dae046dbe9e9502ec513629a394b8c6c3080395c7fb`,
+  and representative MP4
+  `4f7b153ad777c106db8aaa486fb2769cd1425ea16439c29d0916e7dc7841ab5c`.
+  Public Chrome proof passes at 320/390/768/1440px with all 32 assets, six
+  collections, native audio/video controls, bounded card stagger, zero overflow,
+  zero browser exceptions, and zero failed resources. Rollback:
+  `/root/rollbacks/media-before-local-publisher-20261108T014936Z.tar.gz`
+  (SHA-256
+  `c7b824e3341c0e09986b43d169b0a1e1261319359bb16cbf8dbba693117567f4`).
