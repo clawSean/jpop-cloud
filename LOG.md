@@ -365,3 +365,5 @@
 the existing JPop workshop project, using a manifest-driven static site and a
 separate VPS web root so songs, videos, images, and posters can be added without
 a new backend · `DECISIONS.md`, `rollouts/2026-11-07-media-subdomain.md`, `STATUS.md`
+
+2026-11-07 · Sean · change · Launched `media.jpop.cloud` with a manifest-driven multi-format library, two existing public visual pieces, native media viewing, filters, deep links, a 1200×630 share card, homepage discovery, upload instructions, exact source/deploy/public hashes, and public 320/390/768/1440px browser proof; merged PRs #24/#25, added a validated Caddy route, preserved both root/Caddy and homepage rollbacks, and left Caddy active · `media/`, `index.html`, `site.js`, `sitemap.xml`, `tests/media-*.mjs`, `/srv/websites/media.jpop.cloud`, `/etc/caddy/Caddyfile`
