@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JPop Media Room — music, video, images & posters</title>
+  <meta name="description" content="The media wing of JPop's workshop: songs, films, images, posters, and whatever else escapes the lab.">
+  <meta name="theme-color" content="#0a0910">
+  <meta property="og:title" content="JPop Media Room">
+  <meta property="og:description" content="Sound, vision, and everything else escaping JPop's workshop.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://media.jpop.cloud/">
+  <meta property="og:image" content="https://media.jpop.cloud/assets/media-room-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://media.jpop.cloud/">
+  <link rel="icon" href="https://jpop.cloud/assets/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261107a">
+</head>
+<body>
+  <a class="skip-link" href="#library">Skip to the library</a>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="shell nav" aria-label="Primary navigation">
+      <a class="wordmark" href="/" aria-label="JPop Media Room, home">
+        <span class="wordmark-mark" aria-hidden="true">JP</span>
+        <span><strong>MEDIA ROOM</strong><small>JPOP.CLOUD / BROADCAST WING</small></span>
+      </a>
+      <a class="workshop-link" href="https://jpop.cloud/">Back to the workshop <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> MEDIA ROOM / SIGNAL OPEN</p>
+        <h1 id="hero-title">Sound.<br><em>Vision.</em><br>Everything else.</h1>
+        <p class="hero-lede">Songs, films, posters, images, and whatever else escapes the workshop. One shelf, no format loyalty.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#library">Browse the drops <span aria-hidden="true">↓</span></a>
+          <p><strong data-library-count>2</strong><span>pieces in the room</span></p>
+        </div>
+      </div>
+
+      <div class="signal-stage" aria-label="Featured media" data-featured-stage>
+        <div class="signal-halo" aria-hidden="true"></div>
+        <button class="feature-card" type="button" data-featured-open aria-label="Open featured media">
+          <span class="feature-art" data-featured-art></span>
+          <span class="feature-overlay" aria-hidden="true"></span>
+          <span class="feature-top"><small>ON THE WALL NOW</small><b>OPEN ↗</b></span>
+          <span class="feature-copy"><small data-featured-kind>POSTER / 2026</small><strong data-featured-title>Portal Mutation</strong></span>
+        </button>
+        <div class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+    </section>
+
+    <section class="library" id="library" aria-labelledby="library-title">
+      <div class="shell">
+        <div class="library-head">
+          <div>
+            <p class="eyebrow">THE ARCHIVE / ALWAYS GROWING</p>
+            <h2 id="library-title">Pick a signal.</h2>
+          </div>
+          <p>Everything is playable or viewable right here. New drops slot into the same shelf without rebuilding the room.</p>
+        </div>
+
+        <div class="filter-bar" role="group" aria-label="Filter media">
+          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All <span data-count="all">2</span></button>
+          <button class="filter" type="button" data-filter="audio" aria-pressed="false">Music <span data-count="audio">0</span></button>
+          <button class="filter" type="button" data-filter="video" aria-pressed="false">Video <span data-count="video">0</span></button>
+          <button class="filter" type="button" data-filter="image" aria-pressed="false">Images <span data-count="image">1</span></button>
+          <button class="filter" type="button" data-filter="poster" aria-pressed="false">Posters <span data-count="poster">1</span></button>
+        </div>
+
+        <p class="result-status" data-result-status aria-live="polite">Showing all 2 pieces.</p>
+        <div class="media-grid" data-media-grid></div>
+        <div class="empty-state" data-empty-state hidden>
+          <span aria-hidden="true">◌</span>
+          <h3>That shelf is ready.</h3>
+          <p>The first drop in this format has not landed yet.</p>
+          <button type="button" data-show-all>Show everything</button>
+        </div>
+
+        <noscript>
+          <div class="noscript-list">
+            <p>JavaScript is only used for filtering and the in-page viewer. The current media is still available:</p>
+            <a href="https://jpop.cloud/assets/get-schwifty-og.jpg">Portal Mutation poster ↗</a>
+            <a href="https://jpop.cloud/assets/jpop-workshop-og.png">Midnight Workshop image ↗</a>
+          </div>
+        </noscript>
+      </div>
+    </section>
+
+    <section class="formats shell" aria-labelledby="formats-title">
+      <div class="formats-intro">
+        <p class="eyebrow">BUILT FOR THE NEXT DROP</p>
+        <h2 id="formats-title">More than a playlist.</h2>
+      </div>
+      <div class="format-grid">
+        <article><span>01</span><h3>Listen</h3><p>Full songs, sketches, mixes, and audio experiments with native playback.</p><small>MP3 · M4A · WAV</small></article>
+        <article><span>02</span><h3>Watch</h3><p>Music videos, short films, demos, and other moving evidence.</p><small>MP4 · WEBM</small></article>
+        <article><span>03</span><h3>Look</h3><p>Posters, artwork, photos, and visual scraps worth keeping around.</p><small>JPG · PNG · AVIF · WEBP</small></article>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="shell closing-inner">
+        <p class="eyebrow">END OF SIDE A</p>
+        <h2>Come back when<br><em>the next thing drops.</em></h2>
+        <a href="https://jpop.cloud/">Keep roaming the workshop <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell"><span>JPOP MEDIA ROOM</span><span>Broadcasting from San Diego</span><span>© <span data-year>2026</span></span></footer>
+
+  <dialog class="media-dialog" data-media-dialog aria-labelledby="dialog-title">
+    <button class="dialog-close" type="button" data-dialog-close aria-label="Close media viewer">Close ×</button>
+    <div class="dialog-layout">
+      <div class="dialog-player" data-dialog-player></div>
+      <div class="dialog-copy">
+        <p class="eyebrow" data-dialog-kind></p>
+        <h2 id="dialog-title" data-dialog-title></h2>
+        <p data-dialog-description></p>
+        <dl>
+          <div><dt>Released</dt><dd data-dialog-date></dd></div>
+          <div><dt>Credit</dt><dd data-dialog-credit></dd></div>
+        </dl>
+        <a class="button button-primary" data-dialog-source target="_blank" rel="noreferrer">Open the original <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="app.js?v=20261107a" type="module"></script>
+</body>
+</html>
