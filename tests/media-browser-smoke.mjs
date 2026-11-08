@@ -106,6 +106,21 @@ try {
       }
       throw new Error("media library did not render");
     })()`);
+    await evaluate(`(async () => {
+      await document.fonts.ready;
+      const art = document.querySelector("[data-featured-art]");
+      const match = getComputedStyle(art).backgroundImage.match(/url\\(["']?(.*?)["']?\\)/);
+      if (match?.[1]) {
+        await new Promise((resolve, reject) => {
+          const image = new Image();
+          image.onload = resolve;
+          image.onerror = reject;
+          image.src = match[1];
+        });
+      }
+      await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+      return true;
+    })()`);
   };
 
   await send("Page.enable");
