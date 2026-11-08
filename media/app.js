@@ -29,7 +29,7 @@ const collectionForSlug = (slug) => collections.find((collection) => collection.
 
 const makeCard = (item, index) => {
   const article = element("article", `media-card media-card-${item.kind}`);
-  article.style.setProperty("--card-index", index);
+  article.style.setProperty("--card-index", index % 8);
   const button = element("button", "media-card-button");
   button.type = "button";
   button.dataset.open = item.slug;

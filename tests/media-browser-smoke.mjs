@@ -157,6 +157,7 @@ try {
       filterCount: document.querySelectorAll("[data-filter]").length,
       previewCount: document.querySelectorAll(".preview-asset").length,
       collectionCount: document.querySelectorAll(".collection-shelf").length,
+      maxCardDelay: Math.max(...[...document.querySelectorAll(".media-card")].map((card) => parseFloat(getComputedStyle(card).animationDelay) || 0)),
       featured: document.querySelector("[data-featured-title]")?.textContent,
       backHref: document.querySelector(".workshop-link")?.href,
       overflowers: [...document.querySelectorAll("body *")].map((node) => {
@@ -175,6 +176,7 @@ try {
     assert.equal(metrics.filterCount, 5, `${label} renders every filter`);
     assert.equal(metrics.previewCount, expectedPreviewCount, `${label} exposes every asset from the featured collection preview`);
     assert.equal(metrics.collectionCount, expectedCollectionCount, `${label} renders every collection`);
+    assert.ok(metrics.maxCardDelay <= 0.56, `${label} caps the card reveal stagger: ${metrics.maxCardDelay}s`);
     assert.equal(metrics.featured, "Get Schwifty Cast", `${label} renders the featured collection`);
     assert.equal(metrics.backHref, "https://jpop.cloud/", `${label} links back to the workshop`);
 
@@ -227,7 +229,7 @@ try {
       const capture = await send("Page.captureScreenshot", { format: "png", fromSurface: true });
       writeFileSync(join(proofDir, `media-${label}.png`), Buffer.from(capture.data, "base64"));
       await evaluate(`document.querySelector("#library").scrollIntoView()`);
-      await new Promise((resolve) => setTimeout(resolve, 120));
+      await new Promise((resolve) => setTimeout(resolve, 700));
       const libraryCapture = await send("Page.captureScreenshot", { format: "png", fromSurface: true });
       writeFileSync(join(proofDir, `media-${label}-library.png`), Buffer.from(libraryCapture.data, "base64"));
     }
