@@ -101,23 +101,19 @@ try {
     await loaded;
     await evaluate(`(async () => {
       for (let attempt = 0; attempt < 80; attempt += 1) {
-        if (document.querySelectorAll("[data-open]").length >= 3) return true;
+        if (document.querySelectorAll(".media-card").length === 8 && document.querySelectorAll(".preview-asset").length === 8) return true;
         await new Promise((resolve) => setTimeout(resolve, 50));
       }
       throw new Error("media library did not render");
     })()`);
     await evaluate(`(async () => {
       await document.fonts.ready;
-      const art = document.querySelector("[data-featured-art]");
-      const match = getComputedStyle(art).backgroundImage.match(/url\\(["']?(.*?)["']?\\)/);
-      if (match?.[1]) {
-        await new Promise((resolve, reject) => {
-          const image = new Image();
-          image.onload = resolve;
-          image.onerror = reject;
-          image.src = match[1];
-        });
-      }
+      await Promise.all([...document.querySelectorAll(".preview-assets img")].map((image) => image.complete
+        ? Promise.resolve()
+        : new Promise((resolve, reject) => {
+          image.addEventListener("load", resolve, { once: true });
+          image.addEventListener("error", reject, { once: true });
+        })));
       await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
       return true;
     })()`);
@@ -153,6 +149,8 @@ try {
       h1FontSize: getComputedStyle(document.querySelector("h1")).fontSize,
       cardCount: document.querySelectorAll(".media-card").length,
       filterCount: document.querySelectorAll("[data-filter]").length,
+      previewCount: document.querySelectorAll(".preview-asset").length,
+      collectionCount: document.querySelectorAll(".collection-shelf").length,
       featured: document.querySelector("[data-featured-title]")?.textContent,
       backHref: document.querySelector(".workshop-link")?.href,
       overflowers: [...document.querySelectorAll("body *")].map((node) => {
@@ -167,9 +165,11 @@ try {
     assert.ok(metrics.scrollWidth <= width, `${label} has no document overflow: ${JSON.stringify(metrics.overflowers)}`);
     assert.ok(metrics.bodyScrollWidth <= width, `${label} has no body overflow: ${JSON.stringify(metrics.overflowers)}`);
     assert.equal(metrics.heading, "Sound.Vision.Everything else.", `${label} keeps the media-room promise`);
-    assert.equal(metrics.cardCount, 2, `${label} renders both launch pieces`);
+    assert.equal(metrics.cardCount, 8, `${label} renders every atomic launch asset`);
     assert.equal(metrics.filterCount, 5, `${label} renders every filter`);
-    assert.equal(metrics.featured, "Portal Mutation", `${label} renders the featured piece`);
+    assert.equal(metrics.previewCount, 8, `${label} exposes every asset from the collection preview`);
+    assert.equal(metrics.collectionCount, 1, `${label} groups the related assets into one collection`);
+    assert.equal(metrics.featured, "Get Schwifty Cast", `${label} renders the featured collection`);
     assert.equal(metrics.backHref, "https://jpop.cloud/", `${label} links back to the workshop`);
 
     const emptyMusic = await evaluate(`(() => {
@@ -182,28 +182,34 @@ try {
       };
     })()`);
     assert.deepEqual(emptyMusic, {
-      active: "true", empty: true, gridHidden: true, status: "Showing music 0 pieces.",
+      active: "true", empty: true, gridHidden: true, status: "Showing music 0 assets.",
     }, `${label} empty music shelf is honest and usable`);
 
     const dialogState = await evaluate(`(() => {
       document.querySelector("[data-show-all]").click();
-      const trigger = document.querySelector('[data-open="portal-mutation"]');
+      const trigger = document.querySelector('.media-card [data-open="get-schwifty-rick"]');
       trigger.click();
       return {
         open: document.querySelector("[data-media-dialog]").open,
         title: document.querySelector("[data-dialog-title]").textContent,
         image: Boolean(document.querySelector("[data-dialog-player] img")),
+        shareAction: Boolean(document.querySelector("[data-dialog-share]")),
+        download: document.querySelector("[data-dialog-source]").hasAttribute("download"),
         hash: location.hash
       };
     })()`);
     assert.deepEqual(dialogState, {
-      open: true, title: "Portal Mutation", image: true, hash: "#portal-mutation",
-    }, `${label} opens a deep-linkable native media viewer`);
+      open: true, title: "Rick", image: true, shareAction: true, download: true, hash: "#get-schwifty-rick",
+    }, `${label} opens a shareable, downloadable, deep-linkable asset viewer`);
     await evaluate(`document.querySelector("[data-dialog-close]").click()`);
 
     if (keepProof) {
       const capture = await send("Page.captureScreenshot", { format: "png", fromSurface: true });
       writeFileSync(join(proofDir, `media-${label}.png`), Buffer.from(capture.data, "base64"));
+      await evaluate(`document.querySelector("#library").scrollIntoView()`);
+      await new Promise((resolve) => setTimeout(resolve, 120));
+      const libraryCapture = await send("Page.captureScreenshot", { format: "png", fromSurface: true });
+      writeFileSync(join(proofDir, `media-${label}-library.png`), Buffer.from(libraryCapture.data, "base64"));
     }
   }
 

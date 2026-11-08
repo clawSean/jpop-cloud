@@ -20,8 +20,9 @@ node tests/inbox-island-browser-smoke.mjs
 ## Live comparison routes
 
 - `/` — current production homepage
-- `https://media.jpop.cloud/` — manifest-driven media room for songs, video,
-  images, and posters (source lives under `/media/`)
+- `https://media.jpop.cloud/` — manifest-driven media room for individually
+  shareable songs, video, images, and posters, with related assets grouped into
+  collections (source lives under `/media/`)
 - `https://schwifty.jpop.cloud/` — the canonical Get Schwifty portal into Nick and Morty’s credited, interactive agent universe (source lives under `/nick-and-morty/`)
 - `/alive/` — experimental Workshop Pulse, constellation, and project quick looks
 - `/compare/` — same-origin, side-by-side desktop comparison; full-screen links on mobile
@@ -43,13 +44,19 @@ Mac-to-VPS syncs must not preserve local ownership or directory modes; use
 
 ## Adding media
 
-1. Put the web-ready file in `media/uploads/` (or use a durable HTTPS source).
-2. Add one item to `media/library.json` with a unique `slug`, `title`, `kind`,
-   `date`, `description`, `src`, and accessible `alt` text. Supported kinds are
-   `audio`, `video`, `image`, and `poster`.
-3. For audio and video, add a `poster` or `thumbnail` so the shelf looks good
-   before playback. Set `featured: true` on at most one item.
-4. Run `node tests/media-check.mjs` and `node tests/media-browser-smoke.mjs`
+1. Put each web-ready, independently useful file in `media/uploads/` or a
+   named folder under `media/assets/collections/`. Do not list a composite
+   contact sheet or promo banner when its component assets are the useful unit.
+2. Add one item per file to `media/library.json` with a unique `slug`, `title`,
+   `kind`, `date`, `description`, `src`, and accessible `alt` text. Supported
+   kinds are `audio`, `video`, `image`, and `poster`.
+3. When assets belong together, add one entry to `collections`, list the item
+   slugs in `itemSlugs`, and set each item's `collection` to that collection
+   slug. Leave unrelated assets stand-alone. The first collection is previewed
+   in the hero, but every preview tile still opens its own asset.
+4. For audio and video, add a `poster` or `thumbnail` so the shelf looks good
+   before playback.
+5. Run `node tests/media-check.mjs` and `node tests/media-browser-smoke.mjs`
    against a local server before deploying the `media/` directory.
 
 ## Checks

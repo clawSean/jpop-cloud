@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JPop Media Room — music, video, images & posters</title>
-  <meta name="description" content="The media wing of JPop's workshop: songs, films, images, posters, and whatever else escapes the lab.">
+  <title>JPop Media Room — individual media, collected</title>
+  <meta name="description" content="The media wing of JPop's workshop: individual songs, clips, images, posters, and related pieces kept together as collections.">
   <meta name="theme-color" content="#0a0910">
   <meta property="og:title" content="JPop Media Room">
-  <meta property="og:description" content="Sound, vision, and everything else escaping JPop's workshop.">
+  <meta property="og:description" content="Individual media assets, ready to open, download, and share—plus collections that keep related pieces together.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://media.jpop.cloud/">
   <meta property="og:image" content="https://media.jpop.cloud/assets/media-room-og.png">
@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261107a">
+  <link rel="stylesheet" href="styles.css?v=20261107b">
 </head>
 <body>
   <a class="skip-link" href="#library">Skip to the library</a>
@@ -40,22 +40,24 @@
       <div class="hero-copy">
         <p class="eyebrow"><span></span> MEDIA ROOM / SIGNAL OPEN</p>
         <h1 id="hero-title">Sound.<br><em>Vision.</em><br>Everything else.</h1>
-        <p class="hero-lede">Songs, films, posters, images, and whatever else escapes the workshop. One shelf, no format loyalty.</p>
+        <p class="hero-lede">Songs, clips, posters, images, and whatever else escapes the workshop—kept as useful individual files, not flattened into promo banners.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#library">Browse the drops <span aria-hidden="true">↓</span></a>
-          <p><strong data-library-count>2</strong><span>pieces in the room</span></p>
+          <a class="button button-primary" href="#library">Browse the assets <span aria-hidden="true">↓</span></a>
+          <p><strong data-library-count>8</strong><span>individual assets</span></p>
         </div>
       </div>
 
-      <div class="signal-stage" aria-label="Featured media" data-featured-stage>
+      <div class="signal-stage" aria-label="Featured collection" data-featured-stage>
         <div class="signal-halo" aria-hidden="true"></div>
-        <button class="feature-card" type="button" data-featured-open aria-label="Open featured media">
-          <span class="feature-art" data-featured-art></span>
-          <span class="feature-overlay" aria-hidden="true"></span>
-          <span class="feature-top"><small>ON THE WALL NOW</small><b>OPEN ↗</b></span>
-          <span class="feature-copy"><small data-featured-kind>POSTER / 2026</small><strong data-featured-title>Portal Mutation</strong></span>
-        </button>
-        <div class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <article class="collection-preview" data-featured-collection>
+          <header>
+            <p class="eyebrow"><span data-featured-count>8</span> ASSETS / COLLECTION 001</p>
+            <h2 data-featured-title>Get Schwifty Cast</h2>
+            <p data-featured-description>Related pieces stay together without becoming one inseparable graphic.</p>
+          </header>
+          <div class="preview-assets" data-featured-assets aria-label="Open an individual asset"></div>
+          <a href="#collection-get-schwifty-cast">Explore the full collection <span aria-hidden="true">↓</span></a>
+        </article>
       </div>
     </section>
 
@@ -64,21 +66,21 @@
         <div class="library-head">
           <div>
             <p class="eyebrow">THE ARCHIVE / ALWAYS GROWING</p>
-            <h2 id="library-title">Pick a signal.</h2>
+            <h2 id="library-title">Pick a piece.</h2>
           </div>
-          <p>Everything is playable or viewable right here. New drops slot into the same shelf without rebuilding the room.</p>
+          <p>Every tile is its own usable file and share link. Collections add context without gluing the pieces together.</p>
         </div>
 
         <div class="filter-bar" role="group" aria-label="Filter media">
-          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All <span data-count="all">2</span></button>
+          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All <span data-count="all">8</span></button>
           <button class="filter" type="button" data-filter="audio" aria-pressed="false">Music <span data-count="audio">0</span></button>
           <button class="filter" type="button" data-filter="video" aria-pressed="false">Video <span data-count="video">0</span></button>
-          <button class="filter" type="button" data-filter="image" aria-pressed="false">Images <span data-count="image">1</span></button>
-          <button class="filter" type="button" data-filter="poster" aria-pressed="false">Posters <span data-count="poster">1</span></button>
+          <button class="filter" type="button" data-filter="image" aria-pressed="false">Images <span data-count="image">8</span></button>
+          <button class="filter" type="button" data-filter="poster" aria-pressed="false">Posters <span data-count="poster">0</span></button>
         </div>
 
-        <p class="result-status" data-result-status aria-live="polite">Showing all 2 pieces.</p>
-        <div class="media-grid" data-media-grid></div>
+        <p class="result-status" data-result-status aria-live="polite">Showing 8 assets in 1 collection.</p>
+        <div class="media-shelves" data-media-grid></div>
         <div class="empty-state" data-empty-state hidden>
           <span aria-hidden="true">◌</span>
           <h3>That shelf is ready.</h3>
@@ -88,9 +90,15 @@
 
         <noscript>
           <div class="noscript-list">
-            <p>JavaScript is only used for filtering and the in-page viewer. The current media is still available:</p>
-            <a href="https://jpop.cloud/assets/get-schwifty-og.jpg">Portal Mutation poster ↗</a>
-            <a href="https://jpop.cloud/assets/jpop-workshop-og.png">Midnight Workshop image ↗</a>
+            <p>JavaScript adds filtering and the in-page viewer. Every individual file remains directly available:</p>
+            <a href="assets/collections/get-schwifty-cast/rick.png">Rick ↗</a>
+            <a href="assets/collections/get-schwifty-cast/morty.png">Morty ↗</a>
+            <a href="assets/collections/get-schwifty-cast/summer.png">Summer ↗</a>
+            <a href="assets/collections/get-schwifty-cast/beth.png">Beth ↗</a>
+            <a href="assets/collections/get-schwifty-cast/jerry.png">Jerry ↗</a>
+            <a href="assets/collections/get-schwifty-cast/mr-meeseeks.png">Mr. Meeseeks ↗</a>
+            <a href="assets/collections/get-schwifty-cast/birdperson.png">Birdperson ↗</a>
+            <a href="assets/collections/get-schwifty-cast/citadel.png">The Citadel ↗</a>
           </div>
         </noscript>
       </div>
@@ -130,12 +138,17 @@
         <dl>
           <div><dt>Released</dt><dd data-dialog-date></dd></div>
           <div><dt>Credit</dt><dd data-dialog-credit></dd></div>
+          <div><dt>Collection</dt><dd data-dialog-collection></dd></div>
         </dl>
-        <a class="button button-primary" data-dialog-source target="_blank" rel="noreferrer">Open the original <span aria-hidden="true">↗</span></a>
+        <div class="dialog-actions">
+          <button class="button button-primary" type="button" data-dialog-share>Share asset</button>
+          <a class="button button-secondary" data-dialog-source target="_blank" rel="noreferrer" download>Download file <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="share-status" data-share-status aria-live="polite"></p>
       </div>
     </div>
   </dialog>
 
-  <script src="app.js?v=20261107a" type="module"></script>
+  <script src="app.js?v=20261107b" type="module"></script>
 </body>
 </html>
