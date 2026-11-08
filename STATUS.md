@@ -1,12 +1,16 @@
 # Status
 
-Updated: 2026-11-03T21:10:30-08:00 by Sean
+Updated: 2026-11-07T16:26:40-08:00 by Sean
+working: Sean · 2026-11-07T16:26:40-08:00 · launch `media.jpop.cloud`
 
 - Phase: operational
 - Started: 2026-09-17
 - Canonical source: `/Users/Sean/projects/jp0p/jpop-cloud`
 - Current: reviewed Living Workshop motion/UI pass live at `https://jpop.cloud`; `www` redirects permanently to the apex. The homepage exposes **Get Schwifty** immediately in primary navigation and again through its full-width portal door and command palette, all targeting canonical `https://schwifty.jpop.cloud/`; the misspelled `shwifty.jpop.cloud` host and legacy `/nick-and-morty/` route redirect permanently. The experience combines a recognizable character-faithful portrait atlas, show-faithful animated portal, Portal Mutation title treatment with polished phone-scale geometry, eight-entity Interdimensional Cable map, explicit tap-to-explore guidance with a delayed Nick discovery pulse, Build/Test/Guard/Recover/Review traces, semantic and reduced-motion fallbacks, and matching homepage/share art.
 - Deployment: VPS static root `/srv/websites/jpop.cloud` behind Caddy
+- In progress: a dedicated, data-driven media room at `media.jpop.cloud` for
+  songs, videos, images, and posters, with the smallest possible discovery
+  addition to the existing homepage.
 - Inbox Island's Chrome-first `0.5.0` review-candidate homepage, effective
   November 3 privacy policy, public source/support links, Limited Use statement,
   revocation/security channels, and exact remaining Google/Store review gates

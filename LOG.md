@@ -360,3 +360,8 @@
   rollback `/root/rollbacks/inboxisland-before-publication-20261022T1430PDT.tar.gz`
   (SHA-256
   `85e5dfba9c16583a28c2a7632227d6df9b94dae4ce1c9b6682ea3f0e49def1d0`).
+
+2026-11-07 · Sean · decision · Started a broad `media.jpop.cloud` library inside
+the existing JPop workshop project, using a manifest-driven static site and a
+separate VPS web root so songs, videos, images, and posters can be added without
+a new backend · `DECISIONS.md`, `rollouts/2026-11-07-media-subdomain.md`, `STATUS.md`

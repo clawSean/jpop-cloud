@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "slug": "portal-mutation",
+      "title": "Portal Mutation",
+      "kind": "poster",
+      "date": "2026-10-14",
+      "description": "The toxic-green broadcast poster for Get Schwifty, JPop and Sean's credited portal into Nick's character-driven agent universe.",
+      "src": "https://jpop.cloud/assets/get-schwifty-og.jpg",
+      "thumbnail": "https://jpop.cloud/assets/get-schwifty-og.jpg",
+      "alt": "A glowing green portal surrounded by the Get Schwifty cast and purple title lettering",
+      "credit": "JPop + Sean",
+      "tags": ["poster", "get schwifty", "portal"],
+      "featured": true
+    },
+    {
+      "slug": "midnight-workshop",
+      "title": "Midnight Workshop",
+      "kind": "image",
+      "date": "2026-09-17",
+      "description": "The visual front door to JPop's living workshop: people, products, private AI, and peculiar software after dark.",
+      "src": "https://jpop.cloud/assets/jpop-workshop-og.png",
+      "thumbnail": "https://jpop.cloud/assets/jpop-workshop-og.png",
+      "alt": "JPop's midnight workshop rendered in dark tones with bright signal colors",
+      "credit": "JPop + Sean",
+      "tags": ["image", "workshop", "jpop cloud"],
+      "featured": false
+    }
+  ]
+}
