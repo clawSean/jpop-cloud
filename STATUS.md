@@ -1,6 +1,6 @@
 # Status
 
-Updated: 2026-11-07T16:41:21-08:00 by Sean
+Updated: 2026-11-07T17:09:44-08:00 by Sean
 
 - Phase: operational
 - Started: 2026-09-17
@@ -9,11 +9,14 @@ Updated: 2026-11-07T16:41:21-08:00 by Sean
 - Deployment: VPS static roots `/srv/websites/jpop.cloud` and
   `/srv/websites/media.jpop.cloud` behind Caddy
 - `https://media.jpop.cloud/` is live as a dedicated, data-driven media room for
-  songs, videos, images, and posters. It launches with two existing public
-  visual pieces, native image/audio/video viewing, format filters, honest empty
-  states, deep links, a 1200×630 share card, and a documented manifest/upload
-  workflow. The existing homepage gains only a primary-nav route and command-
-  palette entry, preserving its architecture and eight-door workshop grid.
+  songs, videos, images, and posters. Its launch shelf now uses eight individual
+  transparent Get Schwifty assets rather than composite promo banners, with the
+  related pieces grouped as one collection while each retains its own viewer,
+  deep link, native share action, and download. The collection-aware manifest,
+  format filters, honest empty states, audio/video player support, 1200×630
+  share card, and documented atomic-upload workflow prepare the same room for
+  future formats. The existing homepage keeps only its primary-nav route and
+  command-palette entry, preserving its architecture and eight-door grid.
 - Inbox Island's Chrome-first `0.5.0` review-candidate homepage, effective
   November 3 privacy policy, public source/support links, Limited Use statement,
   revocation/security channels, and exact remaining Google/Store review gates
@@ -38,3 +41,18 @@ Updated: 2026-11-07T16:41:21-08:00 by Sean
   `/root/rollbacks/media-before-launch-20261108T003842Z/` and
   `/root/rollbacks/jpop-before-media-nav-20261108T003842Z.tar.gz` (SHA-256
   `e31d05d445d19e3a499dc591755357c685316bb2f26c2bad67e3bb2d31e859b2`).
+  Atomic-library correction PR #27 merged as `b1594da`; source, VPS, and public
+  SHA-256 match for HTML
+  `bb56204cf6008f42e83fa59a0503c997670119d8ba1af615bf35fa86d6769f9f`,
+  CSS `030a52129db44e39ff518c444f70b9d7bd9e4e9d57a7d1e6f6a2c26a816e4580`,
+  JavaScript
+  `f7f4372088bb28ed9105c4ca1b0948088de45ae87f6d03d59143e791484fce12`,
+  manifest
+  `93a875a4bef9cd2597fe4d837d1d6ee19b4c54344d966a118a0e455ec3cd527d`,
+  and all eight transparent PNG assets. Public Chrome proof passes again at
+  320/390/768/1440px with eight independent asset tiles, one collection,
+  native share/download controls, deep links, zero overflow, zero browser
+  exceptions, and zero failed resources. Rollback:
+  `/root/rollbacks/media-before-atomic-assets-20261108T010823Z.tar.gz`
+  (SHA-256
+  `1431fc278c4334826bf4836ba64937062490d09bd248debd4e5ab7cb19ce1d5b`).
