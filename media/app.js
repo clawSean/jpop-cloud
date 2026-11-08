@@ -1,4 +1,4 @@
-const grid = document.querySelector("[data-media-grid]");
+const shelves = document.querySelector("[data-media-grid]");
 const filters = [...document.querySelectorAll("[data-filter]")];
 const status = document.querySelector("[data-result-status]");
 const emptyState = document.querySelector("[data-empty-state]");
@@ -6,7 +6,9 @@ const dialog = document.querySelector("[data-media-dialog]");
 const kinds = { audio: "Music", video: "Video", image: "Image", poster: "Poster" };
 const validKinds = new Set(Object.keys(kinds));
 let items = [];
+let collections = [];
 let activeFilter = "all";
+let activeItem = null;
 let activeTrigger = null;
 
 const formatDate = (value) => new Intl.DateTimeFormat("en-US", {
@@ -23,6 +25,7 @@ const element = (tag, className, text) => {
 };
 
 const itemForSlug = (slug) => items.find((item) => item.slug === slug);
+const collectionForSlug = (slug) => collections.find((collection) => collection.slug === slug);
 
 const makeCard = (item, index) => {
   const article = element("article", `media-card media-card-${item.kind}`);
@@ -37,24 +40,49 @@ const makeCard = (item, index) => {
   image.src = item.thumbnail || item.poster || item.src;
   image.alt = item.alt || "";
   image.loading = "lazy";
-  image.width = 900;
-  image.height = 560;
+  image.width = 384;
+  image.height = 512;
   art.append(image);
   if (item.kind === "audio" || item.kind === "video") {
-    art.append(element("span", "play-mark", item.kind === "audio" ? "▶" : "▶"));
+    art.append(element("span", "play-mark", "▶"));
   }
 
   const top = element("span", "media-card-top");
-  top.append(element("small", "", `${kinds[item.kind]} / ${item.date.slice(0, 4)}`));
+  top.append(element("small", "", kinds[item.kind]));
   top.append(element("b", "", "OPEN ↗"));
 
   const copy = element("span", "media-card-copy");
   copy.append(element("strong", "", item.title));
-  copy.append(element("span", "", item.description));
+  const collection = collectionForSlug(item.collection);
+  copy.append(element("span", "", collection?.title || "Stand-alone asset"));
 
   button.append(art, top, copy);
   article.append(button);
   return article;
+};
+
+const makeShelf = (collection, shelfItems, indexOffset) => {
+  const section = element("section", "collection-shelf");
+  const slug = collection?.slug || "standalone";
+  section.id = `collection-${slug}`;
+  const header = element("header", "collection-head");
+  const titleWrap = element("div");
+  titleWrap.append(
+    element("p", "eyebrow", collection ? "COLLECTION" : "STAND-ALONE ASSETS"),
+    element("h3", "", collection?.title || "Loose pieces")
+  );
+  const description = element(
+    "p",
+    "",
+    collection?.description || "Individual files that do not belong to a larger set."
+  );
+  const count = element("span", "collection-count", `${shelfItems.length} ASSET${shelfItems.length === 1 ? "" : "S"}`);
+  header.append(titleWrap, description, count);
+
+  const grid = element("div", "media-grid");
+  grid.append(...shelfItems.map((item, index) => makeCard(item, index + indexOffset)));
+  section.append(header, grid);
+  return section;
 };
 
 const updateCounts = () => {
@@ -67,11 +95,27 @@ const updateCounts = () => {
 
 const render = () => {
   const visible = activeFilter === "all" ? items : items.filter((item) => item.kind === activeFilter);
-  grid.replaceChildren(...visible.map(makeCard));
+  const groups = [];
+  let indexOffset = 0;
+
+  collections.forEach((collection) => {
+    const collectionItems = visible.filter((item) => item.collection === collection.slug);
+    if (!collectionItems.length) return;
+    groups.push(makeShelf(collection, collectionItems, indexOffset));
+    indexOffset += collectionItems.length;
+  });
+
+  const standalone = visible.filter((item) => !item.collection || !collectionForSlug(item.collection));
+  if (standalone.length) groups.push(makeShelf(null, standalone, indexOffset));
+
+  shelves.replaceChildren(...groups);
   emptyState.hidden = visible.length !== 0;
-  grid.hidden = visible.length === 0;
-  const label = activeFilter === "all" ? "all" : kinds[activeFilter].toLowerCase();
-  status.textContent = `Showing ${label} ${visible.length} piece${visible.length === 1 ? "" : "s"}.`;
+  shelves.hidden = visible.length === 0;
+  const label = activeFilter === "all" ? "" : `${kinds[activeFilter].toLowerCase()} `;
+  const visibleCollections = groups.length;
+  status.textContent = visible.length
+    ? `Showing ${visible.length} ${label}asset${visible.length === 1 ? "" : "s"} in ${visibleCollections} collection${visibleCollections === 1 ? "" : "s"}.`
+    : `Showing ${label}0 assets.`;
 };
 
 const mediaNode = (item) => {
@@ -107,8 +151,15 @@ const setDialogField = (selector, value) => {
   if (node) node.textContent = value;
 };
 
+const itemShareUrl = (item) => {
+  const url = new URL(location.href);
+  url.hash = item.slug;
+  return url.href;
+};
+
 const openItem = (item, trigger, { updateHash = true } = {}) => {
   if (!dialog || !item) return;
+  activeItem = item;
   activeTrigger = trigger || document.querySelector(`[data-open="${CSS.escape(item.slug)}"]`);
   dialog.querySelector("[data-dialog-player]").replaceChildren(mediaNode(item));
   setDialogField("[data-dialog-kind]", `${kinds[item.kind]} / ${item.date.slice(0, 4)}`);
@@ -116,9 +167,12 @@ const openItem = (item, trigger, { updateHash = true } = {}) => {
   setDialogField("[data-dialog-description]", item.description);
   setDialogField("[data-dialog-date]", formatDate(item.date));
   setDialogField("[data-dialog-credit]", item.credit || "JPop Media Room");
+  setDialogField("[data-dialog-collection]", collectionForSlug(item.collection)?.title || "Stand-alone");
+  setDialogField("[data-share-status]", "");
   const source = dialog.querySelector("[data-dialog-source]");
   source.href = item.src;
-  source.firstChild.textContent = item.kind === "audio" || item.kind === "video" ? "Open the media file " : "Open full size ";
+  source.download = item.src.split("/").pop() || item.slug;
+  source.firstChild.textContent = item.kind === "audio" || item.kind === "video" ? "Download media " : "Download file ";
   dialog.showModal();
   if (updateHash) history.replaceState(null, "", `#${item.slug}`);
 };
@@ -127,6 +181,24 @@ const closeDialog = () => {
   if (!dialog?.open) return;
   dialog.querySelectorAll("audio, video").forEach((media) => media.pause());
   dialog.close();
+};
+
+const shareActiveItem = async () => {
+  if (!activeItem) return;
+  const url = itemShareUrl(activeItem);
+  try {
+    if (navigator.share) {
+      await navigator.share({ title: `${activeItem.title} — JPop Media Room`, text: activeItem.description, url });
+      setDialogField("[data-share-status]", "Shared.");
+      return;
+    }
+    await navigator.clipboard.writeText(url);
+    setDialogField("[data-share-status]", "Share link copied.");
+  } catch (error) {
+    if (error.name !== "AbortError") {
+      setDialogField("[data-share-status]", "Could not share automatically. Copy the URL from the address bar.");
+    }
+  }
 };
 
 const setFilter = (filter) => {
@@ -139,15 +211,30 @@ const setFilter = (filter) => {
   render();
 };
 
-const setFeatured = (item) => {
-  if (!item) return;
-  const art = document.querySelector("[data-featured-art]");
-  art.style.backgroundImage = `url("${item.thumbnail || item.poster || item.src}")`;
-  document.querySelector("[data-featured-title]").textContent = item.title;
-  document.querySelector("[data-featured-kind]").textContent = `${kinds[item.kind]} / ${item.date.slice(0, 4)}`;
-  const button = document.querySelector("[data-featured-open]");
-  button.dataset.open = item.slug;
-  button.setAttribute("aria-label", `Open featured media: ${item.title}`);
+const setFeaturedCollection = (collection) => {
+  if (!collection) return;
+  const collectionItems = collection.itemSlugs
+    .map(itemForSlug)
+    .filter(Boolean);
+  document.querySelector("[data-featured-title]").textContent = collection.title;
+  document.querySelector("[data-featured-description]").textContent = collection.description;
+  document.querySelector("[data-featured-count]").textContent = collectionItems.length;
+  const preview = document.querySelector("[data-featured-assets]");
+  const buttons = collectionItems.map((item) => {
+    const button = element("button", "preview-asset");
+    button.type = "button";
+    button.dataset.open = item.slug;
+    button.setAttribute("aria-label", `Open ${item.title}`);
+    const image = new Image();
+    image.src = item.thumbnail || item.src;
+    image.alt = "";
+    image.width = 384;
+    image.height = 512;
+    const name = element("span", "", item.title);
+    button.append(image, name);
+    return button;
+  });
+  preview.replaceChildren(...buttons);
 };
 
 document.addEventListener("click", (event) => {
@@ -158,10 +245,12 @@ document.addEventListener("click", (event) => {
 filters.forEach((button) => button.addEventListener("click", () => setFilter(button.dataset.filter)));
 document.querySelector("[data-show-all]")?.addEventListener("click", () => setFilter("all"));
 document.querySelector("[data-dialog-close]")?.addEventListener("click", closeDialog);
+document.querySelector("[data-dialog-share]")?.addEventListener("click", shareActiveItem);
 dialog?.addEventListener("click", (event) => { if (event.target === dialog) closeDialog(); });
 dialog?.addEventListener("close", () => {
   history.replaceState(null, "", `${location.pathname}${location.search}`);
   activeTrigger?.focus();
+  activeItem = null;
   activeTrigger = null;
 });
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
@@ -170,18 +259,23 @@ try {
   const response = await fetch("library.json", { cache: "no-store" });
   if (!response.ok) throw new Error(`Library request failed: ${response.status}`);
   const payload = await response.json();
-  if (!Array.isArray(payload.items)) throw new Error("Library items are missing");
+  if (!Array.isArray(payload.items) || !Array.isArray(payload.collections)) {
+    throw new Error("Library items or collections are missing");
+  }
+  collections = payload.collections.filter((collection) => (
+    collection.slug && collection.title && Array.isArray(collection.itemSlugs)
+  ));
   items = payload.items
     .filter((item) => item.slug && item.title && validKinds.has(item.kind) && item.date && item.src)
     .sort((a, b) => b.date.localeCompare(a.date));
   updateCounts();
   render();
-  setFeatured(items.find((item) => item.featured) || items[0]);
+  setFeaturedCollection(collections[0]);
   const hashItem = itemForSlug(location.hash.slice(1));
   if (hashItem) requestAnimationFrame(() => openItem(hashItem, null, { updateHash: false }));
 } catch (error) {
   console.error(error);
-  grid.hidden = true;
+  shelves.hidden = true;
   emptyState.hidden = false;
   emptyState.querySelector("h3").textContent = "The signal dropped.";
   emptyState.querySelector("p").textContent = "The library could not load. Try again in a moment.";

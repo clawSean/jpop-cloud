@@ -1,31 +1,127 @@
 {
-  "version": 1,
+  "version": 2,
+  "collections": [
+    {
+      "slug": "get-schwifty-cast",
+      "title": "Get Schwifty Cast",
+      "description": "Eight isolated character and world elements from the Get Schwifty homage. Browse them together; open, download, or share each one separately.",
+      "credit": "JPop + Sean",
+      "itemSlugs": [
+        "get-schwifty-rick",
+        "get-schwifty-morty",
+        "get-schwifty-summer",
+        "get-schwifty-beth",
+        "get-schwifty-jerry",
+        "get-schwifty-mr-meeseeks",
+        "get-schwifty-birdperson",
+        "get-schwifty-citadel"
+      ]
+    }
+  ],
   "items": [
     {
-      "slug": "portal-mutation",
-      "title": "Portal Mutation",
-      "kind": "poster",
-      "date": "2026-10-14",
-      "description": "The toxic-green broadcast poster for Get Schwifty, JPop and Sean's credited portal into Nick's character-driven agent universe.",
-      "src": "https://jpop.cloud/assets/get-schwifty-og.jpg",
-      "thumbnail": "https://jpop.cloud/assets/get-schwifty-og.jpg",
-      "alt": "A glowing green portal surrounded by the Get Schwifty cast and purple title lettering",
+      "slug": "get-schwifty-rick",
+      "title": "Rick",
+      "kind": "image",
+      "date": "2026-10-13",
+      "description": "An isolated transparent portrait of Rick from the Get Schwifty character set.",
+      "src": "assets/collections/get-schwifty-cast/rick.png",
+      "thumbnail": "assets/collections/get-schwifty-cast/rick.png",
+      "alt": "Illustrated transparent portrait of Rick with blue hair and a white lab coat",
       "credit": "JPop + Sean",
-      "tags": ["poster", "get schwifty", "portal"],
-      "featured": true
+      "collection": "get-schwifty-cast",
+      "tags": ["image", "get schwifty", "character", "rick"]
     },
     {
-      "slug": "midnight-workshop",
-      "title": "Midnight Workshop",
+      "slug": "get-schwifty-morty",
+      "title": "Morty",
       "kind": "image",
-      "date": "2026-09-17",
-      "description": "The visual front door to JPop's living workshop: people, products, private AI, and peculiar software after dark.",
-      "src": "https://jpop.cloud/assets/jpop-workshop-og.png",
-      "thumbnail": "https://jpop.cloud/assets/jpop-workshop-og.png",
-      "alt": "JPop's midnight workshop rendered in dark tones with bright signal colors",
+      "date": "2026-10-13",
+      "description": "An isolated transparent portrait of Morty from the Get Schwifty character set.",
+      "src": "assets/collections/get-schwifty-cast/morty.png",
+      "thumbnail": "assets/collections/get-schwifty-cast/morty.png",
+      "alt": "Illustrated transparent portrait of Morty wearing a yellow shirt",
       "credit": "JPop + Sean",
-      "tags": ["image", "workshop", "jpop cloud"],
-      "featured": false
+      "collection": "get-schwifty-cast",
+      "tags": ["image", "get schwifty", "character", "morty"]
+    },
+    {
+      "slug": "get-schwifty-summer",
+      "title": "Summer",
+      "kind": "image",
+      "date": "2026-10-13",
+      "description": "An isolated transparent portrait of Summer from the Get Schwifty character set.",
+      "src": "assets/collections/get-schwifty-cast/summer.png",
+      "thumbnail": "assets/collections/get-schwifty-cast/summer.png",
+      "alt": "Illustrated transparent portrait of Summer with orange hair and a pink top",
+      "credit": "JPop + Sean",
+      "collection": "get-schwifty-cast",
+      "tags": ["image", "get schwifty", "character", "summer"]
+    },
+    {
+      "slug": "get-schwifty-beth",
+      "title": "Beth",
+      "kind": "image",
+      "date": "2026-10-13",
+      "description": "An isolated transparent portrait of Beth from the Get Schwifty character set.",
+      "src": "assets/collections/get-schwifty-cast/beth.png",
+      "thumbnail": "assets/collections/get-schwifty-cast/beth.png",
+      "alt": "Illustrated transparent portrait of Beth with blonde hair and a red shirt",
+      "credit": "JPop + Sean",
+      "collection": "get-schwifty-cast",
+      "tags": ["image", "get schwifty", "character", "beth"]
+    },
+    {
+      "slug": "get-schwifty-jerry",
+      "title": "Jerry",
+      "kind": "image",
+      "date": "2026-10-13",
+      "description": "An isolated transparent portrait of Jerry from the Get Schwifty character set.",
+      "src": "assets/collections/get-schwifty-cast/jerry.png",
+      "thumbnail": "assets/collections/get-schwifty-cast/jerry.png",
+      "alt": "Illustrated transparent portrait of Jerry wearing a green striped shirt",
+      "credit": "JPop + Sean",
+      "collection": "get-schwifty-cast",
+      "tags": ["image", "get schwifty", "character", "jerry"]
+    },
+    {
+      "slug": "get-schwifty-mr-meeseeks",
+      "title": "Mr. Meeseeks",
+      "kind": "image",
+      "date": "2026-10-13",
+      "description": "An isolated transparent portrait of Mr. Meeseeks from the Get Schwifty character set.",
+      "src": "assets/collections/get-schwifty-cast/mr-meeseeks.png",
+      "thumbnail": "assets/collections/get-schwifty-cast/mr-meeseeks.png",
+      "alt": "Illustrated transparent portrait of blue Mr. Meeseeks giving a thumbs up",
+      "credit": "JPop + Sean",
+      "collection": "get-schwifty-cast",
+      "tags": ["image", "get schwifty", "character", "mr meeseeks"]
+    },
+    {
+      "slug": "get-schwifty-birdperson",
+      "title": "Birdperson",
+      "kind": "image",
+      "date": "2026-10-13",
+      "description": "An isolated transparent portrait of Birdperson from the Get Schwifty character set.",
+      "src": "assets/collections/get-schwifty-cast/birdperson.png",
+      "thumbnail": "assets/collections/get-schwifty-cast/birdperson.png",
+      "alt": "Illustrated transparent portrait of Birdperson in feathered armor",
+      "credit": "JPop + Sean",
+      "collection": "get-schwifty-cast",
+      "tags": ["image", "get schwifty", "character", "birdperson"]
+    },
+    {
+      "slug": "get-schwifty-citadel",
+      "title": "The Citadel",
+      "kind": "image",
+      "date": "2026-10-13",
+      "description": "An isolated transparent world element of the Citadel from the Get Schwifty set.",
+      "src": "assets/collections/get-schwifty-cast/citadel.png",
+      "thumbnail": "assets/collections/get-schwifty-cast/citadel.png",
+      "alt": "Illustrated transparent Citadel floating with a green portal beam",
+      "credit": "JPop + Sean",
+      "collection": "get-schwifty-cast",
+      "tags": ["image", "get schwifty", "world", "citadel"]
     }
   ]
 }
