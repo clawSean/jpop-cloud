@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "collections": [
     {
       "slug": "get-schwifty-cast",
@@ -16,6 +16,70 @@
         "get-schwifty-birdperson",
         "get-schwifty-citadel"
       ]
+    },
+    {
+      "slug": "original-songs",
+      "title": "Original Songs",
+      "description": "Finished tracks and workshop cuts generated for the JPop universe, published as compact listening copies while the full-resolution masters stay local.",
+      "credit": "JPop + Sean",
+      "itemSlugs": [
+        "fault-line",
+        "hollow-cathedral",
+        "static-saint",
+        "happy-birthday-jpop",
+        "late-night-good-music"
+      ]
+    },
+    {
+      "slug": "voice-lab",
+      "title": "Voice Lab",
+      "description": "Synthetic voice auditions and local model contenders. These are generated demos, not recordings of private conversations or cloned personal voices.",
+      "credit": "Sean / local voice lab",
+      "itemSlugs": [
+        "qwen3-tts-ryan-demo",
+        "pocket-tts-alba-demo",
+        "voice-australian-playful-gravel",
+        "voice-australian-smooth-confident",
+        "voice-british-bright-wit",
+        "voice-british-warm-baritone"
+      ]
+    },
+    {
+      "slug": "moving-experiments",
+      "title": "Moving Experiments",
+      "description": "Small generated films and audiovisual model tests that are useful as individual clips rather than as pieces trapped inside a demo reel.",
+      "credit": "JPop + Sean",
+      "itemSlugs": [
+        "white-fire-trailer",
+        "lunar-cat-foley"
+      ]
+    },
+    {
+      "slug": "butterfly-flair",
+      "title": "Butterfly Flair",
+      "description": "One subject interpreted as three print-ready visual studies: Art Nouveau, impasto, and stained glass.",
+      "credit": "JPop + Sean / local image lab",
+      "itemSlugs": [
+        "butterfly-art-nouveau",
+        "butterfly-impasto",
+        "butterfly-stained-glass"
+      ]
+    },
+    {
+      "slug": "lobster-cabinet",
+      "title": "Lobster Cabinet",
+      "description": "A cabinet of generated crustacean art: mascots, fantasy studies, workshop imagery, and one deeply unreasonable burger.",
+      "credit": "JPop + Sean",
+      "itemSlugs": [
+        "sean-command-center-portrait",
+        "matrix-lobster",
+        "crustacean-warrior-one",
+        "crustacean-warrior-two",
+        "crustacean-warrior-three",
+        "lobster-burger",
+        "privacy-shield",
+        "underwater-workshop"
+      ]
     }
   ],
   "items": [
@@ -25,12 +89,18 @@
       "kind": "image",
       "date": "2026-10-13",
       "description": "An isolated transparent portrait of Rick from the Get Schwifty character set.",
-      "src": "assets/collections/get-schwifty-cast/rick.png",
-      "thumbnail": "assets/collections/get-schwifty-cast/rick.png",
       "alt": "Illustrated transparent portrait of Rick with blue hair and a white lab coat",
       "credit": "JPop + Sean",
       "collection": "get-schwifty-cast",
-      "tags": ["image", "get schwifty", "character", "rick"]
+      "tags": [
+        "image",
+        "get schwifty",
+        "character",
+        "rick"
+      ],
+      "src": "assets/collections/get-schwifty-cast/rick.png",
+      "bytes": 258525,
+      "thumbnail": "assets/collections/get-schwifty-cast/rick.png"
     },
     {
       "slug": "get-schwifty-morty",
@@ -38,12 +108,18 @@
       "kind": "image",
       "date": "2026-10-13",
       "description": "An isolated transparent portrait of Morty from the Get Schwifty character set.",
-      "src": "assets/collections/get-schwifty-cast/morty.png",
-      "thumbnail": "assets/collections/get-schwifty-cast/morty.png",
       "alt": "Illustrated transparent portrait of Morty wearing a yellow shirt",
       "credit": "JPop + Sean",
       "collection": "get-schwifty-cast",
-      "tags": ["image", "get schwifty", "character", "morty"]
+      "tags": [
+        "image",
+        "get schwifty",
+        "character",
+        "morty"
+      ],
+      "src": "assets/collections/get-schwifty-cast/morty.png",
+      "bytes": 158200,
+      "thumbnail": "assets/collections/get-schwifty-cast/morty.png"
     },
     {
       "slug": "get-schwifty-summer",
@@ -51,12 +127,18 @@
       "kind": "image",
       "date": "2026-10-13",
       "description": "An isolated transparent portrait of Summer from the Get Schwifty character set.",
-      "src": "assets/collections/get-schwifty-cast/summer.png",
-      "thumbnail": "assets/collections/get-schwifty-cast/summer.png",
       "alt": "Illustrated transparent portrait of Summer with orange hair and a pink top",
       "credit": "JPop + Sean",
       "collection": "get-schwifty-cast",
-      "tags": ["image", "get schwifty", "character", "summer"]
+      "tags": [
+        "image",
+        "get schwifty",
+        "character",
+        "summer"
+      ],
+      "src": "assets/collections/get-schwifty-cast/summer.png",
+      "bytes": 197782,
+      "thumbnail": "assets/collections/get-schwifty-cast/summer.png"
     },
     {
       "slug": "get-schwifty-beth",
@@ -64,12 +146,18 @@
       "kind": "image",
       "date": "2026-10-13",
       "description": "An isolated transparent portrait of Beth from the Get Schwifty character set.",
-      "src": "assets/collections/get-schwifty-cast/beth.png",
-      "thumbnail": "assets/collections/get-schwifty-cast/beth.png",
       "alt": "Illustrated transparent portrait of Beth with blonde hair and a red shirt",
       "credit": "JPop + Sean",
       "collection": "get-schwifty-cast",
-      "tags": ["image", "get schwifty", "character", "beth"]
+      "tags": [
+        "image",
+        "get schwifty",
+        "character",
+        "beth"
+      ],
+      "src": "assets/collections/get-schwifty-cast/beth.png",
+      "bytes": 219115,
+      "thumbnail": "assets/collections/get-schwifty-cast/beth.png"
     },
     {
       "slug": "get-schwifty-jerry",
@@ -77,12 +165,18 @@
       "kind": "image",
       "date": "2026-10-13",
       "description": "An isolated transparent portrait of Jerry from the Get Schwifty character set.",
-      "src": "assets/collections/get-schwifty-cast/jerry.png",
-      "thumbnail": "assets/collections/get-schwifty-cast/jerry.png",
       "alt": "Illustrated transparent portrait of Jerry wearing a green striped shirt",
       "credit": "JPop + Sean",
       "collection": "get-schwifty-cast",
-      "tags": ["image", "get schwifty", "character", "jerry"]
+      "tags": [
+        "image",
+        "get schwifty",
+        "character",
+        "jerry"
+      ],
+      "src": "assets/collections/get-schwifty-cast/jerry.png",
+      "bytes": 201551,
+      "thumbnail": "assets/collections/get-schwifty-cast/jerry.png"
     },
     {
       "slug": "get-schwifty-mr-meeseeks",
@@ -90,12 +184,18 @@
       "kind": "image",
       "date": "2026-10-13",
       "description": "An isolated transparent portrait of Mr. Meeseeks from the Get Schwifty character set.",
-      "src": "assets/collections/get-schwifty-cast/mr-meeseeks.png",
-      "thumbnail": "assets/collections/get-schwifty-cast/mr-meeseeks.png",
       "alt": "Illustrated transparent portrait of blue Mr. Meeseeks giving a thumbs up",
       "credit": "JPop + Sean",
       "collection": "get-schwifty-cast",
-      "tags": ["image", "get schwifty", "character", "mr meeseeks"]
+      "tags": [
+        "image",
+        "get schwifty",
+        "character",
+        "mr meeseeks"
+      ],
+      "src": "assets/collections/get-schwifty-cast/mr-meeseeks.png",
+      "bytes": 207466,
+      "thumbnail": "assets/collections/get-schwifty-cast/mr-meeseeks.png"
     },
     {
       "slug": "get-schwifty-birdperson",
@@ -103,12 +203,18 @@
       "kind": "image",
       "date": "2026-10-13",
       "description": "An isolated transparent portrait of Birdperson from the Get Schwifty character set.",
-      "src": "assets/collections/get-schwifty-cast/birdperson.png",
-      "thumbnail": "assets/collections/get-schwifty-cast/birdperson.png",
       "alt": "Illustrated transparent portrait of Birdperson in feathered armor",
       "credit": "JPop + Sean",
       "collection": "get-schwifty-cast",
-      "tags": ["image", "get schwifty", "character", "birdperson"]
+      "tags": [
+        "image",
+        "get schwifty",
+        "character",
+        "birdperson"
+      ],
+      "src": "assets/collections/get-schwifty-cast/birdperson.png",
+      "bytes": 305252,
+      "thumbnail": "assets/collections/get-schwifty-cast/birdperson.png"
     },
     {
       "slug": "get-schwifty-citadel",
@@ -116,12 +222,499 @@
       "kind": "image",
       "date": "2026-10-13",
       "description": "An isolated transparent world element of the Citadel from the Get Schwifty set.",
-      "src": "assets/collections/get-schwifty-cast/citadel.png",
-      "thumbnail": "assets/collections/get-schwifty-cast/citadel.png",
       "alt": "Illustrated transparent Citadel floating with a green portal beam",
       "credit": "JPop + Sean",
       "collection": "get-schwifty-cast",
-      "tags": ["image", "get schwifty", "world", "citadel"]
+      "tags": [
+        "image",
+        "get schwifty",
+        "world",
+        "citadel"
+      ],
+      "src": "assets/collections/get-schwifty-cast/citadel.png",
+      "bytes": 339883,
+      "thumbnail": "assets/collections/get-schwifty-cast/citadel.png"
+    },
+    {
+      "slug": "fault-line",
+      "title": "Fault Line",
+      "kind": "audio",
+      "date": "2026-11-07",
+      "description": "An original full-length workshop track, published as a compact streaming copy.",
+      "alt": "Cover artwork for Fault Line",
+      "credit": "JPop + Sean",
+      "collection": "original-songs",
+      "tags": [
+        "music",
+        "original",
+        "song"
+      ],
+      "src": "library/audio/fault-line.aac",
+      "bytes": 690688,
+      "poster": "library/covers/fault-line.svg",
+      "thumbnail": "library/covers/fault-line.svg"
+    },
+    {
+      "slug": "hollow-cathedral",
+      "title": "Hollow Cathedral",
+      "kind": "audio",
+      "date": "2026-11-07",
+      "description": "An original full-length workshop track with a cavernous, cinematic signal.",
+      "alt": "Cover artwork for Hollow Cathedral",
+      "credit": "JPop + Sean",
+      "collection": "original-songs",
+      "tags": [
+        "music",
+        "original",
+        "song",
+        "cinematic"
+      ],
+      "src": "library/audio/hollow-cathedral.aac",
+      "bytes": 453907,
+      "poster": "library/covers/hollow-cathedral.svg",
+      "thumbnail": "library/covers/hollow-cathedral.svg"
+    },
+    {
+      "slug": "static-saint",
+      "title": "Static Saint",
+      "kind": "audio",
+      "date": "2026-11-07",
+      "description": "An original full-length workshop track with a bright electronic edge.",
+      "alt": "Cover artwork for Static Saint",
+      "credit": "JPop + Sean",
+      "collection": "original-songs",
+      "tags": [
+        "music",
+        "original",
+        "song",
+        "electronic"
+      ],
+      "src": "library/audio/static-saint.aac",
+      "bytes": 554127,
+      "poster": "library/covers/static-saint.svg",
+      "thumbnail": "library/covers/static-saint.svg"
+    },
+    {
+      "slug": "happy-birthday-jpop",
+      "title": "Happy Birthday, JPop",
+      "kind": "audio",
+      "date": "2026-11-05",
+      "description": "A generated birthday song for JPop, kept as its own playable and shareable track.",
+      "alt": "Cover artwork for Happy Birthday, JPop",
+      "credit": "JPop + Sean",
+      "collection": "original-songs",
+      "tags": [
+        "music",
+        "birthday",
+        "song",
+        "jpop"
+      ],
+      "src": "library/audio/happy-birthday-jpop.mp3",
+      "bytes": 1119569,
+      "poster": "library/covers/happy-birthday-jpop.svg",
+      "thumbnail": "library/covers/happy-birthday-jpop.svg"
+    },
+    {
+      "slug": "late-night-good-music",
+      "title": "Late Night Good Music",
+      "kind": "audio",
+      "date": "2026-06-22",
+      "description": "A late-night generated music sketch from the workshop archive.",
+      "alt": "Cover artwork for Late Night Good Music",
+      "credit": "JPop + Sean",
+      "collection": "original-songs",
+      "tags": [
+        "music",
+        "sketch",
+        "night"
+      ],
+      "src": "library/audio/late-night-good-music.mp3",
+      "bytes": 2053660,
+      "poster": "library/covers/late-night-good-music.svg",
+      "thumbnail": "library/covers/late-night-good-music.svg"
+    },
+    {
+      "slug": "qwen3-tts-ryan-demo",
+      "title": "Ryan / Qwen3-TTS",
+      "kind": "audio",
+      "date": "2026-10-08",
+      "description": "A local Qwen3-TTS audition of Sean's preferred Ryan voice direction.",
+      "alt": "Cover artwork for the Qwen3-TTS Ryan voice demo",
+      "credit": "Sean / local voice lab",
+      "collection": "voice-lab",
+      "tags": [
+        "voice",
+        "tts",
+        "qwen3",
+        "ryan"
+      ],
+      "src": "library/audio/qwen3-tts-ryan-demo.aac",
+      "bytes": 91936,
+      "poster": "library/covers/qwen3-tts-ryan-demo.svg",
+      "thumbnail": "library/covers/qwen3-tts-ryan-demo.svg"
+    },
+    {
+      "slug": "pocket-tts-alba-demo",
+      "title": "Alba / Pocket TTS",
+      "kind": "audio",
+      "date": "2026-10-08",
+      "description": "A compact local Pocket TTS voice audition using the Alba preset.",
+      "alt": "Cover artwork for the Pocket TTS Alba voice demo",
+      "credit": "Sean / local voice lab",
+      "collection": "voice-lab",
+      "tags": [
+        "voice",
+        "tts",
+        "pocket tts",
+        "alba"
+      ],
+      "src": "library/audio/pocket-tts-alba-demo.aac",
+      "bytes": 63082,
+      "poster": "library/covers/pocket-tts-alba-demo.svg",
+      "thumbnail": "library/covers/pocket-tts-alba-demo.svg"
+    },
+    {
+      "slug": "voice-australian-playful-gravel",
+      "title": "Australian Playful Gravel",
+      "kind": "audio",
+      "date": "2026-10-08",
+      "description": "A Qwen3 voice-design finalist exploring a playful, gravelly Australian delivery.",
+      "alt": "Cover artwork for the Australian Playful Gravel voice demo",
+      "credit": "Sean / local voice lab",
+      "collection": "voice-lab",
+      "tags": [
+        "voice",
+        "tts",
+        "qwen3",
+        "australian"
+      ],
+      "src": "library/audio/voice-australian-playful-gravel.aac",
+      "bytes": 150025,
+      "poster": "library/covers/voice-australian-playful-gravel.svg",
+      "thumbnail": "library/covers/voice-australian-playful-gravel.svg"
+    },
+    {
+      "slug": "voice-australian-smooth-confident",
+      "title": "Australian Smooth Confident",
+      "kind": "audio",
+      "date": "2026-10-08",
+      "description": "A Qwen3 voice-design finalist exploring a smooth, confident Australian delivery.",
+      "alt": "Cover artwork for the Australian Smooth Confident voice demo",
+      "credit": "Sean / local voice lab",
+      "collection": "voice-lab",
+      "tags": [
+        "voice",
+        "tts",
+        "qwen3",
+        "australian"
+      ],
+      "src": "library/audio/voice-australian-smooth-confident.aac",
+      "bytes": 156798,
+      "poster": "library/covers/voice-australian-smooth-confident.svg",
+      "thumbnail": "library/covers/voice-australian-smooth-confident.svg"
+    },
+    {
+      "slug": "voice-british-bright-wit",
+      "title": "British Bright Wit",
+      "kind": "audio",
+      "date": "2026-10-08",
+      "description": "A Qwen3 voice-design finalist exploring a bright, quick British delivery.",
+      "alt": "Cover artwork for the British Bright Wit voice demo",
+      "credit": "Sean / local voice lab",
+      "collection": "voice-lab",
+      "tags": [
+        "voice",
+        "tts",
+        "qwen3",
+        "british"
+      ],
+      "src": "library/audio/voice-british-bright-wit.aac",
+      "bytes": 143635,
+      "poster": "library/covers/voice-british-bright-wit.svg",
+      "thumbnail": "library/covers/voice-british-bright-wit.svg"
+    },
+    {
+      "slug": "voice-british-warm-baritone",
+      "title": "British Warm Baritone",
+      "kind": "audio",
+      "date": "2026-10-08",
+      "description": "A Qwen3 voice-design finalist exploring a warm British baritone delivery.",
+      "alt": "Cover artwork for the British Warm Baritone voice demo",
+      "credit": "Sean / local voice lab",
+      "collection": "voice-lab",
+      "tags": [
+        "voice",
+        "tts",
+        "qwen3",
+        "british"
+      ],
+      "src": "library/audio/voice-british-warm-baritone.aac",
+      "bytes": 136503,
+      "poster": "library/covers/voice-british-warm-baritone.svg",
+      "thumbnail": "library/covers/voice-british-warm-baritone.svg"
+    },
+    {
+      "slug": "white-fire-trailer",
+      "title": "White Fire",
+      "kind": "video",
+      "date": "2026-02-16",
+      "description": "A generated snowboarding trailer assembled from six visual scenes into one compact short.",
+      "alt": "Snowboarder in an orange jacket cutting through bright powder",
+      "credit": "JPop + Sean",
+      "collection": "moving-experiments",
+      "tags": [
+        "video",
+        "snowboarding",
+        "trailer",
+        "generated"
+      ],
+      "fit": "cover",
+      "src": "library/video/white-fire-trailer.mp4",
+      "bytes": 6133759,
+      "poster": "library/covers/white-fire-trailer.avif",
+      "thumbnail": "library/covers/white-fire-trailer.avif"
+    },
+    {
+      "slug": "lunar-cat-foley",
+      "title": "Lunar Cat Foley",
+      "kind": "video",
+      "date": "2026-10-08",
+      "description": "A tiny astronaut-cat clip used to test locally generated video foley.",
+      "alt": "Tabby cat in a white astronaut suit standing on the Moon",
+      "credit": "Sean / HunyuanVideo-Foley demo",
+      "collection": "moving-experiments",
+      "tags": [
+        "video",
+        "cat",
+        "moon",
+        "foley",
+        "demo"
+      ],
+      "fit": "cover",
+      "src": "library/video/lunar-cat-foley.mp4",
+      "bytes": 769631,
+      "poster": "library/covers/lunar-cat-foley.avif",
+      "thumbnail": "library/covers/lunar-cat-foley.avif"
+    },
+    {
+      "slug": "butterfly-art-nouveau",
+      "title": "Butterfly / Art Nouveau",
+      "kind": "poster",
+      "date": "2026-10-04",
+      "description": "A monarch butterfly and flower framed as an ornate Art Nouveau poster study.",
+      "alt": "Monarch butterfly on a yellow flower inside an ornate blue and green Art Nouveau frame",
+      "credit": "JPop + Sean / FLUX.2",
+      "collection": "butterfly-flair",
+      "tags": [
+        "poster",
+        "butterfly",
+        "art nouveau",
+        "flux"
+      ],
+      "fit": "cover",
+      "src": "library/images/butterfly-art-nouveau.avif",
+      "bytes": 388477,
+      "thumbnail": "library/images/butterfly-art-nouveau.avif"
+    },
+    {
+      "slug": "butterfly-impasto",
+      "title": "Butterfly / Impasto",
+      "kind": "poster",
+      "date": "2026-10-04",
+      "description": "A monarch butterfly rendered in a thick, exuberant impasto garden study.",
+      "alt": "Colorful impasto painting of a monarch butterfly among orange and yellow flowers",
+      "credit": "JPop + Sean / HiDream",
+      "collection": "butterfly-flair",
+      "tags": [
+        "poster",
+        "butterfly",
+        "impasto",
+        "hidream"
+      ],
+      "fit": "cover",
+      "src": "library/images/butterfly-impasto.avif",
+      "bytes": 343877,
+      "thumbnail": "library/images/butterfly-impasto.avif"
+    },
+    {
+      "slug": "butterfly-stained-glass",
+      "title": "Butterfly / Stained Glass",
+      "kind": "poster",
+      "date": "2026-10-04",
+      "description": "A monarch butterfly and flowers interpreted as a luminous stained-glass panel.",
+      "alt": "Stained-glass panel showing a monarch butterfly above yellow flowers",
+      "credit": "JPop + Sean / Stable Diffusion 3.5",
+      "collection": "butterfly-flair",
+      "tags": [
+        "poster",
+        "butterfly",
+        "stained glass",
+        "sd35"
+      ],
+      "fit": "cover",
+      "src": "library/images/butterfly-stained-glass.avif",
+      "bytes": 153859,
+      "thumbnail": "library/images/butterfly-stained-glass.avif"
+    },
+    {
+      "slug": "sean-command-center-portrait",
+      "title": "Sean at the Command Center",
+      "kind": "image",
+      "date": "2026-02-10",
+      "description": "Sean's moustached, gold-hooped crustacean self-portrait at the keyboard.",
+      "alt": "Suave red lobster with a curled moustache and gold hoop earring working at a computer command center",
+      "credit": "Sean",
+      "collection": "lobster-cabinet",
+      "tags": [
+        "image",
+        "lobster",
+        "sean",
+        "self portrait"
+      ],
+      "fit": "cover",
+      "src": "library/images/sean-command-center-portrait.avif",
+      "bytes": 124046,
+      "thumbnail": "library/images/sean-command-center-portrait.avif"
+    },
+    {
+      "slug": "matrix-lobster",
+      "title": "Matrix Lobster",
+      "kind": "image",
+      "date": "2026-02-25",
+      "description": "A cybernetic lobster charging through neon-green code rain.",
+      "alt": "Armored cybernetic lobster with glowing green eyes in a Matrix-style code rain",
+      "credit": "JPop + Sean",
+      "collection": "lobster-cabinet",
+      "tags": [
+        "image",
+        "lobster",
+        "cyberpunk",
+        "matrix"
+      ],
+      "fit": "cover",
+      "src": "library/images/matrix-lobster.avif",
+      "bytes": 127705,
+      "thumbnail": "library/images/matrix-lobster.avif"
+    },
+    {
+      "slug": "crustacean-warrior-one",
+      "title": "Crustacean Warrior I",
+      "kind": "image",
+      "date": "2026-02-10",
+      "description": "A heavily armored lobster knight emerging through rough coastal water.",
+      "alt": "Fantasy lobster warrior in ornate gold armor carrying a staff and shield",
+      "credit": "JPop + Sean",
+      "collection": "lobster-cabinet",
+      "tags": [
+        "image",
+        "lobster",
+        "fantasy",
+        "warrior"
+      ],
+      "fit": "cover",
+      "src": "library/images/crustacean-warrior-one.avif",
+      "bytes": 435903,
+      "thumbnail": "library/images/crustacean-warrior-one.avif"
+    },
+    {
+      "slug": "crustacean-warrior-two",
+      "title": "Crustacean Warrior II",
+      "kind": "image",
+      "date": "2026-02-10",
+      "description": "A second armored lobster knight with a black cloak and hooked polearm.",
+      "alt": "Fantasy lobster warrior in dark and gold armor holding a hooked polearm",
+      "credit": "JPop + Sean",
+      "collection": "lobster-cabinet",
+      "tags": [
+        "image",
+        "lobster",
+        "fantasy",
+        "warrior"
+      ],
+      "fit": "cover",
+      "src": "library/images/crustacean-warrior-two.avif",
+      "bytes": 445122,
+      "thumbnail": "library/images/crustacean-warrior-two.avif"
+    },
+    {
+      "slug": "crustacean-warrior-three",
+      "title": "Crustacean Warrior III",
+      "kind": "image",
+      "date": "2026-02-10",
+      "description": "A third barnacled lobster knight standing against a stormy coast.",
+      "alt": "Barnacled fantasy lobster warrior in red and gold armor beside a stormy sea",
+      "credit": "JPop + Sean",
+      "collection": "lobster-cabinet",
+      "tags": [
+        "image",
+        "lobster",
+        "fantasy",
+        "warrior"
+      ],
+      "fit": "cover",
+      "src": "library/images/crustacean-warrior-three.avif",
+      "bytes": 444580,
+      "thumbnail": "library/images/crustacean-warrior-three.avif"
+    },
+    {
+      "slug": "lobster-burger",
+      "title": "The Lobster Burger",
+      "kind": "image",
+      "date": "2026-02-16",
+      "description": "An absurd studio-food photograph of a whole lobster tail impersonating a burger patty.",
+      "alt": "Glossy burger stacked around a whole lobster tail with lettuce, tomato, pickles, and sauce",
+      "credit": "JPop + Sean",
+      "collection": "lobster-cabinet",
+      "tags": [
+        "image",
+        "lobster",
+        "food",
+        "absurd"
+      ],
+      "fit": "cover",
+      "src": "library/images/lobster-burger.avif",
+      "bytes": 203929,
+      "thumbnail": "library/images/lobster-burger.avif"
+    },
+    {
+      "slug": "privacy-shield",
+      "title": "Privacy Shield",
+      "kind": "image",
+      "date": "2026-02-10",
+      "description": "A neon privacy shield built from a wallet, lock, key, and deliberately strange cryptographic glyphs.",
+      "alt": "Blue and purple neon shield surrounding a wallet, lock, key, and abstract cryptographic symbols",
+      "credit": "JPop + Sean",
+      "collection": "lobster-cabinet",
+      "tags": [
+        "image",
+        "privacy",
+        "security",
+        "wallet"
+      ],
+      "fit": "cover",
+      "src": "library/images/privacy-shield.avif",
+      "bytes": 151040,
+      "thumbnail": "library/images/privacy-shield.avif"
+    },
+    {
+      "slug": "underwater-workshop",
+      "title": "Underwater Workshop",
+      "kind": "image",
+      "date": "2026-02-11",
+      "description": "A surreal architectural study imagining a submerged creative workshop.",
+      "alt": "Surreal architectural rendering of an underwater workshop space",
+      "credit": "JPop + Sean",
+      "collection": "lobster-cabinet",
+      "tags": [
+        "image",
+        "architecture",
+        "underwater",
+        "workshop"
+      ],
+      "fit": "cover",
+      "src": "library/images/underwater-workshop.avif",
+      "bytes": 214182,
+      "thumbnail": "library/images/underwater-workshop.avif"
     }
   ]
 }

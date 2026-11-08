@@ -2,3 +2,6 @@ verification/
 .DS_Store
 DECISIONS.md
 rollouts/
+.media-build/
+.media-build-receipt.json
+.media-cache/
