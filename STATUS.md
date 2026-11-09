@@ -1,6 +1,6 @@
 # Status
 
-Updated: 2026-11-07T17:55:27-08:00 by Sean
+Updated: 2026-11-08T21:27:51-08:00 by Sean
 
 - Phase: operational
 - Started: 2026-09-17
@@ -17,6 +17,8 @@ Updated: 2026-11-07T17:55:27-08:00 by Sean
   Full-resolution masters stay on ClawPop; an explicit local catalog builds a
   deterministic 18 MB public bundle with cached AVIF/AAC derivatives, generated
   covers and video posters, and a denial gate for private/inbound source paths.
+  Catalog inclusion is quality-gated rather than approval-gated: public-safe,
+  presentation-ready work can ship without a prior positive review from JPop.
   Public requests never depend on ClawPop being awake or reachable. The existing
   homepage keeps only its primary-nav route and command-palette entry,
   preserving its architecture and eight-door grid.
