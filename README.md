@@ -50,6 +50,17 @@ copies only explicitly allowlisted sources into a compact `.media-build/`
 bundle. Images become AVIF, WAV/FLAC audio becomes AAC, and video remains MP4;
 private/inbound source directories are denied by the publisher.
 
+### Inclusion policy
+
+The catalog is **quality-gated, not approval-gated**. Publish public-safe work
+when it is presentation-ready, independently useful, and worth showing; JPop's
+explicit positive review is welcome input, not a prerequisite. The quality bar
+is intentional/coherent output, clean enough execution for the medium, working
+playback or display, and no obvious generation failure. Meaningful variants may
+share a collection, but redundant outputs, failed experiments, model debris,
+private/inbound material, and pieces that only become useful inside a composite
+stay out.
+
 1. Add one independently useful source to `scripts/media-room-catalog.json`.
    Use a `repo`, `workspace`, or `openclawMedia` source root, a public output
    path, and one of `copy`, `image-avif`, or `audio-aac`. Do not publish a
