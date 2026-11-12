@@ -29,7 +29,7 @@ assert.match(html, /data-dialog-share/, "every asset has an explicit share actio
 
 assert.equal(library.version, 3, "local-source publishing schema version is explicit");
 assert.ok(Array.isArray(library.collections) && library.collections.length === 7, "library has seven real collections");
-assert.ok(Array.isArray(library.items) && library.items.length === 41, "curated library has 41 atomic assets");
+assert.ok(Array.isArray(library.items) && library.items.length === 43, "curated library has 43 atomic assets");
 assert.equal(new Set(library.items.map((item) => item.slug)).size, library.items.length, "media slugs are unique");
 assert.doesNotMatch(JSON.stringify(library), /get-schwifty-og|jpop-workshop-og/, "composite promo banners are not library items");
 assert.doesNotMatch(JSON.stringify(library), /\/Users\/Sean|\.openclaw|"source"/u, "public manifest contains no local paths or source metadata");
@@ -55,7 +55,7 @@ for (const item of library.items) {
   assert.equal(Number.isInteger(item.bytes) && item.bytes > 0, true, `${item.slug} records public byte size`);
   assert.ok(library.collections.some((collection) => collection.slug === item.collection), `${item.slug} belongs to a real collection`);
 }
-assert.equal(library.items.filter((item) => item.kind === "audio").length, 11, "library publishes music and voice audio");
+assert.equal(library.items.filter((item) => item.kind === "audio").length, 13, "library publishes music and voice audio");
 assert.equal(library.items.filter((item) => item.kind === "video").length, 2, "library publishes generated video");
 assert.equal(library.items.filter((item) => item.kind === "poster").length, 3, "library publishes poster studies");
 

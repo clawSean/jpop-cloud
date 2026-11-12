@@ -10,12 +10,12 @@ Updated: 2026-11-12 by Sean
   `/srv/websites/media.jpop.cloud` behind Caddy
 - `https://media.jpop.cloud/` is live as a dedicated, data-driven media room for
   songs, voice experiments, videos, images, and posters. The library now holds
-  41 independently shareable assets in seven collections: the eight-piece Get
-  Schwifty Cast, five original songs, six synthetic voice demos, two generated
+  43 independently shareable assets in seven collections: the eight-piece Get
+  Schwifty Cast, seven original songs, six synthetic voice demos, two generated
   videos, three Butterfly Flair posters, eight Lobster Cabinet images, and nine Industrial Afterimages. Each
   asset retains its own viewer, deep link, native share action, and download.
   Full-resolution masters stay on ClawPop; an explicit local catalog builds a
-  deterministic 19 MB public bundle with cached AVIF/AAC derivatives, generated
+  deterministic 21 MB public bundle with cached AVIF/AAC derivatives, generated
   covers and video posters, and a denial gate for private/inbound source paths.
   Catalog inclusion is quality-gated rather than approval-gated: public-safe,
   presentation-ready work can ship without a prior positive review from JPop.
@@ -82,3 +82,5 @@ Updated: 2026-11-12 by Sean
   `c7b824e3341c0e09986b43d169b0a1e1261319359bb16cbf8dbba693117567f4`).
 
 - 2026-11-12 Industrial Afterimages: PR #33 merged as `cfb9907`; nine FLUX.2 Klein 9B photos added as atomic Media Room assets. Source/VPS SHA-256 matches for manifest `1dbda50a75edd30370eb495ca33a443877af27cdeeb58b20d279ec66b5669042`, Black Veil AVIF `e2694b5fdf5726c9e23302bad62dc5c9fa003575600a02433953a31428112c39`, and Last Light AVIF `bacf435e3ba6e74f2c440a1c4c119a83fcfc67d626ff37694ad69311a2cd8775`. Public manifest confirms 41 items/seven collections and both sample assets return 200; public browser smoke passes at 320/390/768/1440px. Rollback: `/root/rollbacks/media-before-industrial-flux9b-20261112.tar.gz` (SHA-256 `c949425cb10e0c9ca7175e3f5cd709bef7823454393773e12d4cdd05421002f0`).
+
+- 2026-11-12 Music addition: Cut the Wire and The Glass Remembers are live at `https://media.jpop.cloud/#cut-the-wire` and `https://media.jpop.cloud/#glass-remembers`. The public library holds 43 items/seven collections. Local, VPS, and public SHA-256 agree for the manifest `eb38eea1ed26fa48ebabe07ee7470efbb7c35b9396b5dde9c01982e0390de802` and both AAC files (`7fdfc7adb663734573707d2cc51126fc2d66c2d1560595467b3a4637c60dc6df`, `89824785ab3106b5f7fb7c7581cf28e69c854007d61dd99d1dfe38604e5d46b8`). Static and public browser checks pass at 320/390/768/1440px. Rollback manifest: `/root/rollbacks/media-add-two-songs-20261112/library.json`.

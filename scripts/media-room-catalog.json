@@ -26,6 +26,8 @@
         "fault-line",
         "hollow-cathedral",
         "static-saint",
+        "cut-the-wire",
+        "glass-remembers",
         "happy-birthday-jpop",
         "late-night-good-music"
       ]
@@ -259,6 +261,38 @@
       "transform": "audio-aac",
       "audioBitrate": 160000,
       "cover": { "label": "ORIGINAL SONG / 2026", "accent": "#65d8ff" }
+    },
+    {
+      "slug": "cut-the-wire",
+      "title": "Cut the Wire",
+      "kind": "audio",
+      "date": "2026-11-07",
+      "description": "A dark industrial-rock cut with a sung hook and a verse-to-chorus build.",
+      "alt": "Cover artwork for Cut the Wire",
+      "credit": "JPop + Sean",
+      "collection": "original-songs",
+      "tags": ["music", "original", "song", "industrial"],
+      "source": { "root": "workspace", "path": "artifacts/music/cut-the-wire-2026-11-07.wav" },
+      "output": "library/audio/cut-the-wire.aac",
+      "transform": "audio-aac",
+      "audioBitrate": 160000,
+      "cover": { "label": "ORIGINAL SONG / 2026", "accent": "#ff6a52" }
+    },
+    {
+      "slug": "glass-remembers",
+      "title": "The Glass Remembers",
+      "kind": "audio",
+      "date": "2026-11-07",
+      "description": "A darker, score-leaning song with piano, machine textures, and a sung chorus.",
+      "alt": "Cover artwork for The Glass Remembers",
+      "credit": "JPop + Sean",
+      "collection": "original-songs",
+      "tags": ["music", "original", "song", "cinematic"],
+      "source": { "root": "workspace", "path": "artifacts/music/glass-remembers-2026-11-07.wav" },
+      "output": "library/audio/glass-remembers.aac",
+      "transform": "audio-aac",
+      "audioBitrate": 160000,
+      "cover": { "label": "ORIGINAL SONG / 2026", "accent": "#906dff" }
     },
     {
       "slug": "happy-birthday-jpop",
