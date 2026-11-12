@@ -80,6 +80,23 @@
         "privacy-shield",
         "underwater-workshop"
       ]
+    },
+    {
+      "slug": "industrial-afterimages",
+      "title": "Industrial Afterimages",
+      "description": "Nine dark, photographic industrial studies made with FLUX.2 Klein 9B. Each frame stands alone and can be opened, shared, or downloaded.",
+      "credit": "JPop + Sean / FLUX.2 Klein 9B",
+      "itemSlugs": [
+        "industrial-black-veil",
+        "industrial-machine-heart",
+        "industrial-red-hall",
+        "industrial-tape-decay",
+        "industrial-the-fragile",
+        "industrial-static-portrait",
+        "industrial-iron-rain",
+        "industrial-broken-mirror",
+        "industrial-last-light"
+      ]
     }
   ],
   "items": [
@@ -715,6 +732,186 @@
       "src": "library/images/underwater-workshop.avif",
       "bytes": 214182,
       "thumbnail": "library/images/underwater-workshop.avif"
+    },
+    {
+      "slug": "industrial-black-veil",
+      "title": "Black Veil",
+      "kind": "image",
+      "date": "2026-11-07",
+      "description": "A hidden figure behind black sheeting, cut by a narrow beam of red light.",
+      "alt": "A concealed figure behind translucent black plastic in an abandoned building, with a crimson beam through dust",
+      "credit": "JPop + Sean / FLUX.2 Klein 9B",
+      "collection": "industrial-afterimages",
+      "tags": [
+        "image",
+        "industrial",
+        "photographic",
+        "flux.2 klein 9b"
+      ],
+      "fit": "cover",
+      "src": "library/images/industrial-black-veil.avif",
+      "bytes": 238932,
+      "thumbnail": "library/images/industrial-black-veil.avif"
+    },
+    {
+      "slug": "industrial-machine-heart",
+      "title": "Machine Heart",
+      "kind": "image",
+      "date": "2026-11-07",
+      "description": "Oily gears and a single red indicator light in worn industrial machinery.",
+      "alt": "Close view of worn black machinery and exposed gears with one glowing red lamp",
+      "credit": "JPop + Sean / FLUX.2 Klein 9B",
+      "collection": "industrial-afterimages",
+      "tags": [
+        "image",
+        "industrial",
+        "photographic",
+        "flux.2 klein 9b"
+      ],
+      "fit": "cover",
+      "src": "library/images/industrial-machine-heart.avif",
+      "bytes": 253344,
+      "thumbnail": "library/images/industrial-machine-heart.avif"
+    },
+    {
+      "slug": "industrial-red-hall",
+      "title": "Red Hall",
+      "kind": "image",
+      "date": "2026-11-07",
+      "description": "A deserted concrete corridor dissolving into fog and fluorescent light.",
+      "alt": "Wet concrete corridor filled with low red fog, fluorescent lights receding into darkness",
+      "credit": "JPop + Sean / FLUX.2 Klein 9B",
+      "collection": "industrial-afterimages",
+      "tags": [
+        "image",
+        "industrial",
+        "photographic",
+        "flux.2 klein 9b"
+      ],
+      "fit": "cover",
+      "src": "library/images/industrial-red-hall.avif",
+      "bytes": 133203,
+      "thumbnail": "library/images/industrial-red-hall.avif"
+    },
+    {
+      "slug": "industrial-tape-decay",
+      "title": "Tape Decay",
+      "kind": "image",
+      "date": "2026-11-07",
+      "description": "Magnetic tape spills across concrete under a hard red beam.",
+      "alt": "Tangled magnetic tape spilling from a broken reel-to-reel machine onto a concrete floor",
+      "credit": "JPop + Sean / FLUX.2 Klein 9B",
+      "collection": "industrial-afterimages",
+      "tags": [
+        "image",
+        "industrial",
+        "photographic",
+        "flux.2 klein 9b"
+      ],
+      "fit": "cover",
+      "src": "library/images/industrial-tape-decay.avif",
+      "bytes": 295453,
+      "thumbnail": "library/images/industrial-tape-decay.avif"
+    },
+    {
+      "slug": "industrial-the-fragile",
+      "title": "The Fragile",
+      "kind": "image",
+      "date": "2026-11-07",
+      "description": "A bruised white flower holds its ground in blackened concrete.",
+      "alt": "White flower growing through a crack in dark concrete beneath rusted scaffolding",
+      "credit": "JPop + Sean / FLUX.2 Klein 9B",
+      "collection": "industrial-afterimages",
+      "tags": [
+        "image",
+        "industrial",
+        "photographic",
+        "flux.2 klein 9b"
+      ],
+      "fit": "cover",
+      "src": "library/images/industrial-the-fragile.avif",
+      "bytes": 247914,
+      "thumbnail": "library/images/industrial-the-fragile.avif"
+    },
+    {
+      "slug": "industrial-static-portrait",
+      "title": "Static Portrait",
+      "kind": "image",
+      "date": "2026-11-07",
+      "description": "An anonymous figure faces a wall of flickering television snow.",
+      "alt": "Figure seen from behind facing a wall of CRT televisions filled with monochrome static",
+      "credit": "JPop + Sean / FLUX.2 Klein 9B",
+      "collection": "industrial-afterimages",
+      "tags": [
+        "image",
+        "industrial",
+        "photographic",
+        "flux.2 klein 9b"
+      ],
+      "fit": "cover",
+      "src": "library/images/industrial-static-portrait.avif",
+      "bytes": 114250,
+      "thumbnail": "library/images/industrial-static-portrait.avif"
+    },
+    {
+      "slug": "industrial-iron-rain",
+      "title": "Iron Rain",
+      "kind": "image",
+      "date": "2026-11-07",
+      "description": "Rain turns a deserted rail yard into a field of red reflections.",
+      "alt": "Empty rail yard at night with freight cars, wet tracks, rain, and red signal lights",
+      "credit": "JPop + Sean / FLUX.2 Klein 9B",
+      "collection": "industrial-afterimages",
+      "tags": [
+        "image",
+        "industrial",
+        "photographic",
+        "flux.2 klein 9b"
+      ],
+      "fit": "cover",
+      "src": "library/images/industrial-iron-rain.avif",
+      "bytes": 250537,
+      "thumbnail": "library/images/industrial-iron-rain.avif"
+    },
+    {
+      "slug": "industrial-broken-mirror",
+      "title": "Broken Mirror",
+      "kind": "image",
+      "date": "2026-11-07",
+      "description": "A cracked mirror catches red light and almost nothing else.",
+      "alt": "Cracked mirror against a concrete wall reflecting smeared red light over a damp floor",
+      "credit": "JPop + Sean / FLUX.2 Klein 9B",
+      "collection": "industrial-afterimages",
+      "tags": [
+        "image",
+        "industrial",
+        "photographic",
+        "flux.2 klein 9b"
+      ],
+      "fit": "cover",
+      "src": "library/images/industrial-broken-mirror.avif",
+      "bytes": 252264,
+      "thumbnail": "library/images/industrial-broken-mirror.avif"
+    },
+    {
+      "slug": "industrial-last-light",
+      "title": "Last Light",
+      "kind": "image",
+      "date": "2026-11-07",
+      "description": "One distant silhouette inside a factory at the edge of dawn.",
+      "alt": "Lone silhouette inside an abandoned factory with towering steel trusses and one red lamp",
+      "credit": "JPop + Sean / FLUX.2 Klein 9B",
+      "collection": "industrial-afterimages",
+      "tags": [
+        "image",
+        "industrial",
+        "photographic",
+        "flux.2 klein 9b"
+      ],
+      "fit": "cover",
+      "src": "library/images/industrial-last-light.avif",
+      "bytes": 260692,
+      "thumbnail": "library/images/industrial-last-light.avif"
     }
   ]
 }
