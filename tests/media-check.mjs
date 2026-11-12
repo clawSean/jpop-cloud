@@ -28,8 +28,8 @@ assert.match(js, /navigator\.share/, "native asset sharing is prepared");
 assert.match(html, /data-dialog-share/, "every asset has an explicit share action");
 
 assert.equal(library.version, 3, "local-source publishing schema version is explicit");
-assert.ok(Array.isArray(library.collections) && library.collections.length === 6, "library has six real collections");
-assert.ok(Array.isArray(library.items) && library.items.length === 32, "curated library has 32 atomic assets");
+assert.ok(Array.isArray(library.collections) && library.collections.length === 7, "library has seven real collections");
+assert.ok(Array.isArray(library.items) && library.items.length === 41, "curated library has 41 atomic assets");
 assert.equal(new Set(library.items.map((item) => item.slug)).size, library.items.length, "media slugs are unique");
 assert.doesNotMatch(JSON.stringify(library), /get-schwifty-og|jpop-workshop-og/, "composite promo banners are not library items");
 assert.doesNotMatch(JSON.stringify(library), /\/Users\/Sean|\.openclaw|"source"/u, "public manifest contains no local paths or source metadata");
